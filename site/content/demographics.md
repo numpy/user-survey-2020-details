@@ -95,3 +95,31 @@ ax.pie(cnts, labels=labels, autopct='%1.1f%%')
 ax.set_title("Gender Distribution of Survey Respondents");
 fig.tight_layout()
 ```
+
+## Language Preference
+
+Of the 1236 respondents, 1132 shared their preferred language.
+
+```{code-cell} ipython3
+---
+tags: [hide-input]
+---
+# Ignore empty fields
+lang = data['lang'][data['lang'] != '']
+# Self-reported language
+lang_other = data['lang_other'][data['lang_other'] != '']
+capitalize = np.vectorize(str.capitalize, otypes='U')
+lang_other = capitalize(lang_other)
+# Get distribution
+labels, cnts = np.unique(lang, return_counts=True)
+olabels, ocnts = np.unique(lang_other, return_counts=True)
+
+fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 8))
+explode = np.zeros_like(cnts, dtype=float)
+explode[labels == 'Other'] += 0.6
+ax1.pie(cnts, labels=labels, explode=explode)
+ax1.set_title("Language Preference of Survey Respondents")
+ax2.pie(ocnts, labels=olabels)
+ax2.set_title("Breakdown of *Other*")
+fig.tight_layout()
+```
