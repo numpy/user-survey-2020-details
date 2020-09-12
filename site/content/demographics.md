@@ -76,3 +76,22 @@ ax.set_title("Age Distribution of Survey Respondents");
 ax.set_xlabel("Age (yrs)");
 ax.set_ylabel("Percentage of Respondents");
 ```
+
+## Gender
+
+Of the 1236 survey respondents, 1100 shared their gender
+
+```{code-cell} ipython3
+---
+tags: [hide-input]
+---
+# Ignore empty fields and "prefer not to answer"
+drop = np.logical_and(data['gender'] != '', data['gender'] != 'Prefer not to answer')
+gender = data['gender'][drop]
+labels, cnts = np.unique(gender, return_counts=True)
+
+fig, ax = plt.subplots(figsize=(8, 8))
+ax.pie(cnts, labels=labels, autopct='%1.1f%%')
+ax.set_title("Gender Distribution of Survey Respondents");
+fig.tight_layout()
+```
