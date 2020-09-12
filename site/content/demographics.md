@@ -225,3 +225,20 @@ ax.set_title("Distribution of Highest Degree Obtained by Respondents")
 fig.tight_layout()
 ```
 
+## Occupation
+
+1106 respondents shared their current occupation.
+
+```{code-cell} ipython3
+---
+tags: [hide-input]
+---
+role = data['role'][data['role'] != '']
+labels, cnts = np.unique(role, return_counts=True)
+
+fig, ax = plt.subplots(figsize=(12, 8))
+ax.barh(np.arange(len(cnts)), cnts, align='center')
+ax.set_yticks(np.arange(len(cnts)))
+ax.set_yticklabels(labels)
+ax.set_xlabel("Number of Respondents")
+```
