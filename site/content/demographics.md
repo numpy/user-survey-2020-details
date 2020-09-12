@@ -203,3 +203,25 @@ with open('_generated/countries_by_continent.md', 'w') as of:
 
 ```{include} _generated/countries_by_continent.md
 ```
+
+## Education
+
+1118 respondents shared their education history, spanning the range from 
+pre-highschool graduation through Doctorate level with many other specialist
+degrees. 
+The following figure summarizes the distribution for the most common types of
+degrees reported.
+
+```{code-cell} ipython3
+---
+tags: [hide-input]
+---
+degree = data['degree'][data['degree'] != '']
+labels, cnts = np.unique(degree, return_counts=True)
+
+fig, ax = plt.subplots(figsize=(8, 8))
+ax.pie(cnts, labels=labels, autopct='%1.1f%%')
+ax.set_title("Distribution of Highest Degree Obtained by Respondents")
+fig.tight_layout()
+```
+
