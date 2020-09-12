@@ -17,6 +17,18 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib inline
+# Location of generated content
+os.makedirs('_generated', exist_ok=True)
+```
+
+```{code-cell} ipython3
+---
+tags: [remove-cell]
+---
+# Vectorized helper functions for string processing
+capitalize = np.vectorize(str.capitalize, otypes='U')
+strip = np.vectorize(str.strip, otypes='U')
+title = np.vectorize(str.title, otypes='U')
 ```
 
 # Demographics
@@ -109,7 +121,6 @@ tags: [hide-input]
 lang = data['lang'][data['lang'] != '']
 # Self-reported language
 lang_other = data['lang_other'][data['lang_other'] != '']
-capitalize = np.vectorize(str.capitalize, otypes='U')
 lang_other = capitalize(lang_other)
 lang = np.concatenate((lang, lang_other))
 labels, cnts = np.unique(lang, return_counts=True)
@@ -118,7 +129,6 @@ I = np.argsort(cnts)[::-1]
 labels, cnts = labels[I], cnts[I]
 
 # Create a summary table
-os.makedirs('_generated', exist_ok=True)
 with open('_generated/language_preference_table.md', 'w') as of:
     of.write('| **Language** | **Preferred by % of Respondents** |\n')
     of.write('|--------------|-----------------------------------|\n')
@@ -129,6 +139,67 @@ with open('_generated/language_preference_table.md', 'w') as of:
 ````{admonition} Click to show/hide table
 :class: toggle
 
-```{include} content/_generated/language_preference_table.md
+```{include} _generated/language_preference_table.md
 ```
 ````
+
+## Country of Residence
+
+Of the 1236 respondents, 1095 shared their current country of residence. The
+survey saw respondents from 75 countries in all.
+
+The following chart shows the relative number of respondents from ~20 
+countries with the largest number of participants. 
+For privacy reasons, countries with fewer than a certain number of 
+respondents are not included in the figure, and are instead listed in
+the subsequent table.
+
+```{code-cell} ipython3
+---
+tags: [hide-input]
+---
+# Preprocess data
+country = data['country'][data['country'] != '']
+country = strip(country)
+# Distribution
+labels, cnts = np.unique(country, return_counts=True)
+# Privacy filter
+num_resp = 10
+cutoff = (cnts > num_resp)
+plabels = np.concatenate((labels[cutoff], ['Other']))
+pcnts = np.concatenate((cnts[cutoff], [cnts[~cutoff].sum()]))
+
+fig, ax = plt.subplots(figsize=(8, 8))
+ax.pie(pcnts, labels=plabels, autopct='%1.1f%%')
+ax.set_title('Global Distribution of Respondents')
+fig.tight_layout()
+
+# Map countries to continents
+import pycountry_convert as pc
+cont_code_to_cont_name = {
+    'NA': 'North America',
+    'SA': 'South America',
+    'AS': 'Asia',
+    'EU': 'Europe',
+    'AF': 'Africa',
+    'OC': 'Oceania',
+}
+def country_to_continent(country_name):
+    cc = pc.country_name_to_country_alpha2(country_name)
+    cont_code = pc.country_alpha2_to_continent_code(cc)
+    return cont_code_to_cont_name[cont_code]
+c2c = np.vectorize(country_to_continent, otypes='U')
+
+# Organize countries below the privacy cutoff by their continent
+remaining_countries = labels[~cutoff]
+continents = c2c(remaining_countries)
+with open('_generated/countries_by_continent.md', 'w') as of:
+    of.write('|  |  |\n')
+    of.write('|---------------|-------------|\n')
+    for continent in np.unique(continents):
+        clist = remaining_countries[continents == continent]
+        of.write(f"| **{continent}:** | {', '.join(clist)} |\n")
+```
+
+```{include} _generated/countries_by_continent.md
+```
