@@ -13,9 +13,10 @@ kernelspec:
 tags: [remove-cell]
 ---
 # Notebook setup
-%matplotlib inline
+import os
 import numpy as np
 import matplotlib.pyplot as plt
+%matplotlib inline
 ```
 
 # Demographics
@@ -98,7 +99,7 @@ fig.tight_layout()
 
 ## Language Preference
 
-Of the 1236 respondents, 1132 shared their preferred language.
+Of the 1236 respondents, 1173 shared their preferred language.
 
 ```{code-cell} ipython3
 ---
@@ -110,16 +111,24 @@ lang = data['lang'][data['lang'] != '']
 lang_other = data['lang_other'][data['lang_other'] != '']
 capitalize = np.vectorize(str.capitalize, otypes='U')
 lang_other = capitalize(lang_other)
-# Get distribution
+lang = np.concatenate((lang, lang_other))
 labels, cnts = np.unique(lang, return_counts=True)
-olabels, ocnts = np.unique(lang_other, return_counts=True)
+cnts = 100 * cnts / cnts.sum()
+I = np.argsort(cnts)[::-1]
+labels, cnts = labels[I], cnts[I]
 
-fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(12, 8))
-explode = np.zeros_like(cnts, dtype=float)
-explode[labels == 'Other'] += 0.6
-ax1.pie(cnts, labels=labels, explode=explode)
-ax1.set_title("Language Preference of Survey Respondents")
-ax2.pie(ocnts, labels=olabels)
-ax2.set_title("Breakdown of *Other*")
-fig.tight_layout()
+# Create a summary table
+os.makedirs('_generated', exist_ok=True)
+with open('_generated/language_preference_table.md', 'w') as of:
+    of.write('| **Language** | **Preferred by % of Respondents** |\n')
+    of.write('|--------------|-----------------------------------|\n')
+    for lbl, percent in zip(labels, cnts):
+        of.write(f'| {lbl} | {percent:1.1f} |\n')
 ```
+
+````{admonition} Click to show/hide table
+:class: toggle
+
+```{include} content/_generated/language_preference_table.md
+```
+````
