@@ -270,3 +270,20 @@ axes[1].set_title('Experience with NumPy');
 fig.autofmt_xdate();
 fig.tight_layout();
 ```
+
+## NumPy Version
+
+NumPy 1.18 was the latest stable release at the time the survey was 
+conducted.
+
+```{code-cell} ipython3
+---
+tags: [hide-input]
+---
+vers = data['version'][data['version'] != '']
+labels, cnts = np.unique(vers, return_counts=True)
+
+fig, ax = plt.subplots(figsize=(12, 8))
+ax.pie(cnts, labels=labels, autopct='%1.1f%%')
+fig.tight_layout()
+```
