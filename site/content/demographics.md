@@ -313,4 +313,18 @@ ax.pie(cnts, labels=labels, autopct='%1.1f%%')
 fig.tight_layout()
 ```
 
+## Frequency of Use
 
+1073 respondents provided information about how often they use NumPy.
+
+```{code-cell} ipython3
+---
+tags: [hide-input]
+---
+use_freq = data['use_freq'][data['use_freq'] != '']
+labels, cnts = np.unique(use_freq, return_counts=True)
+
+fig, ax = plt.subplots(figsize=(12, 8))
+ax.pie(cnts, labels=labels, autopct='%1.1f%%')
+fig.tight_layout()
+```
