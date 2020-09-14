@@ -19,6 +19,8 @@ import matplotlib.pyplot as plt
 %matplotlib inline
 # Location of generated content
 os.makedirs('_generated', exist_ok=True)
+# For variable integration
+from myst_nb import glue
 ```
 
 ```{code-cell} ipython3
@@ -275,6 +277,8 @@ fig.tight_layout();
 
 NumPy 1.18 was the latest stable release at the time the survey was 
 conducted.
+{glue:text}`older_version_usage` percent of respondents report that they
+primarily use an older version of NumPy.
 
 ```{code-cell} ipython3
 ---
@@ -286,4 +290,8 @@ labels, cnts = np.unique(vers, return_counts=True)
 fig, ax = plt.subplots(figsize=(12, 8))
 ax.pie(cnts, labels=labels, autopct='%1.1f%%')
 fig.tight_layout()
+
+# Percentage of users that use older versions
+older_version_usage = 100 * cnts[-4:-1].sum() / cnts.sum()
+glue('older_version_usage', f"{older_version_usage:1.1f}", display=False)
 ```
