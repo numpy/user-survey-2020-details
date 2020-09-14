@@ -50,7 +50,7 @@ column_names = [
 ]
 demographics_dtype = np.dtype({
     "names": column_names,
-    "formats": ['<U512'] * len(column_names),
+    "formats": ['<U600'] * len(column_names),
 })
 
 data = np.loadtxt(
@@ -326,5 +326,38 @@ labels, cnts = np.unique(use_freq, return_counts=True)
 
 fig, ax = plt.subplots(figsize=(12, 8))
 ax.pie(cnts, labels=labels, autopct='%1.1f%%')
+fig.tight_layout()
+```
+
+## NumPy Components
+
+NumPy encompasses many packages for specific scientific computing tasks, such
+as random number generation or Fourier analysis.
+The following figure shows what percentage of respondents reported using each
+NumPy subpackage.
+
+```{code-cell} ipython3
+---
+tags: [hide-input]
+---
+components = data['components'][data['components'] != '']
+num_respondents = len(components)
+# Process components field
+all_components = []
+for row in components:
+    all_components.extend(row.split(','))
+all_components = np.array(all_components)
+labels, cnts = np.unique(all_components, return_counts=True)
+# Descending order
+I = np.argsort(cnts)
+labels, cnts = labels[I], cnts[I]
+cnts = 100 * cnts / num_respondents
+
+fig, ax = plt.subplots(figsize=(12, 8))
+ax.barh(np.arange(len(cnts)), cnts, align='center')
+ax.set_yticks(np.arange(len(cnts)))
+ax.set_yticklabels(labels)
+ax.set_xlabel("Percentage of Respondents")
+ax.set_title("Use-Frequency of NumPy Sub-Packages")
 fig.tight_layout()
 ```
