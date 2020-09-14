@@ -273,6 +273,40 @@ fig.autofmt_xdate();
 fig.tight_layout();
 ```
 
+## Programming Languages
+
+Survey respondents reported being familiar with a wide range of other
+programming languages aside from Python.
+
+```{code-cell} ipython3
+---
+tags: [hide-input]
+---
+pl = data['prog_lang'][data['prog_lang'] != '']
+num_respondents = len(pl)
+# Flatten & remove 'Other' write-in option
+other = 'Other (please specify, using commas to separate individual entries)'
+apl = []
+for row in pl:
+    if 'Other' in row:
+        row = ','.join(row.split(',')[:-2])
+        if len(row) < 1:
+            continue
+    apl.extend(row.split(','))
+labels, cnts = np.unique(apl, return_counts=True)
+cnts = 100 * cnts / num_respondents
+I = np.argsort(cnts)
+labels, cnts = labels[I], cnts[I]
+
+fig, ax = plt.subplots(figsize=(12, 8))
+ax.barh(np.arange(len(cnts)), cnts, align='center')
+ax.set_yticks(np.arange(len(cnts)))
+ax.set_yticklabels(labels)
+ax.set_xlabel("Percentage of Respondents")
+ax.set_title("Programming Language Familiarity")
+fig.tight_layout()
+```
+
 ## NumPy Version
 
 NumPy 1.18 was the latest stable release at the time the survey was 
@@ -379,3 +413,4 @@ fig, ax = plt.subplots(figsize=(8, 8))
 ax.pie(cnts, labels=labels, autopct='%1.1f%%')
 fig.tight_layout()
 ```
+
