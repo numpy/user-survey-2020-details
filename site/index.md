@@ -12,6 +12,7 @@ The survey recorded over **1,200** participants from **70** countries.
 maxdepth: 2
 ---
 content/demographics
+content/contributions
 ```
 
 
