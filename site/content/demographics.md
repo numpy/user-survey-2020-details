@@ -295,3 +295,22 @@ fig.tight_layout()
 older_version_usage = 100 * cnts[-4:-1].sum() / cnts.sum()
 glue('older_version_usage', f"{older_version_usage:1.1f}", display=False)
 ```
+
+## Primary Use-Case
+
+1072 respondents provided information about the primary context in which they
+use NumPy.
+
+```{code-cell} ipython3
+---
+tags: [hide-input]
+---
+uses = data['primary_use'][data['primary_use'] != '']
+labels, cnts = np.unique(uses, return_counts=True)
+
+fig, ax = plt.subplots(figsize=(12, 8))
+ax.pie(cnts, labels=labels, autopct='%1.1f%%')
+fig.tight_layout()
+```
+
+
