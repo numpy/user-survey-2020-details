@@ -361,3 +361,21 @@ ax.set_xlabel("Percentage of Respondents")
 ax.set_title("Use-Frequency of NumPy Sub-Packages")
 fig.tight_layout()
 ```
+
+## NumPy C-Extensions
+
+863 participants shared whether they (or their organization) uses custom
+C-extensions via the NumPy C-API (excluding Cython).
+
+```{code-cell} ipython3
+---
+tags: [hide-input]
+---
+uses_c_ext = data['use_c_ext']
+labels, cnts = np.unique(uses_c_ext, return_counts=True)
+labels[0] = 'No response'
+
+fig, ax = plt.subplots(figsize=(8, 8))
+ax.pie(cnts, labels=labels, autopct='%1.1f%%')
+fig.tight_layout()
+```
