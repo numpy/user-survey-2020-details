@@ -242,3 +242,26 @@ ax.set_yticks(np.arange(len(cnts)))
 ax.set_yticklabels(labels)
 ax.set_xlabel("Number of Respondents")
 ```
+
+# Experience and Usage
+
+## Programming Experience
+
+```{code-cell} ipython3
+---
+tags: [hide-input]
+---
+prog_exp = data['programming_exp'][data['programming_exp'] != '']
+labels, cnts = np.unique(prog_exp, return_counts=True)
+cnts = 100 * cnts / cnts.sum()
+# Ascending order for figure
+ind = np.array([-1, 0, 2, 3, 1])
+labels, cnts = labels[ind], cnts[ind]
+
+fig, ax = plt.subplots(figsize=(12, 8))
+ax.bar(np.arange(len(cnts)), cnts)
+ax.set_xticks(np.arange(len(cnts)))
+ax.set_xticklabels(labels)
+fig.autofmt_xdate();
+ax.set_title("Programming Experience of Respondents");
+ax.set_ylabel("Percentage of Respondents");
