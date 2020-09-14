@@ -307,6 +307,41 @@ ax.set_title("Programming Language Familiarity")
 fig.tight_layout()
 ```
 
+{glue:text}`percent_other` percent of respondents reported familiarity with
+computer languages other than those listed above.
+Of these, {glue:text}`most_popular` was the most popular with 
+{glue:text}`most_popular_pct` percent of users using this language.
+A listing of other reported languages can be found below (click to expand).
+
+%TODO: Create mapping to consolidate write-in responses, e.g. 
+%Lisp, lisp, common lisp, elisp, all -> 'Lisp'
+
+```{code-cell} ipython3
+---
+tags: [remove-cell]
+---
+# Determine most popular 'other' language.
+plo = data['prog_lang_other'][data['prog_lang_other'] != '']
+# Process write-in field
+aplo = []
+for row in plo:
+    # NOTE: ignoring cases in language name
+    aplo.extend([l.strip().lower() for l in row.split(',')])
+labels, cnts = np.unique(aplo, return_counts=True)
+
+glue('percent_other', f'{100 * len(plo) / len(pl):1.1f}', display=False)
+#NOTE: capitalization doesn't generalize!
+glue('most_popular', labels[np.argmax(cnts)].capitalize(), display=False)
+glue('most_popular_pct', f'{100 * cnts.max() / len(pl):1.1f}', display=False)
+```
+
+```{code-cell} ipython3
+---
+tags: [remove-input, hide-output]
+---
+print(labels)
+```
+
 ## NumPy Version
 
 NumPy 1.18 was the latest stable release at the time the survey was 
