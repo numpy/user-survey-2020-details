@@ -251,17 +251,22 @@ ax.set_xlabel("Number of Respondents")
 ---
 tags: [hide-input]
 ---
-prog_exp = data['programming_exp'][data['programming_exp'] != '']
-labels, cnts = np.unique(prog_exp, return_counts=True)
-cnts = 100 * cnts / cnts.sum()
+fig, axes = plt.subplots(1, 2, figsize=(12, 6))
 # Ascending order for figure
 ind = np.array([-1, 0, 2, 3, 1])
-labels, cnts = labels[ind], cnts[ind]
-
-fig, ax = plt.subplots(figsize=(12, 8))
-ax.bar(np.arange(len(cnts)), cnts)
-ax.set_xticks(np.arange(len(cnts)))
-ax.set_xticklabels(labels)
+for exp_data, ax in zip(('programming_exp', 'numpy_exp'), axes):
+    # Analysis
+    prog_exp = data[exp_data][data[exp_data] != '']
+    labels, cnts = np.unique(prog_exp, return_counts=True)
+    cnts = 100 * cnts / cnts.sum()
+    labels, cnts = labels[ind], cnts[ind]
+    # Plotting
+    ax.bar(np.arange(len(cnts)), cnts)
+    ax.set_xticks(np.arange(len(cnts)))
+    ax.set_xticklabels(labels)
+axes[0].set_title('General Programming Experience')
+axes[0].set_ylabel('Percentage of Respondents')
+axes[1].set_title('Experience with NumPy');
 fig.autofmt_xdate();
-ax.set_title("Programming Experience of Respondents");
-ax.set_ylabel("Percentage of Respondents");
+fig.tight_layout();
+```
