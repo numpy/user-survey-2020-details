@@ -243,6 +243,7 @@ ax.barh(np.arange(len(cnts)), cnts, align='center')
 ax.set_yticks(np.arange(len(cnts)))
 ax.set_yticklabels(labels)
 ax.set_xlabel("Number of Respondents")
+fig.tight_layout()
 ```
 
 # Experience and Usage
