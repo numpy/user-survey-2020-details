@@ -45,7 +45,7 @@ nonnumpy_contributions_dtype = np.dtype({
     "formats": ['<U1024'] * len(column_names),
 })
 
-osdata = np.loadtxt(
+ossdata = np.loadtxt(
     fname, delimiter='\t', skiprows=3, dtype=nonnumpy_contributions_dtype, 
     usecols=range(31, 42), comments=None
 )
@@ -73,3 +73,35 @@ npdata = np.loadtxt(
     usecols=range(42, 57), comments=None
 )
 ```
+
+```{code-cell} ipython3
+---
+tags: [hide-input]
+---
+# Compute some basic parameters on OSS/np-specific contributions
+assert npdata.shape[0] == ossdata.shape[0]  # Sanity check on data
+num_respondents = npdata.shape[0]
+num_oss_contributors = np.sum(ossdata['contributed'] == 'Yes')
+num_np_contributors = np.sum(npdata['contributed'] == 'Yes')
+# Links for report
+glue('num_respondents', npdata.shape[0], display=False);
+glue(
+    'oss_contributors',
+    f'{num_oss_contributors} ({100 * num_oss_contributors / num_respondents:1.0f}%)',
+    display=False
+)
+glue(
+    'np_contributors',
+    f'{num_np_contributors} ({100 * num_np_contributors / num_respondents:1.0f}%)',
+    display=False
+)
+
+```
+% TODO: Intro sentences here about open-source development and community-led
+% nature of NumPy.
+
+Of the {glue:text}`num_respondents` survey participants, 
+{glue:text}`oss_contributors` have contributed to at least one open source
+software project, while {glue:text}`np_contributors` have contributed to
+NumPy specifically.
+
