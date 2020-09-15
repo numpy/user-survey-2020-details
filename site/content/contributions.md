@@ -115,6 +115,52 @@ NumPy specifically.
 Reflecting its central position in the scientific Python ecosystem, 
 {glue:text}`numpy_and_oss_contributors` of NumPy contributors reported
 contributing to other OSS projects as well.
+The following figure illustrates shows what fraction of contributors are 
+working on various popular scientific Python projects.
+
+```{code-cell} ipython3
+---
+tags: [hide-input]
+---
+# Helper function for collating data
+def flatten(data, delimiter=','):
+    out = []
+    for row in data:
+        out.extend(row.split(delimiter))
+    return out
+# Remove less-popular projects
+projects_to_drop = (
+    'Gensim', 'spaCy', '',
+    'Other (please specify - use commas to separate multiple entries)'
+)
+
+fig, ax = plt.subplots(figsize=(12, 8))
+for (start_ind, mask, label) in zip(
+    (0, 1), 
+    (oss_contributors_mask, np_contributors_mask),
+    ('Non-NumPy Contributors', 'NumPy Contributors')
+):
+    project_data = flatten(ossdata['projects'][mask])
+    labels, cnts = np.unique(project_data, return_counts=True)
+    # Projects to drop from all datasets
+    for proj in projects_to_drop:
+        drop = (labels != proj)
+        labels, cnts = labels[drop], cnts[drop]
+    # Plot
+    ax.barh(
+        np.arange(start_ind, 2 * len(labels), 2),
+        100 * cnts / cnts.sum(),
+        align='edge',
+        label=label,
+    )
+# Shorten 'Other' category in labels
+ax.set_yticks(np.arange(start_ind, 2 * len(labels), 2))
+ax.set_yticklabels(labels)
+ax.set_xlabel('Percentage of Contributors')
+ax.legend()
+fig.tight_layout()
+```
+
 
 We asked **in what ways** people are contributing to open-source software
 projects:
