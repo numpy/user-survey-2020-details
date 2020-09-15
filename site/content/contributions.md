@@ -153,7 +153,6 @@ for (start_ind, mask, label) in zip(
         align='edge',
         label=label,
     )
-# Shorten 'Other' category in labels
 ax.set_yticks(np.arange(start_ind, 2 * len(labels), 2))
 ax.set_yticklabels(labels)
 ax.set_xlabel('Percentage of Contributors')
@@ -161,6 +160,47 @@ ax.legend()
 fig.tight_layout()
 ```
 
+We also asked **in what ways** people are contributing to open-source software
+projects.
+The following figure shows what percentage of contributors reported participating
+in some common tasks.
 
-We asked **in what ways** people are contributing to open-source software
-projects:
+% TODO: Clean up data here so that NumPy/Other OSS contributions can be 
+% directly compared (like above figure). WARNING: the current solution in
+% code cell below is *very* hacky
+
+```{code-cell} ipython3
+---
+tags: [hidden-input]
+---
+oss_contr_type = flatten(ossdata['contr_type'][oss_contributors_mask])
+np_contr_type = flatten(npdata['contr_type'][np_contributors_mask])
+
+fig, ax = plt.subplots(2, 1, figsize=(8, 12))
+# NOTE: Unfortunately, the categories for the OSS & np contributions aren't 
+# the same, so direct comparison is more difficult.
+# Handle each dataset separately.
+labels, cnts = np.unique(np_contr_type, return_counts=True)
+# Ignore duplicate categories from bad split
+labels, cnts = labels[1:], cnts[1:]
+I = np.argsort(cnts)
+labels, cnts = labels[I], cnts[I]
+ax[0].set_title('NumPy Contributions')
+ax[0].barh(np.arange(len(labels)), 100 * cnts / np_contributors_mask.sum(), align='center')
+ax[0].set_yticks(np.arange(len(labels)))
+ax[0].set_yticklabels(labels)
+ax[0].set_xlabel('Percentage of NumPy Contributors')
+labels, cnts = np.unique(oss_contr_type, return_counts=True)
+labels, cnts = labels[3:], cnts[3:]
+# TODO: Remove these hacks when categories have been synchronized
+labels[3] = 'Developing tutorials'
+labels[-1] = 'Writing documentation'
+I = np.argsort(cnts)
+labels, cnts = labels[I], cnts[I]
+ax[1].set_title('Other (non-NumPy) OSS Contributions')
+ax[1].barh(np.arange(len(labels)), 100 * cnts / oss_contributors_mask.sum(), align='center')
+ax[1].set_yticks(np.arange(len(labels)))
+ax[1].set_yticklabels(labels)
+ax[1].set_xlabel('Percentage of OSS Contributors')
+fig.tight_layout()
+```
