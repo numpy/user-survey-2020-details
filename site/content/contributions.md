@@ -78,11 +78,15 @@ npdata = np.loadtxt(
 ---
 tags: [hide-input]
 ---
-# Compute some basic parameters on OSS/np-specific contributions
 assert npdata.shape[0] == ossdata.shape[0]  # Sanity check on data
+# Selection criteria for subsequent analysis
+oss_contributors_mask = ossdata['contributed'] == 'Yes'
+np_contributors_mask = npdata['contributed'] == 'Yes'
+# Compute some basic parameters on OSS/np-specific contributions
 num_respondents = npdata.shape[0]
-num_oss_contributors = np.sum(ossdata['contributed'] == 'Yes')
-num_np_contributors = np.sum(npdata['contributed'] == 'Yes')
+num_oss_contributors = oss_contributors_mask.sum()
+num_np_contributors = np_contributors_mask.sum()
+num_both_contributors = np.sum(oss_contributors_mask & np_contributors_mask)
 # Links for report
 glue('num_respondents', npdata.shape[0], display=False);
 glue(
@@ -95,7 +99,11 @@ glue(
     f'{num_np_contributors} ({100 * num_np_contributors / num_respondents:1.0f}%)',
     display=False
 )
-
+glue(
+    'numpy_and_oss_contributors',
+    f'{num_both_contributors} ({100 * num_both_contributors / num_np_contributors:1.0f}%)',
+    display=False
+)
 ```
 % TODO: Intro sentences here about open-source development and community-led
 % nature of NumPy.
@@ -104,4 +112,9 @@ Of the {glue:text}`num_respondents` survey participants,
 {glue:text}`oss_contributors` have contributed to at least one open source
 software project, while {glue:text}`np_contributors` have contributed to
 NumPy specifically.
+Reflecting its central position in the scientific Python ecosystem, 
+{glue:text}`numpy_and_oss_contributors` of NumPy contributors reported
+contributing to other OSS projects as well.
 
+We asked **in what ways** people are contributing to open-source software
+projects:
