@@ -25,6 +25,9 @@ from myst_nb import glue
 
 # Development and Community Contributions
 
+% NOTE: The structure of the NumPy and non-NumPy contributions questions are
+% slightly different.
+
 ```{code-cell} ipython3
 ---
 tags: [hide-input]
@@ -42,8 +45,31 @@ nonnumpy_contributions_dtype = np.dtype({
     "formats": ['<U1024'] * len(column_names),
 })
 
-data = np.loadtxt(
+osdata = np.loadtxt(
     fname, delimiter='\t', skiprows=3, dtype=nonnumpy_contributions_dtype, 
     usecols=range(31, 42), comments=None
+)
+```
+
+```{code-cell} ipython3
+---
+tags: [hide-input]
+---
+# Load data related to NumPy contributions
+column_names = [
+    'contributed', 'contr_type', 'contr_type_other', 'regular',
+    'how_got_started', 'how_got_started_other', 'motivations',
+    'motivations_other', 'continue', 'limitations', 'limitations_other',
+    'interested', 'interests', 'interests_other'
+]
+
+numpy_contributions_dtype = np.dtype({
+    "names": column_names,
+    "formats": ['<U1024'] * len(column_names),
+})
+
+npdata = np.loadtxt(
+    fname, delimiter='\t', skiprows=3, dtype=numpy_contributions_dtype, 
+    usecols=range(42, 57), comments=None
 )
 ```
