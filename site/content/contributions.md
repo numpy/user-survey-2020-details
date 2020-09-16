@@ -87,6 +87,9 @@ num_respondents = npdata.shape[0]
 num_oss_contributors = oss_contributors_mask.sum()
 num_np_contributors = np_contributors_mask.sum()
 num_both_contributors = np.sum(oss_contributors_mask & np_contributors_mask)
+# Compute fraction of regular contributors.
+num_oss_regular = np.sum(ossdata['regular'][oss_contributors_mask] == 'Yes')
+num_np_regular = np.sum(npdata['regular'][np_contributors_mask] == 'Yes')
 # Links for report
 glue('num_respondents', npdata.shape[0], display=False);
 glue(
@@ -104,6 +107,16 @@ glue(
     f'{num_both_contributors} ({100 * num_both_contributors / num_np_contributors:1.0f}%)',
     display=False
 )
+glue(
+    'oss_regulars',
+    f'{num_oss_regular} ({100 * num_oss_regular / num_oss_contributors:1.0f}%)',
+    display=False
+)
+glue(
+    'np_regulars',
+    f'{num_np_regular} ({100 * num_np_regular / num_np_contributors:1.0f})%)',
+    display=False
+)
 ```
 % TODO: Intro sentences here about open-source development and community-led
 % nature of NumPy.
@@ -112,6 +125,9 @@ Of the {glue:text}`num_respondents` survey participants,
 {glue:text}`oss_contributors` have contributed to at least one open source
 software project, while {glue:text}`np_contributors` have contributed to
 NumPy specifically.
+{glue:text}`oss_regulars` of OSS contributors are regular contributors to at
+least one OSS project, while {glue:text}`np_regulars` of the NumPy contributors
+contribute to NumPy regularly.
 Reflecting its central position in the scientific Python ecosystem, 
 {glue:text}`numpy_and_oss_contributors` of NumPy contributors reported
 contributing to other OSS projects as well.
