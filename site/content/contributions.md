@@ -38,7 +38,7 @@ fname = "data/numpy_survey_results.tsv"
 column_names = [
     'contributed', 'projects', 'projects_other', 'contr_type', 
     'contr_type_other', 'regular', 'how_got_started', 'how_got_started_other',
-    'interest', 'limitations'
+    'interested', 'limitations'
 ]
 nonnumpy_contributions_dtype = np.dtype({
     "names": column_names,
@@ -341,5 +341,29 @@ glue('np_non_contributors', num_np_non_contributors, display=False)
 ## Interest in Contributing
 
 We asked these respondents whether they were interested in contributing to
-the 
+the OSS packages that they use.
+{glue:text}`oss_interested` said they were interested in contributing to OSS
+generally, and {glue:text}`np_interested` to NumPy specifically.
 
+
+```{code-cell} ipython3
+---
+tags: [hide-input]
+---
+oss_interested = np.sum(
+    (ossdata['contributed'] == 'No') & (ossdata['interested'] == 'Yes')
+)
+np_interested = np.sum(
+    (npdata['contributed'] == 'No') & (npdata['interested'] == 'Yes')
+)
+glue(
+    'oss_interested',
+    f'{oss_interested} ({100 * oss_interested / num_oss_non_contributors:1.0f}%)',
+    display=False
+)
+glue(
+    'np_interested',
+    f'{np_interested} ({100 * np_interested / num_np_non_contributors:1.0f}%)',
+    display=False
+)
+```
