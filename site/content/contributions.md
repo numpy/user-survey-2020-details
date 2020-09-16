@@ -225,3 +225,34 @@ ax[1].set_yticklabels(labels)
 ax[1].set_xlabel('Percentage of OSS Contributors')
 fig.tight_layout()
 ```
+
+We also asked how contributors got started working on the OSS packages that
+they contribute to:
+
+```{code-cell} ipython3
+---
+tags: [hide-input]
+---
+fig, ax = plt.subplots(figsize=(12, 8))
+for start_ind, (data, mask, label) in enumerate(zip(
+    (ossdata, npdata), 
+    (oss_contributors_mask, np_contributors_mask),
+    ('Non-NumPy Contributors', 'NumPy Contributors')
+)):
+    how_data = data['how_got_started'][mask]
+    # Remove non-responses
+    how_data = how_data[how_data != '']
+    data = flatten(how_data)
+    labels, cnts = np.unique(data, return_counts=True)
+    # Plot
+    ax.barh(
+        np.arange(start_ind, 2 * len(labels), 2),
+        100 * cnts / len(how_data),
+        align='edge',
+        label=label,
+    )
+ax.set_yticks(np.arange(start_ind, 2 * len(labels), 2))
+ax.set_yticklabels(labels)
+ax.set_xlabel('Percentage of Contributors')
+ax.legend()
+fig.tight_layout()
