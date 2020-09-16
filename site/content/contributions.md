@@ -316,3 +316,30 @@ glue(
     display=False
 )
 ```
+
+# Users Who Haven't (yet) Contributed
+
+We also wanted to get the perspective of NumPy (and other OSS) users who have
+not directly contributed back to project --- is there generally interest in
+doing so? What are the biggest stumbling blocks for users who want to
+contribute back?
+Of the {glue:text}`num_respondents` survey respondents, 
+{glue:text}`oss_non_contributors` report never having contributed to an OSS
+project and {glue:text}`np_non_contributors` report never having contributed to
+NumPy specifically.
+
+```{code-cell} ipython3
+---
+tags: [hide-input]
+---
+num_oss_non_contributors = np.sum(ossdata['contributed'] == 'No')
+num_np_non_contributors = np.sum(npdata['contributed'] == 'No')
+glue('oss_non_contributors', num_oss_non_contributors, display=False)
+glue('np_non_contributors', num_np_non_contributors, display=False)
+```
+
+## Interest in Contributing
+
+We asked these respondents whether they were interested in contributing to
+the 
+
