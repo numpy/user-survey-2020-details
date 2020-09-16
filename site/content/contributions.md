@@ -170,7 +170,7 @@ for (start_ind, mask, label) in zip(
     # Plot
     ax.barh(
         np.arange(start_ind, 2 * len(labels), 2),
-        100 * cnts / cnts.sum(),
+        100 * cnts / mask.sum(),
         align='edge',
         label=label,
     )
@@ -192,7 +192,7 @@ in some common tasks.
 
 ```{code-cell} ipython3
 ---
-tags: [hidden-input]
+tags: [hide-input]
 ---
 oss_contr_type = flatten(ossdata['contr_type'][oss_contributors_mask])
 np_contr_type = flatten(npdata['contr_type'][np_contributors_mask])
