@@ -256,3 +256,26 @@ ax.set_yticklabels(labels)
 ax.set_xlabel('Percentage of Contributors')
 ax.legend()
 fig.tight_layout()
+```
+
+## Motivations
+
+We asked NumPy contributors about what motivates them to contribute to NumPy.
+
+```{code-cell} ipython3
+---
+tags: [hide-input]
+---
+# NumPy data only, no need to apply np/oss masks
+motivations = npdata['motivations'][npdata['motivations'] != '']
+labels, cnts = np.unique(flatten(motivations), return_counts=True)
+I = np.argsort(cnts)
+labels, cnts = labels[I], cnts[I]
+
+fig, ax = plt.subplots(figsize=(12, 6))
+ax.barh(np.arange(len(labels)), 100 * cnts / len(motivations))
+ax.set_yticks(np.arange(len(labels)))
+ax.set_yticklabels(labels)
+ax.set_xlabel('Percentage of NumPy Contributors')
+fig.tight_layout()
+```
