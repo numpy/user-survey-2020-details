@@ -125,14 +125,19 @@ Of the {glue:text}`num_respondents` survey participants,
 {glue:text}`oss_contributors` have contributed to at least one open source
 software project, while {glue:text}`np_contributors` have contributed to
 NumPy specifically.
-{glue:text}`oss_regulars` of OSS contributors are regular contributors to at
-least one OSS project, while {glue:text}`np_regulars` of the NumPy contributors
-contribute to NumPy regularly.
+{glue:text}`oss_regulars` of OSS contributors are *currently*[^currently]
+regular contributors to at least one OSS project, while
+{glue:text}`np_regulars` of the NumPy contributors contribute to NumPy
+regularly.
 Reflecting its central position in the scientific Python ecosystem, 
 {glue:text}`numpy_and_oss_contributors` of NumPy contributors reported
 contributing to other OSS projects as well.
 The following figure illustrates shows what fraction of contributors are 
 working on various popular scientific Python projects.
+
+[^currently]: i.e. regularly contributing at the time of the survey. This does
+              not include contributors who have contributed regularly to
+              projects in the past.
 
 ```{code-cell} ipython3
 ---
