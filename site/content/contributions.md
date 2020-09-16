@@ -279,3 +279,40 @@ ax.set_yticklabels(labels)
 ax.set_xlabel('Percentage of NumPy Contributors')
 fig.tight_layout()
 ```
+
+## Retention
+
+Finally, we asked NumPy contributors whether they plan to continue to 
+contribute to NumPy.
+{glue:text}`regular_continue_pct` of survey participants who identified
+themselves as regular NumPy contributors plan to continue contributing.
+Of the {glue:text}`num_nonregular_np_contributors` NumPy contributors who did
+not consider themselves *regular* contributors, {glue:text}`become_regular_pct`
+plan to continue contributing.
+
+```{code-cell} ipython3
+---
+tags: [hide-input]
+---
+np_regular_mask = npdata['regular'] == 'Yes'
+regular_continue = npdata['continue'][np_regular_mask] == 'Yes'
+glue(
+    'regular_continue_pct',
+    f'{100 * regular_continue.sum() / np_regular_mask.sum():1.0f}%',
+    display=False
+)
+non_regular_contributor_mask = (np_contributors_mask) & (~np_regular_mask)
+glue(
+    'num_nonregular_np_contributors',
+    non_regular_contributor_mask.sum(),
+    display=False
+)
+num_nonregular_continue = np.sum(
+    npdata['continue'][non_regular_contributor_mask] == 'Yes'
+)
+glue(
+    'become_regular_pct',
+    f'{100 * num_nonregular_continue / non_regular_contributor_mask.sum():1.0f}%',
+    display=False
+)
+```
