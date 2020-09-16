@@ -23,7 +23,7 @@ os.makedirs('_generated', exist_ok=True)
 from myst_nb import glue
 ```
 
-# Development and Community Contributions
+# Community Contributions and Development
 
 % NOTE: The structure of the NumPy and non-NumPy contributions questions are
 % slightly different.
@@ -114,12 +114,14 @@ glue(
 )
 glue(
     'np_regulars',
-    f'{num_np_regular} ({100 * num_np_regular / num_np_contributors:1.0f})%)',
+    f'{num_np_regular} ({100 * num_np_regular / num_np_contributors:1.0f}%)',
     display=False
 )
 ```
 % TODO: Intro sentences here about open-source development and community-led
 % nature of NumPy.
+
+# NumPy & OSS Contributors
 
 Of the {glue:text}`num_respondents` survey participants, 
 {glue:text}`oss_contributors` have contributed to at least one open source
@@ -132,6 +134,9 @@ regularly.
 Reflecting its central position in the scientific Python ecosystem, 
 {glue:text}`numpy_and_oss_contributors` of NumPy contributors reported
 contributing to other OSS projects as well.
+
+## OSS Contributions
+
 The following figure illustrates shows what fraction of contributors are 
 working on various popular scientific Python projects.
 
@@ -181,6 +186,8 @@ ax.legend()
 fig.tight_layout()
 ```
 
+## Types of Contributions
+
 We also asked **in what ways** people are contributing to open-source software
 projects.
 The following figure shows what percentage of contributors reported participating
@@ -225,6 +232,8 @@ ax[1].set_yticklabels(labels)
 ax[1].set_xlabel('Percentage of OSS Contributors')
 fig.tight_layout()
 ```
+
+## How Did Contributors Get Their Start?
 
 We also asked how contributors got started working on the OSS packages that
 they contribute to:
@@ -317,7 +326,7 @@ glue(
 )
 ```
 
-# Users Who Haven't (yet) Contributed
+# Users Who Haven't (Yet) Contributed
 
 We also wanted to get the perspective of NumPy (and other OSS) users who have
 not directly contributed back to project --- is there generally interest in
