@@ -350,20 +350,42 @@ generally, and {glue:text}`np_interested` to NumPy specifically.
 ---
 tags: [hide-input]
 ---
-oss_interested = np.sum(
-    (ossdata['contributed'] == 'No') & (ossdata['interested'] == 'Yes')
-)
-np_interested = np.sum(
-    (npdata['contributed'] == 'No') & (npdata['interested'] == 'Yes')
-)
+oss_interested_mask = (ossdata['contributed'] == 'No') & (ossdata['interested'] == 'Yes')
+np_interested_mask = (npdata['contributed'] == 'No') & (npdata['interested'] == 'Yes')
 glue(
     'oss_interested',
-    f'{oss_interested} ({100 * oss_interested / num_oss_non_contributors:1.0f}%)',
+    f'{oss_interested_mask.sum()} ({100 * oss_interested_mask.sum() / num_oss_non_contributors:1.0f}%)',
     display=False
 )
 glue(
     'np_interested',
-    f'{np_interested} ({100 * np_interested / num_np_non_contributors:1.0f}%)',
+    f'{np_interested_mask.sum()} ({100 * np_interested_mask.sum() / num_np_non_contributors:1.0f}%)',
     display=False
 )
+```
+
+We also asked these users about the biggest blockers that prevent them from
+contributing back.
+
+% NOTE: Missing responses from NumPy-specific version of this question
+
+```{code-cell} ipython3
+---
+tags: [hide-input]
+---
+
+fig, ax = plt.subplots(figsize=(12, 8))
+limitations = ossdata['limitations'][oss_interested_mask]
+# Remove non-responses
+limitations = limitations[limitations != '']
+data = flatten(limitations)
+labels, cnts = np.unique(data, return_counts=True)
+I = np.argsort(cnts)
+labels, cnts = labels[I], cnts[I]
+# Plot
+ax.barh(np.arange(len(labels)), 100 * cnts / len(limitations))
+ax.set_yticks(np.arange(len(labels)))
+ax.set_yticklabels(labels)
+ax.set_xlabel('Percentage of Contributors')
+fig.tight_layout()
 ```
