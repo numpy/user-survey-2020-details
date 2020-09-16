@@ -364,8 +364,10 @@ glue(
 )
 ```
 
-We also asked these users about the biggest blockers that prevent them from
-contributing back.
+## Contribution Blockers
+
+We also asked respondents who expressed interest in contributing  about the
+biggest blockers that prevent them from doing so.
 
 % NOTE: Missing responses from NumPy-specific version of this question
 
@@ -384,6 +386,33 @@ I = np.argsort(cnts)
 labels, cnts = labels[I], cnts[I]
 # Plot
 ax.barh(np.arange(len(labels)), 100 * cnts / len(limitations))
+ax.set_yticks(np.arange(len(labels)))
+ax.set_yticklabels(labels)
+ax.set_xlabel('Percentage of Contributors')
+fig.tight_layout()
+```
+
+## Interests of Potential Contributors
+
+We also asked potential NumPy contributors about there interests.
+
+```{code-cell} ipython3
+---
+tags: [hide-input]
+---
+interests = npdata['interests'][np_interested_mask]
+interests = interests[interests != '']
+data = flatten(interests)
+labels, cnts = np.unique(data, return_counts=True)
+# TODO: Remove these hacks when categories have been synchronized
+labels, cnts = labels[2:], cnts[2:]
+labels[3] = 'Narrative documentation (e.g. tutorials)'
+labels[-1] = 'Technical documentation (e.g. docstrings)'
+I = np.argsort(cnts)
+labels, cnts = labels[I], cnts[I]
+
+fig, ax = plt.subplots(figsize=(12, 8))
+ax.barh(np.arange(len(labels)), 100 * cnts / len(interests))
 ax.set_yticks(np.arange(len(labels)))
 ax.set_yticklabels(labels)
 ax.set_xlabel('Percentage of Contributors')
