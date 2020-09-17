@@ -43,7 +43,7 @@ mentorship_dtype = np.dtype({
 })
 
 data = np.loadtxt(
-    fname, delimiter='\t', skiprows=3, dtype=mentorship_dtype, 
+    fname, delimiter='\t', skiprows=3, dtype=mentorship_dtype,
     usecols=range(56, 74), comments=None
 )
 ```
@@ -98,4 +98,36 @@ glue(
     f'{num_charged_mentees} ({100 * num_charged_mentees / (num_mentees + num_both):1.0f}%)',
     display=False,
 )
+```
+
+## Mentor Motivations
+
+We asked mentors to share their motivations for serving as OSS mentors.
+
+```{code-cell} ipython3
+---
+tags: [hide-input]
+---
+all_mentors_mask = mentor_mask | both_mask
+# TODO: move flatten to analysis module so it can be imported
+def flatten(data, delimiter=','):
+    out = []
+    for row in data:
+        out.extend(row.split(delimiter))
+    return out
+motivations = data['mentor_motivation'][all_mentors_mask]
+motivations = motivations[motivations != '']
+num_resp = motivations.shape[0]
+motivations = flatten(motivations)
+labels, cnts = np.unique(motivations, return_counts=True)
+I = np.argsort(cnts)
+labels, cnts = labels[I], cnts[I]
+cnts = 100 * cnts / num_resp
+
+fig, ax = plt.subplots(figsize=(12, 8))
+ax.barh(np.arange(len(labels)), cnts)
+ax.set_yticks(np.arange(len(labels)))
+ax.set_yticklabels(labels)
+ax.set_xlabel('Percentage of Mentors')
+fig.tight_layout()
 ```
