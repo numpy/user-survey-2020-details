@@ -68,7 +68,34 @@ glue('num_mentorship_participants', participant_mask.sum(), display=False)
 mentor_mask, mentee_mask, both_mask = (
     data['role'] == key for key in ('Mentor', 'Mentee', 'Both')
 )
-glue('num_mentors', mentor_mask.sum(), display=False)
-glue('num_mentees', mentee_mask.sum(), display=False)
-glue('num_both', both_mask.sum(), display=False)
+num_mentors = mentor_mask.sum()
+num_mentees = mentee_mask.sum()
+num_both = both_mask.sum()
+glue('num_mentors', num_mentors, display=False)
+glue('num_mentees', num_mentees, display=False)
+glue('num_both', num_both, display=False)
+```
+
+## Paid vs. Unpaid Programs
+
+{glue:text}`mentors_paid` of respondents who served as mentors reported being
+paid by the program, and {glue:text}`mentees_charged` mentees reported being
+charged fees.
+
+```{code-cell} ipython3
+---
+tags: [hide-input]
+---
+num_paid_mentors = np.sum(data['mentor_paid'] == 'Yes')
+num_charged_mentees = np.sum(data['mentee_charged'] == 'Yes')
+glue(
+    'mentors_paid',
+    f'{num_paid_mentors} ({100 * num_paid_mentors / (num_mentors + num_both):1.0f}%)',
+    display=False,
+)
+glue(
+    'mentees_charged',
+    f'{num_charged_mentees} ({100 * num_charged_mentees / (num_mentees + num_both):1.0f}%)',
+    display=False,
+)
 ```
