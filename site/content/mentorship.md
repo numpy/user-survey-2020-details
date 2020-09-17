@@ -47,3 +47,28 @@ data = np.loadtxt(
     usecols=range(56, 74), comments=None
 )
 ```
+
+We asked survey participants about their experiences with
+**mentorship programs** related to OSS scientific software.
+Of the {glue:text}`num_respondents` survey respondents,
+{glue:text}`num_mentorship_participants` reported participating in some form
+of mentorship program dealing with scientific software:
+{glue:text}`num_mentors` as mentors, {glue:text}`num_mentees` as mentees, and
+{glue:text}`num_both` in both capacities[^both].
+
+[^both]: No distinction is made for those who have participated in multiple
+         different mentorship programs.
+
+```{code-cell} ipython3
+---
+tags: [hide-input]
+---
+participant_mask = data['participated'] == 'Yes'
+glue('num_mentorship_participants', participant_mask.sum(), display=False)
+mentor_mask, mentee_mask, both_mask = (
+    data['role'] == key for key in ('Mentor', 'Mentee', 'Both')
+)
+glue('num_mentors', mentor_mask.sum(), display=False)
+glue('num_mentees', mentee_mask.sum(), display=False)
+glue('num_both', both_mask.sum(), display=False)
+```
