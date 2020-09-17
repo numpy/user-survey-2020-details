@@ -162,3 +162,39 @@ ax.set_xlabel('Percentage of Participants')
 ax.legend()
 fig.tight_layout()
 ```
+
+## Mentorship Activities
+
+We asked participants what sorts of activities they engaged in as part of the
+mentorship program.
+
+```{code-cell} ipython3
+---
+tags: [hide-input]
+---
+# NOTE: not every activity was reported by both mentors/mentees
+labels = np.unique(flatten(data['mentor_activities']))[3:]
+fig, ax = plt.subplots(figsize=(12, 8))
+for start_ind, (key, label) in enumerate(zip(
+    ('mentor_activities', 'mentee_activities'),
+    ('Mentors', 'Mentees')
+)):
+    activities_data = data[key][data[key] != '']
+    num_resp = activities_data.shape[0]
+    activities_data = np.array(flatten(activities_data))
+    cnts = np.array([np.sum(activities_data == act) for act in labels])
+    # Plot
+    ax.barh(
+        np.arange(start_ind, 2 * len(labels), 2),
+        100 * cnts / num_resp,
+        align='edge',
+        label=label,
+    )
+# Manual modification to one category name
+labels[labels == 'Attend a lecture'] = 'Attend an Event'
+ax.set_yticks(np.arange(start_ind, 2 * len(labels), 2))
+ax.set_yticklabels(labels)
+ax.set_xlabel('Percentage of Participants')
+ax.legend()
+fig.tight_layout()
+```
