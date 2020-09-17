@@ -63,6 +63,12 @@ Users were asked to rank the following categories in order of priority:
 ---
 tags: [hide-input]
 ---
-for category in column_names[:-1]:
+for category in sorted(column_names[:-1]):
     print(f" - {category.replace('_', ' ').capitalize()}")
 ```
+
+A write-in category (`Other`) was also included so that participants could
+share priorities beyond those listed above.
+
+Of the {glue:text}`num_respondents` survey participants,
+{glue:text}`num_prioritizers` shared their priorities for NumPy moving forward.
