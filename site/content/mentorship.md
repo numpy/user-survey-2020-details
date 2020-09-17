@@ -198,3 +198,20 @@ ax.set_xlabel('Percentage of Participants')
 ax.legend()
 fig.tight_layout()
 ```
+
+## Program Satisfaction
+
+We asked mentees how satisfied they were with their experience in the 
+mentorship program(s).
+
+```{code-cell} ipython3
+---
+tags: [hide-input]
+---
+satisfaction = data['satisfaction'][data['satisfaction'] != '']
+labels, cnts = np.unique(satisfaction, return_counts=True)
+
+fig, ax = plt.subplots(figsize=(8, 8))
+ax.pie(cnts, labels=labels, autopct='%1.1f%%')
+fig.tight_layout()
+```
