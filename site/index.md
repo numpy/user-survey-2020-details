@@ -14,6 +14,7 @@ maxdepth: 2
 content/demographics
 content/contributions
 content/mentorship
+content/priorities
 ```
 
 
