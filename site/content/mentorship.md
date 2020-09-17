@@ -215,3 +215,24 @@ fig, ax = plt.subplots(figsize=(8, 8))
 ax.pie(cnts, labels=labels, autopct='%1.1f%%')
 fig.tight_layout()
 ```
+
+## Interest in a NumPy Mentorship Program
+
+Finally, we asked survey participants whether they would be interested in a
+formal NumPy mentorship program.
+Of the {glue:text}`num_responded_mentorship_interest` participants who 
+responded to this inquiry, {glue:text}`interested_in_mentorship` said that
+they would be interested.
+
+```{code-cell}
+---
+tags: [hide-input]
+---
+num_resp = np.sum(data['interested'] != '')
+num_yes = np.sum(data['interested'] == 'Yes')
+glue('num_responded_mentorship_interest', num_resp, display=False)
+glue(
+    'interested_in_mentorship',
+    f'{num_yes} ({100 * num_yes / num_resp:1.0f}%)',
+    display=False
+)
