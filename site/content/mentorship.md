@@ -131,3 +131,34 @@ ax.set_yticklabels(labels)
 ax.set_xlabel('Percentage of Mentors')
 fig.tight_layout()
 ```
+
+## Mentor Connections
+
+We asked both mentors and mentees how they were matched with their
+counterparts.
+
+```{code-cell} ipython3
+---
+tags: [hide-input]
+---
+fig, ax = plt.subplots(figsize=(12, 8))
+for start_ind, (key, label) in enumerate(zip(
+    ('mentor_connect', 'mentee_connect'),
+    ('Mentors', 'Mentees')
+)):
+    cnxn_data = data[key][data[key] != '']
+    num_resp = cnxn_data.shape[0]
+    labels, cnts = np.unique(flatten(cnxn_data), return_counts=True)
+    # Plot
+    ax.barh(
+        np.arange(start_ind, 2 * len(labels), 2),
+        100 * cnts / num_resp,
+        align='edge',
+        label=label,
+    )
+ax.set_yticks(np.arange(start_ind, 2 * len(labels), 2))
+ax.set_yticklabels(labels)
+ax.set_xlabel('Percentage of Participants')
+ax.legend()
+fig.tight_layout()
+```
