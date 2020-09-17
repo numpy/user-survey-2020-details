@@ -222,17 +222,33 @@ Finally, we asked survey participants whether they would be interested in a
 formal NumPy mentorship program.
 Of the {glue:text}`num_responded_mentorship_interest` participants who 
 responded to this inquiry, {glue:text}`interested_in_mentorship` said that
-they would be interested.
+they would be interested, including {glue:text}`former_mentors` of mentors and
+{glue:text}`former_mentees` of mentees who have previously participated in
+other OSS mentorship programs.
 
 ```{code-cell}
 ---
 tags: [hide-input]
 ---
+all_mentees_mask = mentee_mask | both_mask
 num_resp = np.sum(data['interested'] != '')
 num_yes = np.sum(data['interested'] == 'Yes')
+num_former_mentors_yes = np.sum(data['interested'][all_mentors_mask] == 'Yes')
+num_former_mentees_yes = np.sum(data['interested'][all_mentees_mask] == 'Yes')
+
 glue('num_responded_mentorship_interest', num_resp, display=False)
 glue(
     'interested_in_mentorship',
     f'{num_yes} ({100 * num_yes / num_resp:1.0f}%)',
+    display=False
+)
+glue(
+    'former_mentors',
+    f'{100 * num_former_mentors_yes / all_mentors_mask.sum():1.0f}%',
+    display=False
+)
+glue(
+    'former_mentees',
+    f'{100 * num_former_mentees_yes / all_mentees_mask.sum():1.0f}%',
     display=False
 )
