@@ -60,5 +60,8 @@ with open('_generated/biggest_impacts_list.md', 'w') as outf:
         outf.write(f" - {response}\n")
 ```
 
+````{admonition} Expand to see responses!
+:class: toggle
 ```{include} _generated/biggest_impacts_list.md
 ```
+````
