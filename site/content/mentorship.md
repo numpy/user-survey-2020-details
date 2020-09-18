@@ -17,6 +17,7 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib inline
+from numpy_survey_results.utils import flatten
 # Location of generated content
 os.makedirs('_generated', exist_ok=True)
 # For variable integration
@@ -109,12 +110,7 @@ We asked mentors to share their motivations for serving as OSS mentors.
 tags: [hide-input]
 ---
 all_mentors_mask = mentor_mask | both_mask
-# TODO: move flatten to analysis module so it can be imported
-def flatten(data, delimiter=','):
-    out = []
-    for row in data:
-        out.extend(row.split(delimiter))
-    return out
+
 motivations = data['mentor_motivation'][all_mentors_mask]
 motivations = motivations[motivations != '']
 num_resp = motivations.shape[0]

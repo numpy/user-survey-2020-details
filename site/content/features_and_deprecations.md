@@ -17,6 +17,7 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib inline
+from numpy_survey_results.utils import flatten
 # Location of generated content
 os.makedirs('_generated', exist_ok=True)
 # For variable integration
@@ -117,14 +118,6 @@ resolve the issue.
 ---
 tags: [hide-input]
 ---
-# TODO: Import this instead
-# Helper function for collating data
-def flatten(data, delimiter=','):
-    out = []
-    for row in data:
-        out.extend(row.split(delimiter))
-    return out
-
 bug_resolution = data['bug_resolution'][data['bug_resolution'] != '']
 labels, cnts = np.unique(flatten(bug_resolution), return_counts=True)
 I = np.argsort(cnts)
