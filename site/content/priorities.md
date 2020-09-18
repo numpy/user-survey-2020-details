@@ -131,12 +131,11 @@ ax.set_xlabel('Percent of Responses')
 fig.tight_layout()
 ```
 
-Figure {ref}`fig:all_priorities` shows the same distribution for each 
-priority level.
+The following figure shows the same distribution for each priority level.
 
 ```{code-cell} ipython3
 ---
-tags: [hide-input,remove-output]
+tags: [hide-input]
 ---
 fig, axes = plt.subplots(3, 2, figsize=(12, 8))
 
@@ -146,14 +145,6 @@ for i, ax in enumerate(axes.ravel()):
     ax.barh(np.arange(cnts.shape[0]), 100 * cnts / cnts.sum(), tick_label=labels)
     ax.set_title(f"Priority: {priority_level}")
 fig.tight_layout()
-# Save for linking
-plt.savefig('_generated/priority_distributions.png')
 ```
 
-(fig:all_priorities)=
-
-````{admonition} Click to show/hide
-:class: toggle
-```{figure} _generated/priority_distributions.png
-```
-````
+% TODO: Add analysis of the write-in answers
