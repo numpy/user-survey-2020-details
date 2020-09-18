@@ -136,7 +136,7 @@ priority level.
 
 ```{code-cell} ipython3
 ---
-tags: [hide-input]
+tags: [hide-input,remove-output]
 ---
 fig, axes = plt.subplots(3, 2, figsize=(12, 8))
 
@@ -146,4 +146,14 @@ for i, ax in enumerate(axes.ravel()):
     ax.barh(np.arange(cnts.shape[0]), 100 * cnts / cnts.sum(), tick_label=labels)
     ax.set_title(f"Priority: {priority_level}")
 fig.tight_layout()
+# Save for linking
+plt.savefig('_generated/priority_distributions.png')
 ```
+
+(fig:all_priorities)=
+
+````{admonition} Click to show/hide
+:class: toggle
+```{figure} _generated/priority_distributions.png
+```
+````
