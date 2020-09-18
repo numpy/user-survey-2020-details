@@ -55,7 +55,7 @@ cycles.
 A [new API for random number generation][nprandom] was added to `numpy.random`
 in version 1.17.
 We asked survey paricipants whether they were using the new random API.
-Of the {glue:text}`num_respondents` survey participants, 
+Of the {glue:text}`num_respondents` survey participants,
 {glue:text}`num_random_users` shared whether they were using the new `random`
 API.
 
@@ -78,6 +78,8 @@ glue(
     display=False
 )
 ```
+
+(sec:handling_issues)=
 
 ## Handling Issues
 
@@ -108,3 +110,73 @@ glue(
 )
 ```
 
+We asked those who reported experience issues what action(s) they took to
+resolve the issue.
+
+```{code-cell} ipython3
+---
+tags: [hide-input]
+---
+# TODO: Import this instead
+# Helper function for collating data
+def flatten(data, delimiter=','):
+    out = []
+    for row in data:
+        out.extend(row.split(delimiter))
+    return out
+
+bug_resolution = data['bug_resolution'][data['bug_resolution'] != '']
+labels, cnts = np.unique(flatten(bug_resolution), return_counts=True)
+I = np.argsort(cnts)
+labels, cnts = labels[I], cnts[I]
+
+fig, ax = plt.subplots(figsize=(12, 8))
+ax.barh(
+    np.arange(len(labels)),
+    100 * cnts / bug_resolution.shape[0], 
+    tick_label=labels,
+)
+ax.set_xlabel('Percentage of Respondents')
+fig.tight_layout()
+```
+
+## Data Analysis with NumPy
+
+Similar to the {ref}`the previous question <sec:handling_issues>`, we tried to
+get a sense of how well NumPy meets users' data analysis needs.
+We asked the following question:
+
+  > In the last year, have you encountered a problem involving numerical data
+  > that you were unable to solve using NumPy?
+
+Of the {glue:text}`num_respondents` survey participants, 
+{glue:text}`num_solvers` responded to the above question, with 
+{glue:text}`num_unsolved` reporting that they've had a problem that they 
+initially expected to be able to solve using NumPy, but were unable to do so.
+
+```{code-cell} ipython3
+---
+tags: [hide-input]
+---
+unsolvable = data['unsolvable'][data['unsolvable'] != '']
+labels, cnts = np.unique(unsolvable, return_counts=True)
+num_yes = np.sum(unsolvable == 'Yes')
+
+fig, ax = plt.subplots(figsize=(8, 8))
+ax.pie(cnts, labels=labels, autopct='%1.1f%%')
+fig.tight_layout()
+
+glue(
+    'num_solvers',
+    f'{unsolvable.shape[0]} ({100 * unsolvable.shape[0] / data.shape[0]:1.0f}%)',
+    display=False,
+)
+glue(
+    'num_unsolved',
+    f'{num_yes} ({100 * num_yes / unsolvable.shape[0]:1.0f}%)',
+    display=False
+)
+```
+
+We asked those that responded "Yes" to the previous question what action(s)
+they took to resolve the issue.
