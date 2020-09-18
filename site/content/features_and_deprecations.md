@@ -78,3 +78,33 @@ glue(
     display=False
 )
 ```
+
+## Handling Issues
+
+We wanted to get a sense of how often users experience issues with NumPy, so
+we asked the following question:
+
+  > In the last year, have you experienced problems in code you’ve written
+  > stemming from a problem in NumPy?
+
+Of the {glue:text}`num_respondents` survey participants,
+{glue:text}`bug_reporters` responded to this question.
+
+```{code-cell} ipython3
+---
+tags: [hide-input]
+---
+bug = data['bug'][data['bug'] != '']
+labels, cnts = np.unique(bug, return_counts=True)
+
+fig, ax = plt.subplots(figsize=(8, 8))
+ax.pie(cnts, labels=labels, autopct='%1.1f%%')
+fig.tight_layout()
+
+glue(
+    'bug_reporters',
+    f'{bug.shape[0]} ({100 * bug.shape[0] / data.shape[0]:1.0f}%)',
+    display=False,
+)
+```
+
