@@ -43,10 +43,31 @@ other_changes = data[:, 1][data[:, 1] != '']
 rng = np.random.default_rng(0xDEADC0DE)
 rng.shuffle(biggest_impact)
 rng.shuffle(other_changes)
+# Reporting values
+glue(
+    'num_biggest_impact',
+    f'{biggest_impact.shape[0]} ({100 * biggest_impact.shape[0] / data.shape[0]:1.0f}%)',
+    display=False
+)
+glue(
+    'num_other',
+    f'{other_changes.shape[0]} ({100 * other_changes.shape[0] / data.shape[0]:1.0f}%)',
+    display=False
+)
 ```
 
 To conclude the survey, we asked participants to share their thoughts on what
 changes to NumPy would have the most significant impact for them as users.
+
+## Biggest Impact
+
+We asked survey participants the following question:
+
+  > What single immediate change to NumPy would bring the most value to
+  > you as a NumPy user?
+
+The responses of the {glue:text}`num_biggest_impact` survey participants who
+answered this question are listed below.
 
 % TODO: Switch to fully-translated dataset
 
