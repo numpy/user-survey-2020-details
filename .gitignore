@@ -1,5 +1,7 @@
 __pycache__/*
+build/*
 site/_build/*
 data/*
 site/content/_generated/*
 survey_analysis/*
+*.egg-info/*

@@ -29,7 +29,7 @@ analysis:
 ```bash
 python -m venv survey_analysis
 source survey_analysis/bin/activate
-python -m pip install -r requirements.txt -r site/requirements.txt
+python -m pip install .[publish]
 ```
 
 ### Running the analysis
