@@ -15,6 +15,7 @@ content/demographics
 content/contributions
 content/mentorship
 content/priorities
+content/features_and_deprecations
 ```
 
 
