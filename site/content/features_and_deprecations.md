@@ -180,3 +180,23 @@ glue(
 
 We asked those that responded "Yes" to the previous question what action(s)
 they took to resolve the issue.
+
+```{code-cell} ipython3
+---
+tags: [hide-input]
+---
+resolution = data['unsolvable_resolution'][data['unsolvable'] == 'Yes']
+resolution = resolution[resolution != '']
+labels, cnts = np.unique(flatten(resolution), return_counts=True)
+I = np.argsort(cnts)
+labels, cnts = labels[I], cnts[I]
+
+fig, ax = plt.subplots(figsize=(12, 8))
+ax.barh(
+    np.arange(len(labels)),
+    100 * cnts / resolution.shape[0], 
+    tick_label=labels,
+)
+ax.set_xlabel('Percentage of Respondents')
+fig.tight_layout()
+```
