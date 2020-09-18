@@ -37,7 +37,7 @@ column_names = [
 ]
 featdep_dtype = np.dtype({
     "names": column_names,
-    "formats": ['U1'] * len(column_names),
+    "formats": ['U1024'] * len(column_names),
 })
 
 data = np.loadtxt(
@@ -49,3 +49,32 @@ data = np.loadtxt(
 This section comprises various questions to try to gain insight on things
 like new feature adoption, issue resolution, and the length of deprecation
 cycles.
+
+## New `numpy.random` Adoption
+
+A [new API for random number generation][nprandom] was added to `numpy.random`
+in version 1.17.
+We asked survey paricipants whether they were using the new random API.
+Of the {glue:text}`num_respondents` survey participants, 
+{glue:text}`num_random_users` shared whether they were using the new `random`
+API.
+
+[nprandom]: https://numpy.org/doc/stable/reference/random/index.html
+
+```{code-cell} ipython3
+---
+tags: [hide-input]
+---
+rand = data['using_random'][data['using_random'] != '']
+labels, cnts = np.unique(rand, return_counts=True)
+
+fig, ax = plt.subplots(figsize=(8, 8))
+ax.pie(cnts, labels=labels, autopct='%1.1f%%')
+fig.tight_layout()
+
+glue(
+    'num_random_users',
+    f'{rand.shape[0]} ({100 * rand.shape[0] / data.shape[0]:1.0f}%)',
+    display=False
+)
+```
