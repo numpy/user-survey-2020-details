@@ -104,6 +104,11 @@ ax.set_xlabel('Relative Borda score (%)')
 fig.tight_layout()
 ```
 
+In {ref}`sec:priorities` we will take a closer look at how things are
+prioritized.
+
+(sec:priorities)=
+
 ## Priorities
 
 The following figure shows the breakdown of the top priority items.
@@ -126,4 +131,19 @@ ax.set_xlabel('Percent of Responses')
 fig.tight_layout()
 ```
 
-Figure {ref}`fig:all_priorities` shows the distribution of 
+Figure {ref}`fig:all_priorities` shows the same distribution for each 
+priority level.
+
+```{code-cell} ipython3
+---
+tags: [hide-input]
+---
+fig, axes = plt.subplots(3, 2, figsize=(12, 8))
+
+for i, ax in enumerate(axes.ravel()):
+    priority_level = i + 1
+    cnts = np.sum(raw == priority_level, axis=0)[I]
+    ax.barh(np.arange(cnts.shape[0]), 100 * cnts / cnts.sum(), tick_label=labels)
+    ax.set_title(f"Priority: {priority_level}")
+fig.tight_layout()
+```
