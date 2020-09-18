@@ -71,23 +71,59 @@ for category in sorted(column_names[:-1]):
 A write-in category (`Other`) was also included so that participants could
 share priorities beyond those listed above.
 
+## Overview
+
 Of the {glue:text}`num_respondents` survey participants,
 {glue:text}`num_prioritizers` shared their priorities for NumPy moving forward.
+
+To get a sense of the overall relative "importance" of each of the categories,
+the following figure summarizes the score for each category as determined by
+the [Borda counting procedure for ranked-choice voting][borda-wiki].
+
+[borda-wiki]: https://en.wikipedia.org/wiki/Borda_count
+
+% TODO: Expand on this if we keep it: Borda counting scheme for ranked-choice voting
 
 ```{code-cell} ipython3
 ---
 tags: [hide-input]
 ---
-# GitHub-style horizontal bargraph showing the % composition of each topic
-# for each priority level
-colors = ['r', 'g', 'b', 'y', 'm', 'c', 'k']
-
 # Unstructured, numerical data
 raw = data.view(np.dtype('U1')).reshape(-1, len(column_names)).astype(int)
-for priority_num in np.arange(len(column_names)) + 1:
-    # Right and left bounds for horizontal rectangle
-    right = np.sum(raw == priority_num, axis=0)
-    left = np.concatenate(([0], np.cumsum(right)[:-1]))
-    for l, r, c, lbl in zip(left, right, colors, column_names):
-        plt.barh(priority_num, r, left=l, color=c, label=lbl)
+borda = len(column_names) + 1 - raw
+relative_score = np.sum(borda, axis=0)
+relative_score = 100 * relative_score / relative_score.sum()
+# Prettify labels for plotting
+labels = np.array([l.replace('_', ' ').capitalize() for l in column_names])
+I = np.argsort(relative_score)
+labels, relative_score = labels[I], relative_score[I]
+
+fig, ax = plt.subplots(figsize=(12, 8))
+ax.barh(np.arange(len(relative_score)), relative_score, tick_label=labels)
+ax.set_xlabel('Relative Borda score (%)')
+fig.tight_layout()
 ```
+
+## Priorities
+
+The following figure shows the breakdown of the top priority items.
+
+```{code-cell} ipython3
+---
+tags: [hide-input]
+---
+# Prettify labels for plotting
+labels = np.array([l.replace('_', ' ').capitalize() for l in column_names])
+# Collate top-priority data
+cnts = np.sum(raw == 1, axis=0)
+I = np.argsort(cnts)
+labels, cnts = labels[I], cnts[I]
+
+fig, ax = plt.subplots(figsize=(12, 8))
+ax.barh(np.arange(cnts.shape[0]), 100 * cnts / cnts.sum(), tick_label=labels)
+ax.set_title('Distribution of Top Priority')
+ax.set_xlabel('Percent of Responses')
+fig.tight_layout()
+```
+
+Figure {ref}`fig:all_priorities` shows the distribution of 
