@@ -86,3 +86,28 @@ with open('_generated/biggest_impacts_list.md', 'w') as outf:
 ```{include} _generated/biggest_impacts_list.md
 ```
 ````
+
+## Other Significant Changes
+
+Finally, we asked participants to share any other changes that would 
+significantly improve NumPy.
+The responses of the {glue:text}`num_other` participants who answered this
+question are listed below.
+
+% TODO: Switch to fully-translated dataset
+
+```{code-cell} ipython3
+---
+tags: [hide-input]
+---
+# Generate a nicely-formatted md list
+with open('_generated/other_changes_list.md', 'w') as outf:
+    for response in other_changes:
+        outf.write(f" - {response}\n")
+```
+
+````{admonition} Expand to see responses!
+:class: toggle
+```{include} _generated/other_changes_list.md
+```
+````
