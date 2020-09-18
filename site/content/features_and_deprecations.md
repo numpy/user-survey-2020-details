@@ -200,3 +200,31 @@ ax.barh(
 ax.set_xlabel('Percentage of Respondents')
 fig.tight_layout()
 ```
+
+## Deprecation Timeframe
+
+We asked survey participants to share their opinion on the NumPy
+deprecation cycle, specifically:
+
+  > What do you consider as a good deprecation time frame?
+
+Of the {glue:text}`num_respondents` survey participants,
+{glue:text}`dep_opinions` responded to this question.
+
+```{code-cell} ipython3
+---
+tags: [hide-input]
+---
+depcycle = data['deprecation'][data['deprecation'] != '']
+labels, cnts = np.unique(depcycle, return_counts=True)
+
+fig, ax = plt.subplots(figsize=(8, 8))
+ax.pie(cnts, labels=labels, autopct='%1.1f%%')
+fig.tight_layout()
+
+glue(
+    'dep_opinions',
+    f'{depcycle.shape[0]} ({100 * depcycle.shape[0] / data.shape[0]:1.0f}%)',
+    display=False
+)
+```
