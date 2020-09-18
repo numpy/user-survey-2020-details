@@ -17,6 +17,7 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib inline
+from numpy_survey_results.utils import gluval
 # Location of generated content
 os.makedirs('_generated', exist_ok=True)
 # For variable integration
@@ -330,10 +331,10 @@ for row in plo:
     aplo.extend([l.strip().lower() for l in row.split(',')])
 labels, cnts = np.unique(aplo, return_counts=True)
 
-glue('percent_other', f'{100 * len(plo) / len(pl):1.1f}', display=False)
+glue('percent_other', gluval(len(plo), len(pl)), display=False)
 #NOTE: capitalization doesn't generalize!
 glue('most_popular', labels[np.argmax(cnts)].capitalize(), display=False)
-glue('most_popular_pct', f'{100 * cnts.max() / len(pl):1.1f}', display=False)
+glue('most_popular_pct', gluval(cnts.max(), len(pl)), display=False)
 ```
 
 ```{code-cell} ipython3

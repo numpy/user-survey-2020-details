@@ -17,7 +17,7 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib inline
-from numpy_survey_results.utils import flatten
+from numpy_survey_results.utils import flatten, gluval
 # Location of generated content
 os.makedirs('_generated', exist_ok=True)
 # For variable integration
@@ -75,7 +75,7 @@ fig.tight_layout()
 
 glue(
     'num_random_users',
-    f'{rand.shape[0]} ({100 * rand.shape[0] / data.shape[0]:1.0f}%)',
+    gluval(rand.shape[0], data.shape[0]),
     display=False
 )
 ```
@@ -106,7 +106,7 @@ fig.tight_layout()
 
 glue(
     'bug_reporters',
-    f'{bug.shape[0]} ({100 * bug.shape[0] / data.shape[0]:1.0f}%)',
+    gluval(bug.shape[0], data.shape[0]),
     display=False,
 )
 ```
@@ -161,12 +161,12 @@ fig.tight_layout()
 
 glue(
     'num_solvers',
-    f'{unsolvable.shape[0]} ({100 * unsolvable.shape[0] / data.shape[0]:1.0f}%)',
+    gluval(unsolvable.shape[0], data.shape[0]),
     display=False,
 )
 glue(
     'num_unsolved',
-    f'{num_yes} ({100 * num_yes / unsolvable.shape[0]:1.0f}%)',
+    gluval(num_yes, unsolvable.shape[0]),
     display=False
 )
 ```
@@ -217,7 +217,7 @@ fig.tight_layout()
 
 glue(
     'dep_opinions',
-    f'{depcycle.shape[0]} ({100 * depcycle.shape[0] / data.shape[0]:1.0f}%)',
+    gluval(depcycle.shape[0], data.shape[0]),
     display=False
 )
 ```

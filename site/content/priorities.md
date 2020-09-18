@@ -17,6 +17,7 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib inline
+from numpy_survey_results.utils import gluval
 # Location of generated content
 os.makedirs('_generated', exist_ok=True)
 # For variable integration
@@ -49,11 +50,7 @@ num_respondents = data.shape[0]
 unstructured = data.view(np.dtype('(7,)U1'))
 data = data[~np.any(unstructured == '', axis=1)]
 
-glue(
-    'num_prioritizers',
-    f'{data.shape[0]} ({100 * data.shape[0] / num_respondents:1.0f}%)',
-    display=False
-)
+glue('num_prioritizers', gluval(data.shape[0], num_respondents), display=False)
 ```
 
 We asked survey respondents to share their priorities for NumPy to get a sense

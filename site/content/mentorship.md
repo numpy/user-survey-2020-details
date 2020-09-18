@@ -17,7 +17,7 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib inline
-from numpy_survey_results.utils import flatten
+from numpy_survey_results.utils import flatten, gluval
 # Location of generated content
 os.makedirs('_generated', exist_ok=True)
 # For variable integration
@@ -65,16 +65,24 @@ of mentorship program dealing with scientific software:
 tags: [hide-input]
 ---
 participant_mask = data['participated'] == 'Yes'
-glue('num_mentorship_participants', participant_mask.sum(), display=False)
+glue(
+    'num_mentorship_participants',
+    gluval(participant_mask.sum(), data.shape[0]),
+    display=False
+)
 mentor_mask, mentee_mask, both_mask = (
     data['role'] == key for key in ('Mentor', 'Mentee', 'Both')
 )
 num_mentors = mentor_mask.sum()
 num_mentees = mentee_mask.sum()
 num_both = both_mask.sum()
-glue('num_mentors', num_mentors, display=False)
-glue('num_mentees', num_mentees, display=False)
-glue('num_both', num_both, display=False)
+glue(
+    'num_mentors',
+    gluval(num_mentors, participant_mask.sum()),
+    display=False
+)
+glue('num_mentees', gluval(num_mentees, participant_mask.sum()), display=False)
+glue('num_both', gluval(num_both, participant_mask.sum()), display=False)
 ```
 
 ## Paid vs. Unpaid Programs
@@ -91,12 +99,12 @@ num_paid_mentors = np.sum(data['mentor_paid'] == 'Yes')
 num_charged_mentees = np.sum(data['mentee_charged'] == 'Yes')
 glue(
     'mentors_paid',
-    f'{num_paid_mentors} ({100 * num_paid_mentors / (num_mentors + num_both):1.0f}%)',
+    gluval(num_paid_mentors, (num_mentors + num_both)),
     display=False,
 )
 glue(
     'mentees_charged',
-    f'{num_charged_mentees} ({100 * num_charged_mentees / (num_mentees + num_both):1.0f}%)',
+    gluval(num_charged_mentees, (num_mentees + num_both)),
     display=False,
 )
 ```
@@ -233,18 +241,14 @@ num_former_mentors_yes = np.sum(data['interested'][all_mentors_mask] == 'Yes')
 num_former_mentees_yes = np.sum(data['interested'][all_mentees_mask] == 'Yes')
 
 glue('num_responded_mentorship_interest', num_resp, display=False)
-glue(
-    'interested_in_mentorship',
-    f'{num_yes} ({100 * num_yes / num_resp:1.0f}%)',
-    display=False
-)
+glue('interested_in_mentorship', gluval(num_yes, num_resp), display=False)
 glue(
     'former_mentors',
-    f'{100 * num_former_mentors_yes / all_mentors_mask.sum():1.0f}%',
+    gluval(num_former_mentors_yes, all_mentors_mask.sum()),
     display=False
 )
 glue(
     'former_mentees',
-    f'{100 * num_former_mentees_yes / all_mentees_mask.sum():1.0f}%',
+    gluval(num_former_mentees_yes, all_mentees_mask.sum()),
     display=False
 )

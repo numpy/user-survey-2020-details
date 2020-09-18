@@ -29,3 +29,6 @@ def flatten(data, delimiter=','):
     for row in data:
         out.extend(row.split(delimiter))
     return out
+
+def gluval(value, denom=1):
+    return f"{value} ({100 * value / denom:1.0f}%)"

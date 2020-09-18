@@ -17,6 +17,7 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib inline
+from numpy_survey_results.utils import gluval
 # Location of generated content
 os.makedirs('_generated', exist_ok=True)
 # For variable integration
@@ -46,12 +47,12 @@ rng.shuffle(other_changes)
 # Reporting values
 glue(
     'num_biggest_impact',
-    f'{biggest_impact.shape[0]} ({100 * biggest_impact.shape[0] / data.shape[0]:1.0f}%)',
+    gluval(biggest_impact.shape[0], data.shape[0]),
     display=False
 )
 glue(
     'num_other',
-    f'{other_changes.shape[0]} ({100 * other_changes.shape[0] / data.shape[0]:1.0f}%)',
+    gluval(other_changes.shape[0], data.shape[0]),
     display=False
 )
 ```

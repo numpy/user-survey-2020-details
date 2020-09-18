@@ -17,7 +17,7 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib inline
-from numpy_survey_results.utils import flatten
+from numpy_survey_results.utils import flatten, gluval
 # Location of generated content
 os.makedirs('_generated', exist_ok=True)
 # For variable integration
@@ -95,27 +95,27 @@ num_np_regular = np.sum(npdata['regular'][np_contributors_mask] == 'Yes')
 glue('num_respondents', npdata.shape[0], display=False);
 glue(
     'oss_contributors',
-    f'{num_oss_contributors} ({100 * num_oss_contributors / num_respondents:1.0f}%)',
+    gluval(num_oss_contributors, num_respondents),
     display=False
 )
 glue(
     'np_contributors',
-    f'{num_np_contributors} ({100 * num_np_contributors / num_respondents:1.0f}%)',
+    gluval(num_np_contributors, num_respondents),
     display=False
 )
 glue(
     'numpy_and_oss_contributors',
-    f'{num_both_contributors} ({100 * num_both_contributors / num_np_contributors:1.0f}%)',
+    gluval(num_both_contributors, num_np_contributors),
     display=False
 )
 glue(
     'oss_regulars',
-    f'{num_oss_regular} ({100 * num_oss_regular / num_oss_contributors:1.0f}%)',
+    gluval(num_oss_regular, num_oss_contributors),
     display=False
 )
 glue(
     'np_regulars',
-    f'{num_np_regular} ({100 * num_np_regular / num_np_contributors:1.0f}%)',
+    gluval(num_np_regular, num_np_contributors),
     display=False
 )
 ```
@@ -302,7 +302,7 @@ np_regular_mask = npdata['regular'] == 'Yes'
 regular_continue = npdata['continue'][np_regular_mask] == 'Yes'
 glue(
     'regular_continue_pct',
-    f'{100 * regular_continue.sum() / np_regular_mask.sum():1.0f}%',
+    gluval(regular_continue.sum(), np_regular_mask.sum()),
     display=False
 )
 non_regular_contributor_mask = (np_contributors_mask) & (~np_regular_mask)
@@ -338,8 +338,16 @@ tags: [hide-input]
 ---
 num_oss_non_contributors = np.sum(ossdata['contributed'] == 'No')
 num_np_non_contributors = np.sum(npdata['contributed'] == 'No')
-glue('oss_non_contributors', num_oss_non_contributors, display=False)
-glue('np_non_contributors', num_np_non_contributors, display=False)
+glue(
+    'oss_non_contributors',
+    gluval(num_oss_non_contributors, num_respondents),
+    display=False
+)
+glue(
+    'np_non_contributors',
+    gluval(num_np_non_contributors, num_respondents),
+    display=False
+)
 ```
 
 ## Interest in Contributing
@@ -358,12 +366,12 @@ oss_interested_mask = (ossdata['contributed'] == 'No') & (ossdata['interested'] 
 np_interested_mask = (npdata['contributed'] == 'No') & (npdata['interested'] == 'Yes')
 glue(
     'oss_interested',
-    f'{oss_interested_mask.sum()} ({100 * oss_interested_mask.sum() / num_oss_non_contributors:1.0f}%)',
+    gluval(oss_interested_mask.sum(), num_oss_non_contributors),
     display=False
 )
 glue(
     'np_interested',
-    f'{np_interested_mask.sum()} ({100 * np_interested_mask.sum() / num_np_non_contributors:1.0f}%)',
+    gluval(np_interested_mask.sum(), num_np_non_contributors),
     display=False
 )
 ```
