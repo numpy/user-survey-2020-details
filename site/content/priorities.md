@@ -106,7 +106,7 @@ prioritized.
 
 (sec:priorities)=
 
-## Priorities
+## Top Priorities
 
 The following figure shows the breakdown of the top priority items.
 
@@ -127,6 +127,59 @@ ax.set_title('Distribution of Top Priority')
 ax.set_xlabel('Percent of Responses')
 fig.tight_layout()
 ```
+
+## Top Priority - Details
+
+We asked respondents who shared their priorities to provide specifics on their
+top two priorities.
+For example, if a user ranked "Performance" as a top priority, they were asked
+to share any specific thoughts on how performance could be improved.
+The responses for each of the categories are provided below.
+
+```{code-cell} ipython3
+---
+tags: [hide-input]
+---
+categories = {
+    "docs", "newfeatures", "other", "packaging", "performance", "reliability",
+    "website",
+}
+
+# Load the text responses for each category
+response_dict = {}
+for category in categories:
+    responses = np.loadtxt(
+        f"data/{category}_comments_master.tsv", delimiter='\t', skiprows=1,
+        usecols=0, dtype='U', comments=None
+    )
+    responses = responses[responses != '']
+    response_dict[category] = responses
+
+# Generate nicely-formatted lists
+for category, responses in response_dict.items():
+    with open(f"_generated/{category}_comments_list.md", "w") as outf:
+        outf.write("|Comments|\n")
+        outf.write("|--------|\n")
+        for response in responses:
+            outf.write(f"|{response}|\n")
+
+# Register number of responses in each category
+for k, v in response_dict.items():
+    glue(f"num_{k}_comments", v.shape[0], display=False)
+```
+
+### Documentation
+
+{glue:text}`num_docs_comments` participants shared their thoughts on how
+documentation could be improved.
+
+````{admonition} Click to expand!
+:class: toggle
+```{include} _generated/docs_comments_list.md
+```
+````
+
+## All Priorities
 
 The following figure shows the same distribution for each priority level.
 
