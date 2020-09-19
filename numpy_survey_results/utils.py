@@ -32,3 +32,33 @@ def flatten(data, delimiter=','):
 
 def gluval(value, denom=1):
     return f"{value} ({100 * value / denom:1.0f}%)"
+
+def gen_mdlist(data, fname, title="Comments"):
+    """
+    Generate a list in single-column Markdown table from a 1D data.
+
+    To be used for including write-in comments.
+
+    Examples
+    --------
+    The following example will generated a file at _generated/mytable.md
+    with the following contents::
+
+        |Comments|
+        |--------|
+        |I like x|
+        |I like y|
+        |I don't like anything|
+
+    >>> data = [
+    ...     "I like x",
+    ...     "I like y",
+    ...     "I don't like anything",
+    ... ]
+    >>> gen_mdlist(data, "mytable.md")
+    """
+    with open(f"_generated/{fname}", "w") as outf:
+        outf.write(f"|{title}|\n")
+        outf.write(f"|{'-' * len(title)}|\n")
+        for row in data:
+            outf.write(f"|{row}|\n")

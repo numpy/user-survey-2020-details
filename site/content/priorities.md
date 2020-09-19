@@ -17,7 +17,7 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib inline
-from numpy_survey_results.utils import gluval
+from numpy_survey_results.utils import gluval, gen_mdlist
 # Location of generated content
 os.makedirs('_generated', exist_ok=True)
 # For variable integration
@@ -157,11 +157,7 @@ for category in categories:
 
 # Generate nicely-formatted lists
 for category, responses in response_dict.items():
-    with open(f"_generated/{category}_comments_list.md", "w") as outf:
-        outf.write("|Comments|\n")
-        outf.write("|--------|\n")
-        for response in responses:
-            outf.write(f"|{response}|\n")
+    gen_mdlist(responses, f"{category}_comments_list.md")
 
 # Register number of responses in each category
 for k, v in response_dict.items():
