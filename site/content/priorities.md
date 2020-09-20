@@ -192,13 +192,59 @@ new features to improve NumPy.
 
 ### Other
 
+{glue:text}`num_other_comments` participants selected "Other" as a top
+priority:
+
+````{admonition} Click to expand!
+:class: toggle
+```{include} _generated/other_comments_list.md
+```
+````
+
 ### Packaging
+
+{glue:text}`num_packaging_comments` participants shared their thoughts on how
+the packaging utilities in NumPy could be improved.
+
+````{admonition} Click to expand!
+:class: toggle
+```{include} _generated/packaging_comments_list.md
+```
+````
 
 ### Performance
 
+{glue:text}`num_performance_comments` participants shared thoughts on why
+performance is a top priority and ideas on how it can be improved.
+
+````{admonition} Click to expand!
+:class: toggle
+```{include} _generated/performance_comments_list.md
+```
+````
+
 ### Reliability
 
+{glue:text}`num_reliability_comments` participants shared their thoughts on
+reliability and how it can be improved.
+
+````{admonition} Click to expand!
+:class: toggle
+```{include} _generated/reliability_comments_list.md
+```
+````
+
 ### Website
+
+Finally, {glue:text}`num_website_comments` participants selected the
+NumPy website as a top priority and shared their thoughts on how it could
+be improved.
+
+````{admonition} Click to expand!
+:class: toggle
+```{include} _generated/website_comments_list.md
+```
+````
 
 ## All Priorities
 
