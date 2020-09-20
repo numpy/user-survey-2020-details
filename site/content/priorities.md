@@ -128,7 +128,7 @@ ax.set_xlabel('Percent of Responses')
 fig.tight_layout()
 ```
 
-## Top Priority - Details
+### Details
 
 We asked respondents who shared their priorities to provide specifics on their
 top two priorities.
@@ -168,7 +168,7 @@ for k, v in response_dict.items():
 % programmatically. For example, if myst-nb adds support for the 
 % IPython.display Markdown() function
 
-### Documentation
+#### Documentation
 
 {glue:text}`num_docs_comments` participants shared their thoughts on how
 documentation could be improved.
@@ -179,7 +179,7 @@ documentation could be improved.
 ```
 ````
 
-### New Features
+#### New Features
 
 {glue:text}`num_newfeatures_comments` participants shared their thoughts on
 new features to improve NumPy.
@@ -190,7 +190,7 @@ new features to improve NumPy.
 ```
 ````
 
-### Other
+#### Other
 
 {glue:text}`num_other_comments` participants selected "Other" as a top
 priority:
@@ -201,7 +201,7 @@ priority:
 ```
 ````
 
-### Packaging
+#### Packaging
 
 {glue:text}`num_packaging_comments` participants shared their thoughts on how
 the packaging utilities in NumPy could be improved.
@@ -212,7 +212,7 @@ the packaging utilities in NumPy could be improved.
 ```
 ````
 
-### Performance
+#### Performance
 
 {glue:text}`num_performance_comments` participants shared thoughts on why
 performance is a top priority and ideas on how it can be improved.
@@ -223,7 +223,7 @@ performance is a top priority and ideas on how it can be improved.
 ```
 ````
 
-### Reliability
+#### Reliability
 
 {glue:text}`num_reliability_comments` participants shared their thoughts on
 reliability and how it can be improved.
@@ -234,7 +234,7 @@ reliability and how it can be improved.
 ```
 ````
 
-### Website
+#### Website
 
 Finally, {glue:text}`num_website_comments` participants selected the
 NumPy website as a top priority and shared their thoughts on how it could
