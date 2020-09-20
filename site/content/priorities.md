@@ -246,9 +246,10 @@ be improved.
 ```
 ````
 
-## All Priorities
+## Summary
 
-The following figure shows the same distribution for each priority level.
+The following figure shows the relative frequency of selection for each of
+the listed categories[^other] at each priority level.
 
 ```{code-cell} ipython3
 ---
@@ -264,4 +265,5 @@ for i, ax in enumerate(axes.ravel()):
 fig.tight_layout()
 ```
 
-% TODO: Add analysis of the write-in answers
+[^other]: Excluding `Other`, which was an optional category and therefore
+          constitutes the majority of the "lowest-priority".
