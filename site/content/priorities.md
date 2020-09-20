@@ -164,6 +164,10 @@ for k, v in response_dict.items():
     glue(f"num_{k}_comments", v.shape[0], display=False)
 ```
 
+% TODO: This would be much more convenient if the MD tables could be included
+% programmatically. For example, if myst-nb adds support for the 
+% IPython.display Markdown() function
+
 ### Documentation
 
 {glue:text}`num_docs_comments` participants shared their thoughts on how
@@ -174,6 +178,27 @@ documentation could be improved.
 ```{include} _generated/docs_comments_list.md
 ```
 ````
+
+### New Features
+
+{glue:text}`num_newfeatures_comments` participants shared their thoughts on
+new features to improve NumPy.
+
+````{admonition} Click to expand!
+:class: toggle
+```{include} _generated/newfeatures_comments_list.md
+```
+````
+
+### Other
+
+### Packaging
+
+### Performance
+
+### Reliability
+
+### Website
 
 ## All Priorities
 
