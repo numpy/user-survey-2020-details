@@ -66,7 +66,8 @@ glue('num_respondents', data.shape[0], display=False)
 
 ## Age
 
-Of the 1236 survey respondents, 1089 shared their age.
+Of the {glue:text}`num_respondents` survey respondents, 
+{glue:text}`num_age_respondents` shared their age.
 
 ```{code-cell} ipython3
 ---
@@ -94,11 +95,14 @@ fig.autofmt_xdate();
 ax.set_title("Age Distribution of Survey Respondents");
 ax.set_xlabel("Age (yrs)");
 ax.set_ylabel("Percentage of Respondents");
+
+glue('num_age_respondents', gluval(age.shape[0], data.shape[0]), display=False)
 ```
 
 ## Gender
 
-Of the 1236 survey respondents, 1100 shared their gender
+Of the {glue:text}`num_respondents` survey respondents,
+{glue:text}`num_gender` shared their gender.
 
 ```{code-cell} ipython3
 ---
@@ -113,11 +117,14 @@ fig, ax = plt.subplots(figsize=(8, 8))
 ax.pie(cnts, labels=labels, autopct='%1.1f%%')
 ax.set_title("Gender Distribution of Survey Respondents");
 fig.tight_layout()
+
+glue('num_gender', gluval(gender.shape[0], data.shape[0]), display=False)
 ```
 
 ## Language Preference
 
-Of the 1236 respondents, 1173 shared their preferred language.
+Of the {glue:text}`num_respondents` respondents,
+{glue:text}`num_lang_pref` shared their preferred language.
 
 ```{code-cell} ipython3
 ---
@@ -140,6 +147,8 @@ with open('_generated/language_preference_table.md', 'w') as of:
     of.write('|--------------|-----------------------------------|\n')
     for lbl, percent in zip(labels, cnts):
         of.write(f'| {lbl} | {percent:1.1f} |\n')
+
+glue('num_lang_pref', gluval(lang.shape[0], data.shape[0]), display=False)
 ```
 
 ````{admonition} Click to show/hide table
@@ -151,8 +160,10 @@ with open('_generated/language_preference_table.md', 'w') as of:
 
 ## Country of Residence
 
-Of the 1236 respondents, 1095 shared their current country of residence. The
-survey saw respondents from 75 countries in all.
+Of the {glue:text}`num_respondents` respondents,
+{glue:text}`num_country_respondents`shared their current country of residence.
+The survey saw respondents from {glue:text}`num_unique_countries` countries in
+all.
 
 The following chart shows the relative number of respondents from ~20 
 countries with the largest number of participants. 
@@ -205,6 +216,13 @@ with open('_generated/countries_by_continent.md', 'w') as of:
     for continent in np.unique(continents):
         clist = remaining_countries[continents == continent]
         of.write(f"| **{continent}:** | {', '.join(clist)} |\n")
+
+glue('num_unique_countries', len(labels), display=False)
+glue(
+    'num_country_respondents',
+    gluval(country.shape[0], data.shape[0]),
+    display=False
+)
 ```
 
 ```{include} _generated/countries_by_continent.md
@@ -212,9 +230,9 @@ with open('_generated/countries_by_continent.md', 'w') as of:
 
 ## Education
 
-1118 respondents shared their education history, spanning the range from 
-pre-highschool graduation through Doctorate level with many other specialist
-degrees. 
+{glue:text}`num_education` respondents shared their education history,
+spanning the range from pre-highschool graduation through Doctorate level with
+many other specialist degrees. 
 The following figure summarizes the distribution for the most common types of
 degrees reported.
 
@@ -230,11 +248,14 @@ ax.pie(cnts, labels=labels, autopct='%1.1f%%', labeldistance=None)
 ax.set_title("Distribution of Highest Degree Obtained by Respondents")
 ax.legend()
 fig.tight_layout()
+
+glue('num_education', gluval(degree.shape[0], data.shape[0]), display=False)
 ```
 
 ## Occupation
 
-1106 respondents shared their current occupation.
+{glue:text}`num_occupation` of survey respondents shared their current
+occupation.
 
 ```{code-cell} ipython3
 ---
@@ -249,6 +270,8 @@ ax.set_yticks(np.arange(len(cnts)))
 ax.set_yticklabels(labels)
 ax.set_xlabel("Number of Respondents")
 fig.tight_layout()
+
+glue('num_occupation', gluval(role.shape[0], data.shape[0]), display=False)
 ```
 
 # Experience and Usage
@@ -373,8 +396,8 @@ glue('older_version_usage', f"{older_version_usage:1.1f}", display=False)
 
 ## Primary Use-Case
 
-1072 respondents provided information about the primary context in which they
-use NumPy.
+{glue:text}`num_primary_use_respondents` respondents provided information about
+the primary context in which they use NumPy.
 
 ```{code-cell} ipython3
 ---
@@ -386,11 +409,18 @@ labels, cnts = np.unique(uses, return_counts=True)
 fig, ax = plt.subplots(figsize=(12, 8))
 ax.pie(cnts, labels=labels, autopct='%1.1f%%')
 fig.tight_layout()
+
+glue(
+    'num_primary_use_respondents',
+    gluval(uses.shape[0], data.shape[0]),
+    display=False
+)
 ```
 
 ## Frequency of Use
 
-1073 respondents provided information about how often they use NumPy.
+{glue:text}`num_freq_respondents` respondents provided information about how
+often they use NumPy.
 
 ```{code-cell} ipython3
 ---
@@ -402,6 +432,8 @@ labels, cnts = np.unique(use_freq, return_counts=True)
 fig, ax = plt.subplots(figsize=(12, 8))
 ax.pie(cnts, labels=labels, autopct='%1.1f%%')
 fig.tight_layout()
+
+glue('num_freq_respondents', gluval(use_freq.shape[0], data.shape[0]), display=False)
 ```
 
 ## NumPy Components
@@ -439,8 +471,8 @@ fig.tight_layout()
 
 ## NumPy C-Extensions
 
-863 participants shared whether they (or their organization) uses custom
-C-extensions via the NumPy C-API (excluding Cython).
+{glue:text}`num_c_ext` participants shared whether they (or their organization)
+uses custom C-extensions via the NumPy C-API (excluding Cython).
 
 ```{code-cell} ipython3
 ---
@@ -453,5 +485,7 @@ labels[0] = 'No response'
 fig, ax = plt.subplots(figsize=(8, 8))
 ax.pie(cnts, labels=labels, autopct='%1.1f%%')
 fig.tight_layout()
+
+glue('num_c_ext', np.sum(uses_c_ext != ''), display=False)
 ```
 
