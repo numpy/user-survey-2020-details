@@ -30,16 +30,20 @@ from myst_nb import glue
 ---
 tags: [hide-input]
 ---
-fname = "data/numpy_survey_results.tsv"
-
-# Load
-data = np.loadtxt(
-    fname, delimiter='\t', skiprows=3, dtype='U', usecols=range(96, 98),
-    comments=None
+loading_params = dict(
+    delimiter="\t", skiprows=1, dtype='U', usecols=0, comments=None
 )
-# Parse
-biggest_impact = data[:, 0][data[:, 0] != '']
-other_changes = data[:, 1][data[:, 1] != '']
+
+biggest_impact = np.loadtxt(
+    "data/biggestimpact_comments_master.tsv", **loading_params
+)
+other_changes = np.loadtxt(
+    "data/significantchanges_comments_master.tsv", **loading_params
+)
+
+# Filter
+biggest_impact = biggest_impact[biggest_impact != '']
+other_changes = other_changes[other_changes != '']
 # Re-order
 rng = np.random.default_rng(0xDEADC0DE)
 rng.shuffle(biggest_impact)
@@ -47,12 +51,12 @@ rng.shuffle(other_changes)
 # Reporting values
 glue(
     'num_biggest_impact',
-    gluval(biggest_impact.shape[0], data.shape[0]),
+    biggest_impact.shape[0],
     display=False
 )
 glue(
     'num_other',
-    gluval(other_changes.shape[0], data.shape[0]),
+    other_changes.shape[0],
     display=False
 )
 ```
