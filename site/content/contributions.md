@@ -93,7 +93,6 @@ num_both_contributors = np.sum(oss_contributors_mask & np_contributors_mask)
 num_oss_regular = np.sum(ossdata['regular'][oss_contributors_mask] == 'Yes')
 num_np_regular = np.sum(npdata['regular'][np_contributors_mask] == 'Yes')
 # Links for report
-glue('num_respondents', npdata.shape[0], display=False);
 glue(
     'oss_contributors',
     gluval(num_oss_contributors, num_respondents),

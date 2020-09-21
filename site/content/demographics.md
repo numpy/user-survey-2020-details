@@ -59,6 +59,8 @@ data = np.loadtxt(
     fname, delimiter='\t', skiprows=3, dtype=demographics_dtype, 
     usecols=range(11, 31), comments=None
 )
+
+glue('num_respondents', data.shape[0], display=False)
 ```
 
 
