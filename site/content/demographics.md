@@ -16,6 +16,7 @@ tags: [remove-cell]
 import os
 import numpy as np
 import matplotlib.pyplot as plt
+plt.style.use('../site.mplstyle')
 %matplotlib inline
 from numpy_survey_results.utils import gluval
 # Location of generated content
@@ -223,8 +224,9 @@ degree = data['degree'][data['degree'] != '']
 labels, cnts = np.unique(degree, return_counts=True)
 
 fig, ax = plt.subplots(figsize=(8, 8))
-ax.pie(cnts, labels=labels, autopct='%1.1f%%')
+ax.pie(cnts, labels=labels, autopct='%1.1f%%', labeldistance=None)
 ax.set_title("Distribution of Highest Degree Obtained by Respondents")
+ax.legend()
 fig.tight_layout()
 ```
 

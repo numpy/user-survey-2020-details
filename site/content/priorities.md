@@ -16,6 +16,7 @@ tags: [remove-cell]
 import os
 import numpy as np
 import matplotlib.pyplot as plt
+plt.style.use('../site.mplstyle')
 %matplotlib inline
 from numpy_survey_results.utils import gluval, gen_mdlist
 # Location of generated content

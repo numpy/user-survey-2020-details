@@ -1,0 +1,7 @@
+# Matplotlib plotting style for the site
+
+axes.titlesize: 20
+axes.labelsize: 18
+xtick.labelsize: 16
+ytick.labelsize: 16
+

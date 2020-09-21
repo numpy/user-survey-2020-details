@@ -16,6 +16,7 @@ tags: [remove-cell]
 import os
 import numpy as np
 import matplotlib.pyplot as plt
+plt.style.use('../site.mplstyle')
 %matplotlib inline
 from numpy_survey_results.utils import flatten, gluval
 # Location of generated content
@@ -101,7 +102,8 @@ bug = data['bug'][data['bug'] != '']
 labels, cnts = np.unique(bug, return_counts=True)
 
 fig, ax = plt.subplots(figsize=(8, 8))
-ax.pie(cnts, labels=labels, autopct='%1.1f%%')
+ax.pie(cnts, labels=labels, autopct='%1.1f%%', labeldistance=None)
+ax.legend()
 fig.tight_layout()
 
 glue(
