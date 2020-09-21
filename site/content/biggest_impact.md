@@ -17,7 +17,7 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 %matplotlib inline
-from numpy_survey_results.utils import gluval
+from numpy_survey_results.utils import gen_mdlist
 # Location of generated content
 os.makedirs('_generated', exist_ok=True)
 # For variable integration
@@ -74,16 +74,11 @@ We asked survey participants the following question:
 The responses of the {glue:text}`num_biggest_impact` survey participants who
 answered this question are listed below.
 
-% TODO: Switch to fully-translated dataset
-
 ```{code-cell} ipython3
 ---
 tags: [hide-input]
 ---
-# Generate a nicely-formatted md list
-with open('_generated/biggest_impacts_list.md', 'w') as outf:
-    for response in biggest_impact:
-        outf.write(f" - {response}\n")
+gen_mdlist(biggest_impact, "biggest_impacts_list.md")
 ```
 
 ````{admonition} Expand to see responses!
@@ -99,16 +94,11 @@ significantly improve NumPy.
 The responses of the {glue:text}`num_other` participants who answered this
 question are listed below.
 
-% TODO: Switch to fully-translated dataset
-
 ```{code-cell} ipython3
 ---
 tags: [hide-input]
 ---
-# Generate a nicely-formatted md list
-with open('_generated/other_changes_list.md', 'w') as outf:
-    for response in other_changes:
-        outf.write(f" - {response}\n")
+gen_mdlist(other_changes, "other_changes_list.md")
 ```
 
 ````{admonition} Expand to see responses!
