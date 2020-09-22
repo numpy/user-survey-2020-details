@@ -45,3 +45,29 @@ make html
 
 The generated site can then be viewed by opening `site/_build/html/index.html`
 in your preferred browser.
+
+## Converting to Jupyter notebooks
+
+For those who are more comfortable with Jupyter notebooks, the `myst-nb`
+text-based notebook files can be converted to `.ipynb` files:
+
+```bash
+cd site
+make notebooks
+```
+
+This converts all of the `.md` files in `content/` to `.ipynb` files of the
+same name and moves them to `site/notebooks`.
+The notebooks can then be opened for interactive use in the standard way, e.g.
+
+```bash
+cd site/notebooks
+jupyter notebook
+```
+
+#### Note:
+
+The text-based notebook format includes more features than are currently
+supported by traditional Jupyter notebooks.
+Therefore, some features (e.g. `glue` or other MyST roles & directives) will
+not render when interacting with the `.ipynb` file.
