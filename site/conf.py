@@ -47,6 +47,9 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'notebooks']
 #
 html_theme = 'pydata_sphinx_theme'
 html_logo = '_static/numpylogo.svg'
+html_theme_options = {
+    "search_bar_text": "Search survey results ...",
+}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
