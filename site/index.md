@@ -18,6 +18,7 @@ content/priorities
 content/features_and_deprecations
 content/biggest_impact
 acknowledgements
+glossary
 ```
 
 %Indices and tables
