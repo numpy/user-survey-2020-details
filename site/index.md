@@ -17,8 +17,8 @@ content/mentorship
 content/priorities
 content/features_and_deprecations
 content/biggest_impact
+acknowledgements
 ```
-
 
 %Indices and tables
 %==================
