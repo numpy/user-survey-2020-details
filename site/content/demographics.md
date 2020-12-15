@@ -252,10 +252,11 @@ fig.tight_layout()
 glue('num_education', gluval(degree.shape[0], data.shape[0]), display=False)
 ```
 
-## Occupation
+## Job Roles
 
-{glue:text}`num_occupation` of survey respondents shared their current
-occupation.
+{glue:text}`num_top_3_categories` of the {glue:text}`num_occupation`
+respondents who shared their occupation identify as an
+{glue:text}`top_3_categories`.
 
 ```{code-cell} ipython3
 ---
@@ -264,6 +265,10 @@ tags: [hide-input]
 role = data['role'][data['role'] != '']
 labels, cnts = np.unique(role, return_counts=True)
 
+# Sort results by number of selections
+inds = np.argsort(cnts)
+labels, cnts = labels[inds], cnts[inds]
+
 fig, ax = plt.subplots(figsize=(12, 8))
 ax.barh(np.arange(len(cnts)), cnts, align='center')
 ax.set_yticks(np.arange(len(cnts)))
@@ -271,7 +276,13 @@ ax.set_yticklabels(labels)
 ax.set_xlabel("Number of Respondents")
 fig.tight_layout()
 
-glue('num_occupation', gluval(role.shape[0], data.shape[0]), display=False)
+glue('num_occupation', role.shape[0], display=False)
+glue(
+    'num_top_3_categories',
+    gluval(cnts[-3:].sum(), role.shape[0]),
+    display=False,
+)
+glue('top_3_categories', f"{labels[-3]}, {labels[-2]}, or {labels[-1]}", display=False)
 ```
 
 # Experience and Usage
