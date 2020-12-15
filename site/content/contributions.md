@@ -443,7 +443,10 @@ fig.tight_layout()
 
 ## Interests of Potential Contributors
 
-We also asked potential NumPy contributors about there interests.
+Of the respondents who expressed interest in contributing to NumPy, most
+({glue:text}`pct_want_contrib_code`) were interested in contributing to the
+source code and {glue:text}`pct_want_contrib_content` expressed interest in
+developing education content or technical documentation.
 
 ```{code-cell} ipython3
 ---
@@ -466,4 +469,16 @@ ax.set_yticks(np.arange(len(labels)))
 ax.set_yticklabels(labels)
 ax.set_xlabel('Percentage of Contributors')
 fig.tight_layout()
+
+# Highlight top categories
+glue('pct_want_contrib_code', f"{100 * cnts[-1] / interests.shape[0]:2.0f}%", display=False)
+contrib_content = cnts[
+    (labels == 'Narrative documentation (e.g. tutorials)') |
+    (labels == 'Technical documentation (e.g. docstrings)')
+]
+glue(
+    'pct_want_contrib_content',
+    f"{100 * contrib_content.sum() / (interests.shape[0] * 2):2.0f}%",
+    display=False,
+)
 ```
