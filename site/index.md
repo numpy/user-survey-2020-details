@@ -24,10 +24,3 @@ content/features_and_deprecations
 content/biggest_impact
 acknowledgements
 ```
-
-%Indices and tables
-%==================
-%
-%* :ref:`genindex`
-%* :ref:`modindex`
-%* :ref:`search`
