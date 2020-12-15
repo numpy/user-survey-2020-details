@@ -297,7 +297,8 @@ fig.tight_layout()
 
 ## Motivations
 
-We asked NumPy contributors about what motivates them to contribute to NumPy.
+{glue:text}`top_3_motivations` are the top three reasons for the respondents
+to contribution to NumPy.
 
 ```{code-cell} ipython3
 ---
@@ -315,6 +316,9 @@ ax.set_yticks(np.arange(len(labels)))
 ax.set_yticklabels(labels)
 ax.set_xlabel('Percentage of NumPy Contributors')
 fig.tight_layout()
+
+# Highlight top 3
+glue('top_3_motivations', f"{labels[-3]}, {labels[-2]}, and {labels[-1]}", display=False)
 ```
 
 ## Retention
