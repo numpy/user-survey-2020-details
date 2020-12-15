@@ -289,6 +289,11 @@ glue('top_3_categories', f"{labels[-3]}, {labels[-2]}, or {labels[-1]}", display
 
 ## Programming Experience
 
+{glue:text}`programming_exp_5plus_years` of respondents have significant
+experience in programming, with veterans (10+ years) taking the lead.
+Interestingly, when it comes to using NumPy, noticeably more of our
+respondents identify as beginners than experienced users.
+
 ```{code-cell} ipython3
 ---
 tags: [hide-input]
@@ -302,6 +307,8 @@ for exp_data, ax in zip(('programming_exp', 'numpy_exp'), axes):
     labels, cnts = np.unique(prog_exp, return_counts=True)
     cnts = 100 * cnts / cnts.sum()
     labels, cnts = labels[ind], cnts[ind]
+    # Generate text on general programming experience
+    glue(f'{exp_data}_5plus_years', f"{cnts[-2:].sum():2.0f}%", display=False)
     # Plotting
     ax.bar(np.arange(len(cnts)), cnts)
     ax.set_xticks(np.arange(len(cnts)))
