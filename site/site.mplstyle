@@ -5,3 +5,5 @@ axes.labelsize: 18
 xtick.labelsize: 16
 ytick.labelsize: 16
 
+# NumPy-branded color scheme for plots
+axes.prop_cycle: cycler('color', ['4d77cf', 'ff9153', '4dabcf', 'ffc553', '9866cf', '1ea896', 'c92c4b', '64113f'])
