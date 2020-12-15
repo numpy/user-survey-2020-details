@@ -322,8 +322,11 @@ fig.tight_layout();
 
 ## Programming Languages
 
-Survey respondents reported being familiar with a wide range of other
-programming languages aside from Python.
+{glue:text}`num_proglang_respondents` of survey participants shared their
+experience with other programming languages.
+{glue:text}`num_top_lang` of respondents are familiar with {glue:text}`top_lang`,
+and {glue:text}`num_2nd_lang` with {glue:text}`second_lang`.
+
 
 ```{code-cell} ipython3
 ---
@@ -331,6 +334,8 @@ tags: [hide-input]
 ---
 pl = data['prog_lang'][data['prog_lang'] != '']
 num_respondents = len(pl)
+glue('num_proglang_respondents', gluval(len(pl), data.shape[0]), display=False)
+
 # Flatten & remove 'Other' write-in option
 other = 'Other (please specify, using commas to separate individual entries)'
 apl = []
@@ -352,12 +357,18 @@ ax.set_yticklabels(labels)
 ax.set_xlabel("Percentage of Respondents")
 ax.set_title("Programming Language Familiarity")
 fig.tight_layout()
+
+# Highlight two most popular
+glue('num_top_lang', f"{cnts[-1]:2.0f}%", display=False)
+glue('top_lang', labels[-1], display=False)
+glue('num_2nd_lang', f"{cnts[-2]:2.0f}%", display=False)
+glue('second_lang', labels[-2], display=False)
 ```
 
 {glue:text}`percent_other` percent of respondents reported familiarity with
 computer languages other than those listed above.
 Of these, {glue:text}`most_popular` was the most popular with 
-{glue:text}`most_popular_pct` percent of users using this language.
+{glue:text}`most_popular_pct` percent of respondents using this language.
 A listing of other reported languages can be found below (click to expand).
 
 %TODO: Create mapping to consolidate write-in responses, e.g. 
