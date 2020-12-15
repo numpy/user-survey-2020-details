@@ -14,7 +14,7 @@ landscape of the NumPy community.
 
 ```{toctree}
 ---
-maxdepth: 2
+maxdepth: 1
 ---
 content/demographics
 content/contributions
