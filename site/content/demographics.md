@@ -252,10 +252,11 @@ fig.tight_layout()
 glue('num_education', gluval(degree.shape[0], data.shape[0]), display=False)
 ```
 
-## Occupation
+## Job Roles
 
-{glue:text}`num_occupation` of survey respondents shared their current
-occupation.
+{glue:text}`num_top_3_categories` of the {glue:text}`num_occupation`
+respondents who shared their occupation identify as an
+{glue:text}`top_3_categories`.
 
 ```{code-cell} ipython3
 ---
@@ -264,6 +265,10 @@ tags: [hide-input]
 role = data['role'][data['role'] != '']
 labels, cnts = np.unique(role, return_counts=True)
 
+# Sort results by number of selections
+inds = np.argsort(cnts)
+labels, cnts = labels[inds], cnts[inds]
+
 fig, ax = plt.subplots(figsize=(12, 8))
 ax.barh(np.arange(len(cnts)), cnts, align='center')
 ax.set_yticks(np.arange(len(cnts)))
@@ -271,12 +276,23 @@ ax.set_yticklabels(labels)
 ax.set_xlabel("Number of Respondents")
 fig.tight_layout()
 
-glue('num_occupation', gluval(role.shape[0], data.shape[0]), display=False)
+glue('num_occupation', role.shape[0], display=False)
+glue(
+    'num_top_3_categories',
+    gluval(cnts[-3:].sum(), role.shape[0]),
+    display=False,
+)
+glue('top_3_categories', f"{labels[-3]}, {labels[-2]}, or {labels[-1]}", display=False)
 ```
 
 # Experience and Usage
 
 ## Programming Experience
+
+{glue:text}`programming_exp_5plus_years` of respondents have significant
+experience in programming, with veterans (10+ years) taking the lead.
+Interestingly, when it comes to using NumPy, noticeably more of our
+respondents identify as beginners than experienced users.
 
 ```{code-cell} ipython3
 ---
@@ -291,6 +307,8 @@ for exp_data, ax in zip(('programming_exp', 'numpy_exp'), axes):
     labels, cnts = np.unique(prog_exp, return_counts=True)
     cnts = 100 * cnts / cnts.sum()
     labels, cnts = labels[ind], cnts[ind]
+    # Generate text on general programming experience
+    glue(f'{exp_data}_5plus_years', f"{cnts[-2:].sum():2.0f}%", display=False)
     # Plotting
     ax.bar(np.arange(len(cnts)), cnts)
     ax.set_xticks(np.arange(len(cnts)))
@@ -304,8 +322,11 @@ fig.tight_layout();
 
 ## Programming Languages
 
-Survey respondents reported being familiar with a wide range of other
-programming languages aside from Python.
+{glue:text}`num_proglang_respondents` of survey participants shared their
+experience with other programming languages.
+{glue:text}`num_top_lang` of respondents are familiar with {glue:text}`top_lang`,
+and {glue:text}`num_2nd_lang` with {glue:text}`second_lang`.
+
 
 ```{code-cell} ipython3
 ---
@@ -313,6 +334,8 @@ tags: [hide-input]
 ---
 pl = data['prog_lang'][data['prog_lang'] != '']
 num_respondents = len(pl)
+glue('num_proglang_respondents', gluval(len(pl), data.shape[0]), display=False)
+
 # Flatten & remove 'Other' write-in option
 other = 'Other (please specify, using commas to separate individual entries)'
 apl = []
@@ -334,12 +357,18 @@ ax.set_yticklabels(labels)
 ax.set_xlabel("Percentage of Respondents")
 ax.set_title("Programming Language Familiarity")
 fig.tight_layout()
+
+# Highlight two most popular
+glue('num_top_lang', f"{cnts[-1]:2.0f}%", display=False)
+glue('top_lang', labels[-1], display=False)
+glue('num_2nd_lang', f"{cnts[-2]:2.0f}%", display=False)
+glue('second_lang', labels[-2], display=False)
 ```
 
 {glue:text}`percent_other` percent of respondents reported familiarity with
 computer languages other than those listed above.
 Of these, {glue:text}`most_popular` was the most popular with 
-{glue:text}`most_popular_pct` percent of users using this language.
+{glue:text}`most_popular_pct` percent of respondents using this language.
 A listing of other reported languages can be found below (click to expand).
 
 %TODO: Create mapping to consolidate write-in responses, e.g. 

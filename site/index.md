@@ -3,13 +3,18 @@ NumPy Community Survey Results - 2020
 
 ## Welcome!
 
-This site presents the results of the inaugural NumPy Community Survey,
-conducted over July and August of 2020.
-The survey recorded over **1,200** participants from **70** countries.
+In mid-2020, the NumPy Survey Team in partnership with students and faculty
+from a Masters course in Survey Methodology jointly hosted by the
+University of Michigan and the Unverisity of Maryland conducted the first
+official NumPy Community Survey.
+We invited all NumPy stakeholders to share their experiences with NumPy, and
+to voice their thoughts about the future of the project.
+Over **1,200** users from **75** countries participated to help us map out a
+landscape of the NumPy community.
 
 ```{toctree}
 ---
-maxdepth: 2
+maxdepth: 1
 ---
 content/demographics
 content/contributions
@@ -20,10 +25,3 @@ content/biggest_impact
 acknowledgements
 glossary
 ```
-
-%Indices and tables
-%==================
-%
-%* :ref:`genindex`
-%* :ref:`modindex`
-%* :ref:`search`

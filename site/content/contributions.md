@@ -185,8 +185,12 @@ fig.tight_layout()
 
 We also asked **in what ways** people are contributing to open-source software
 projects.
-The following figure shows what percentage of contributors reported participating
-in some common tasks.
+{glue:text}`pct_contrib_np_code` of respondents who have contributed to NumPy
+have contributed to the source code and {glue:text}`pct_contrib_np_docs` to
+the documentation.
+While {glue:text}`pct_contrib_oss_code` of respondents who contribute to other
+OSS projects have contributed to code, only {glue:text}`pct_contrib_oss_docs`
+have pitched in to help with documentation.
 
 % TODO: Clean up data here so that NumPy/Other OSS contributions can be 
 % directly compared (like above figure). WARNING: the current solution in
@@ -213,6 +217,21 @@ ax[0].barh(np.arange(len(labels)), 100 * cnts / np_contributors_mask.sum(), alig
 ax[0].set_yticks(np.arange(len(labels)))
 ax[0].set_yticklabels(labels)
 ax[0].set_xlabel('Percentage of NumPy Contributors')
+# Highlight code and docs contributions
+code_contr = cnts[labels == 'Programming'][0]
+doc_contr = cnts[labels == 'Writing documentation'][0]
+glue(
+    'pct_contrib_np_code',
+    f"{100 * code_contr / np_contributors_mask.sum():2.0f}%",
+    display=False,
+)
+glue(
+    'pct_contrib_np_docs',
+    f"{100 * doc_contr / np_contributors_mask.sum():2.0f}%",
+    display=False,
+)
+
+
 labels, cnts = np.unique(oss_contr_type, return_counts=True)
 labels, cnts = labels[3:], cnts[3:]
 # TODO: Remove these hacks when categories have been synchronized
@@ -225,6 +244,20 @@ ax[1].barh(np.arange(len(labels)), 100 * cnts / oss_contributors_mask.sum(), ali
 ax[1].set_yticks(np.arange(len(labels)))
 ax[1].set_yticklabels(labels)
 ax[1].set_xlabel('Percentage of OSS Contributors')
+# Highlight code and docs contributions
+code_contr = cnts[labels == 'Code maintenance and development'][0]
+doc_contr = cnts[labels == 'Writing documentation'][0]
+glue(
+    'pct_contrib_oss_code',
+    f"{100 * code_contr / oss_contributors_mask.sum():2.0f}%",
+    display=False,
+)
+glue(
+    'pct_contrib_oss_docs',
+    f"{100 * doc_contr / oss_contributors_mask.sum():2.0f}%",
+    display=False,
+)
+
 fig.tight_layout()
 ```
 
@@ -264,7 +297,8 @@ fig.tight_layout()
 
 ## Motivations
 
-We asked NumPy contributors about what motivates them to contribute to NumPy.
+{glue:text}`top_3_motivations` are the top three reasons for the respondents
+to contribution to NumPy.
 
 ```{code-cell} ipython3
 ---
@@ -282,6 +316,9 @@ ax.set_yticks(np.arange(len(labels)))
 ax.set_yticklabels(labels)
 ax.set_xlabel('Percentage of NumPy Contributors')
 fig.tight_layout()
+
+# Highlight top 3
+glue('top_3_motivations', f"{labels[-3]}, {labels[-2]}, and {labels[-1]}", display=False)
 ```
 
 ## Retention
@@ -406,7 +443,10 @@ fig.tight_layout()
 
 ## Interests of Potential Contributors
 
-We also asked potential NumPy contributors about there interests.
+Of the respondents who expressed interest in contributing to NumPy, most
+({glue:text}`pct_want_contrib_code`) were interested in contributing to the
+source code and {glue:text}`pct_want_contrib_content` expressed interest in
+developing education content or technical documentation.
 
 ```{code-cell} ipython3
 ---
@@ -429,4 +469,16 @@ ax.set_yticks(np.arange(len(labels)))
 ax.set_yticklabels(labels)
 ax.set_xlabel('Percentage of Contributors')
 fig.tight_layout()
+
+# Highlight top categories
+glue('pct_want_contrib_code', f"{100 * cnts[-1] / interests.shape[0]:2.0f}%", display=False)
+contrib_content = cnts[
+    (labels == 'Narrative documentation (e.g. tutorials)') |
+    (labels == 'Technical documentation (e.g. docstrings)')
+]
+glue(
+    'pct_want_contrib_content',
+    f"{100 * contrib_content.sum() / (interests.shape[0] * 2):2.0f}%",
+    display=False,
+)
 ```
