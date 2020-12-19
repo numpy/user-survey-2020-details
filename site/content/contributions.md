@@ -122,7 +122,7 @@ glue(
 % TODO: Intro sentences here about open-source development and community-led
 % nature of NumPy.
 
-# NumPy & OSS Contributors
+## NumPy & OSS Contributors
 
 Of the {glue:text}`num_respondents` survey participants, 
 {glue:text}`oss_contributors` have contributed to at least one open source
@@ -136,7 +136,7 @@ Reflecting its central position in the scientific Python ecosystem,
 {glue:text}`numpy_and_oss_contributors` of NumPy contributors reported
 contributing to other OSS projects as well.
 
-## OSS Contributions
+### OSS Contributions
 
 The following figure illustrates shows what fraction of contributors are 
 working on various popular scientific Python projects.
@@ -181,7 +181,7 @@ ax.legend()
 fig.tight_layout()
 ```
 
-## Types of Contributions
+### Types of Contributions
 
 We also asked **in what ways** people are contributing to open-source software
 projects.
@@ -261,7 +261,7 @@ glue(
 fig.tight_layout()
 ```
 
-## How Did Contributors Get Their Start?
+### How Did Contributors Get Their Start?
 
 We also asked how contributors got started working on the OSS packages that
 they contribute to:
@@ -295,7 +295,7 @@ ax.legend()
 fig.tight_layout()
 ```
 
-## Motivations
+### Motivations
 
 {glue:text}`top_3_motivations` are the top three reasons for the respondents
 to contribution to NumPy.
@@ -321,7 +321,7 @@ fig.tight_layout()
 glue('top_3_motivations', f"{labels[-3]}, {labels[-2]}, and {labels[-1]}", display=False)
 ```
 
-## Retention
+### Retention
 
 Finally, we asked NumPy contributors whether they plan to continue to 
 contribute to NumPy.
@@ -358,7 +358,7 @@ glue(
 )
 ```
 
-# Users Who Haven't (Yet) Contributed
+## Users Who Haven't (Yet) Contributed
 
 We also wanted to get the perspective of NumPy (and other OSS) users who have
 not directly contributed back to project --- is there generally interest in
@@ -387,7 +387,7 @@ glue(
 )
 ```
 
-## Interest in Contributing
+### Interest in Contributing
 
 We asked these respondents whether they were interested in contributing to
 the OSS packages that they use.
@@ -413,7 +413,7 @@ glue(
 )
 ```
 
-## Contribution Blockers
+### Contribution Blockers
 
 We also asked respondents who expressed interest in contributing  about the
 biggest blockers that prevent them from doing so.
@@ -441,7 +441,7 @@ ax.set_xlabel('Percentage of Contributors')
 fig.tight_layout()
 ```
 
-## Interests of Potential Contributors
+### Interests of Potential Contributors
 
 Of the respondents who expressed interest in contributing to NumPy, most
 ({glue:text}`pct_want_contrib_code`) were interested in contributing to the

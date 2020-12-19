@@ -35,7 +35,7 @@ strip = np.vectorize(str.strip, otypes='U')
 title = np.vectorize(str.title, otypes='U')
 ```
 
-# Demographics
+# Demographics and Usage
 
 A summary of the demographic information of the NumPy survey respondents.
 
@@ -63,8 +63,9 @@ data = np.loadtxt(
 glue('num_respondents', data.shape[0], display=False)
 ```
 
+## Demographics
 
-## Age
+### Age
 
 Of the {glue:text}`num_respondents` survey respondents, 
 {glue:text}`num_age_respondents` shared their age.
@@ -99,7 +100,7 @@ ax.set_ylabel("Percentage of Respondents");
 glue('num_age_respondents', gluval(age.shape[0], data.shape[0]), display=False)
 ```
 
-## Gender
+### Gender
 
 Of the {glue:text}`num_respondents` survey respondents,
 {glue:text}`num_gender` shared their gender.
@@ -121,7 +122,7 @@ fig.tight_layout()
 glue('num_gender', gluval(gender.shape[0], data.shape[0]), display=False)
 ```
 
-## Language Preference
+### Language Preference
 
 Of the {glue:text}`num_respondents` respondents,
 {glue:text}`num_lang_pref` shared their preferred language.
@@ -158,7 +159,7 @@ glue('num_lang_pref', gluval(lang.shape[0], data.shape[0]), display=False)
 ```
 ````
 
-## Country of Residence
+### Country of Residence
 
 Of the {glue:text}`num_respondents` respondents,
 {glue:text}`num_country_respondents`shared their current country of residence.
@@ -228,7 +229,7 @@ glue(
 ```{include} _generated/countries_by_continent.md
 ```
 
-## Education
+### Education
 
 {glue:text}`num_education` respondents shared their education history,
 spanning the range from pre-highschool graduation through Doctorate level with
@@ -252,7 +253,7 @@ fig.tight_layout()
 glue('num_education', gluval(degree.shape[0], data.shape[0]), display=False)
 ```
 
-## Job Roles
+### Job Roles
 
 {glue:text}`num_top_3_categories` of the {glue:text}`num_occupation`
 respondents who shared their occupation identify as an
@@ -285,9 +286,9 @@ glue(
 glue('top_3_categories', f"{labels[-3]}, {labels[-2]}, or {labels[-1]}", display=False)
 ```
 
-# Experience and Usage
+## Experience and Usage
 
-## Programming Experience
+### Programming Experience
 
 {glue:text}`programming_exp_5plus_years` of respondents have significant
 experience in programming, with veterans (10+ years) taking the lead.
@@ -320,7 +321,7 @@ fig.autofmt_xdate();
 fig.tight_layout();
 ```
 
-## Programming Languages
+### Programming Languages
 
 {glue:text}`num_proglang_respondents` of survey participants shared their
 experience with other programming languages.
@@ -400,7 +401,7 @@ tags: [remove-input, hide-output]
 print(labels)
 ```
 
-## NumPy Version
+### NumPy Version
 
 NumPy 1.18 was the latest stable release at the time the survey was 
 conducted.
@@ -423,7 +424,7 @@ older_version_usage = 100 * cnts[-4:-1].sum() / cnts.sum()
 glue('older_version_usage', f"{older_version_usage:1.1f}", display=False)
 ```
 
-## Primary Use-Case
+### Primary Use-Case
 
 {glue:text}`num_primary_use_respondents` respondents provided information about
 the primary context in which they use NumPy.
@@ -446,7 +447,7 @@ glue(
 )
 ```
 
-## Frequency of Use
+### Frequency of Use
 
 {glue:text}`num_freq_respondents` respondents provided information about how
 often they use NumPy.
@@ -465,7 +466,7 @@ fig.tight_layout()
 glue('num_freq_respondents', gluval(use_freq.shape[0], data.shape[0]), display=False)
 ```
 
-## NumPy Components
+### NumPy Components
 
 NumPy encompasses many packages for specific scientific computing tasks, such
 as random number generation or Fourier analysis.
@@ -498,7 +499,7 @@ ax.set_title("Use-Frequency of NumPy Sub-Packages")
 fig.tight_layout()
 ```
 
-## NumPy C-Extensions
+### NumPy C-Extensions
 
 {glue:text}`num_c_ext` participants shared whether they (or their organization)
 uses custom C-extensions via the NumPy C-API (excluding Cython).
