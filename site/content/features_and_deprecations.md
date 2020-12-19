@@ -25,7 +25,7 @@ os.makedirs('_generated', exist_ok=True)
 from myst_nb import glue
 ```
 
-# Features, Problems, and Deprecations
+# Usage
 
 ```{code-cell} ipython3
 ---

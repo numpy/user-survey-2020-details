@@ -35,7 +35,7 @@ strip = np.vectorize(str.strip, otypes='U')
 title = np.vectorize(str.title, otypes='U')
 ```
 
-# Demographics and Usage
+# Community
 
 A summary of the demographic information of the NumPy survey respondents.
 

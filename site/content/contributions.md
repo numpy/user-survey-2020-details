@@ -25,7 +25,7 @@ os.makedirs('_generated', exist_ok=True)
 from myst_nb import glue
 ```
 
-# Community Contributions and Development
+# Contributions
 
 % NOTE: The structure of the NumPy and non-NumPy contributions questions are
 % slightly different.
