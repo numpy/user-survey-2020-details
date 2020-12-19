@@ -12,6 +12,8 @@ to voice their thoughts about the future of the project.
 Over **1,200** users from **75** countries participated to help us map out a
 landscape of the NumPy community.
 
+## Contents
+
 ```{toctree}
 ---
 maxdepth: 1
