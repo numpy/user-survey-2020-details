@@ -99,23 +99,8 @@ glue(
     display=False
 )
 glue(
-    'np_contributors',
-    gluval(num_np_contributors, num_respondents),
-    display=False
-)
-glue(
-    'numpy_and_oss_contributors',
-    gluval(num_both_contributors, num_np_contributors),
-    display=False
-)
-glue(
     'oss_regulars',
     gluval(num_oss_regular, num_oss_contributors),
-    display=False
-)
-glue(
-    'np_regulars',
-    gluval(num_np_regular, num_np_contributors),
     display=False
 )
 ```
@@ -124,17 +109,10 @@ glue(
 
 ## NumPy & OSS Contributors
 
-Of the {glue:text}`num_respondents` survey participants, 
-{glue:text}`oss_contributors` have contributed to at least one open source
-software project, while {glue:text}`np_contributors` have contributed to
-NumPy specifically.
-{glue:text}`oss_regulars` of OSS contributors are *currently*[^currently]
-regular contributors to at least one OSS project, while
-{glue:text}`np_regulars` of the NumPy contributors contribute to NumPy
-regularly.
-Reflecting its central position in the scientific Python ecosystem, 
-{glue:text}`numpy_and_oss_contributors` of NumPy contributors reported
-contributing to other OSS projects as well.
+When it comes to other open source projects, {glue:text}`oss_contributors`
+of survey participants have contributed at least once, mainly to projects
+within the scientific Python ecosystem, and {glue:text}`oss_regulars`
+contribute to these projects on a regular basis.
 
 ### OSS Contributions
 
