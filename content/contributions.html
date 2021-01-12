@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contributions &#8212; NumPy Community Survey 2020  documentation</title>
+    <title>Community Contributions and Development &#8212; NumPy Community Survey 2020  documentation</title>
     
   <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
 
@@ -36,13 +36,12 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script src="../_static/language_data.js"></script>
     <script src="../_static/togglebutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Mentorship" href="mentorship.html" />
-    <link rel="prev" title="Community" href="demographics.html" />
+    <link rel="prev" title="Demographics and Usage" href="demographics.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
   </head>
@@ -65,11 +64,11 @@
         
         
         <li class="nav-item ">
-            <a class="nav-link" href="demographics.html">Community</a>
+            <a class="nav-link" href="demographics.html">Demographics and Usage</a>
         </li>
         
         <li class="nav-item active">
-            <a class="nav-link" href="">Contributions</a>
+            <a class="nav-link" href="">Community Contributions and Development</a>
         </li>
         
         <li class="nav-item ">
@@ -77,15 +76,15 @@
         </li>
         
         <li class="nav-item ">
-            <a class="nav-link" href="priorities.html">Priorities</a>
+            <a class="nav-link" href="priorities.html">Project Priorities</a>
         </li>
         
         <li class="nav-item ">
-            <a class="nav-link" href="features_and_deprecations.html">Usage</a>
+            <a class="nav-link" href="features_and_deprecations.html">Features, Problems, and Deprecations</a>
         </li>
         
         <li class="nav-item ">
-            <a class="nav-link" href="biggest_impact.html">Future</a>
+            <a class="nav-link" href="biggest_impact.html">The Big Picture</a>
         </li>
         
         <li class="nav-item ">
@@ -216,8 +215,8 @@
               
               <div>
                 
-  <div class="section" id="contributions">
-<h1>Contributions<a class="headerlink" href="#contributions" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="community-contributions-and-development">
+<h1>Community Contributions and Development<a class="headerlink" href="#community-contributions-and-development" title="Permalink to this headline">¶</a></h1>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load data related to open-source contributions *other* than NumPy</span>
@@ -641,8 +640,14 @@ biggest blockers that prevent them from doing so.</p>
 <h3>Interests of Potential Contributors<a class="headerlink" href="#interests-of-potential-contributors" title="Permalink to this headline">¶</a></h3>
 <p>Of the respondents who expressed interest in contributing to NumPy, most
 (<span class="pasted-text">75%</span>) were interested in contributing to the
-source code and <span class="pasted-text">47%</span> expressed interest in
-developing education content or technical documentation.</p>
+source code.
+The next most popular category was contributing to the documentation, with
+<span class="pasted-text">382 (63%)</span> respondents expressing an interest.
+<span class="pasted-text">192 (32%)</span> people were interested in contributing
+to both narrative documentation (e.g. tutorials) and technical documentation
+(e.g. reference guides), while <span class="pasted-text">105 (17%)</span> were
+interested only in narrative documentation, and
+<span class="pasted-text">85 (14%)</span> only in technical documentation.</p>
 <div class="cell tag_hide-input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interests</span> <span class="o">=</span> <span class="n">npdata</span><span class="p">[</span><span class="s1">&#39;interests&#39;</span><span class="p">][</span><span class="n">np_interested_mask</span><span class="p">]</span>
@@ -656,6 +661,7 @@ developing education content or technical documentation.</p>
 <span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">cnts</span><span class="p">)</span>
 <span class="n">labels</span><span class="p">,</span> <span class="n">cnts</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="n">I</span><span class="p">],</span> <span class="n">cnts</span><span class="p">[</span><span class="n">I</span><span class="p">]</span>
 
+
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">)),</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">cnts</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">interests</span><span class="p">))</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">)))</span>
@@ -665,20 +671,54 @@ developing education content or technical documentation.</p>
 
 <span class="c1"># Highlight top categories</span>
 <span class="n">glue</span><span class="p">(</span><span class="s1">&#39;pct_want_contrib_code&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="mi">100</span> <span class="o">*</span> <span class="n">cnts</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">interests</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">:</span><span class="s2">2.0f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">contrib_content</span> <span class="o">=</span> <span class="n">cnts</span><span class="p">[</span>
-    <span class="p">(</span><span class="n">labels</span> <span class="o">==</span> <span class="s1">&#39;Narrative documentation (e.g. tutorials)&#39;</span><span class="p">)</span> <span class="o">|</span>
-    <span class="p">(</span><span class="n">labels</span> <span class="o">==</span> <span class="s1">&#39;Technical documentation (e.g. docstrings)&#39;</span><span class="p">)</span>
-<span class="p">]</span>
+
+<span class="c1"># Analyze documentation categories based on individual responses</span>
+<span class="n">narr_doc_text</span> <span class="o">=</span> <span class="s2">&quot;Developing educational content &amp; narrative documentation (e.g. tutorials)&quot;</span>
+<span class="n">tech_doc_text</span> <span class="o">=</span> <span class="s2">&quot;Writing technical documentation (e.g. docstrings, user guide, reference guide)&quot;</span>
+<span class="n">tech_doc_respondents_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">tech_doc_text</span> <span class="ow">in</span> <span class="n">response</span> <span class="k">for</span> <span class="n">response</span> <span class="ow">in</span> <span class="n">interests</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span>
+<span class="p">)</span>
+<span class="n">narr_doc_respondents_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[</span><span class="n">narr_doc_text</span> <span class="ow">in</span> <span class="n">response</span> <span class="k">for</span> <span class="n">response</span> <span class="ow">in</span> <span class="n">interests</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span>
+<span class="p">)</span>
+<span class="n">num_both</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
+    <span class="n">tech_doc_respondents_mask</span> <span class="o">&amp;</span> <span class="n">narr_doc_respondents_mask</span>
+<span class="p">)</span>
+<span class="n">num_either</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
+    <span class="n">tech_doc_respondents_mask</span> <span class="o">|</span> <span class="n">narr_doc_respondents_mask</span>
+<span class="p">)</span>
+<span class="n">num_narr_only</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
+    <span class="n">narr_doc_respondents_mask</span> <span class="o">&amp;</span> <span class="o">~</span><span class="n">tech_doc_respondents_mask</span>
+<span class="p">)</span>
+<span class="n">num_tech_only</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
+    <span class="n">tech_doc_respondents_mask</span> <span class="o">&amp;</span> <span class="o">~</span><span class="n">narr_doc_respondents_mask</span>
+<span class="p">)</span>
+
 <span class="n">glue</span><span class="p">(</span>
-    <span class="s1">&#39;pct_want_contrib_content&#39;</span><span class="p">,</span>
-    <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="mi">100</span> <span class="o">*</span> <span class="n">contrib_content</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="p">(</span><span class="n">interests</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span><span class="si">:</span><span class="s2">2.0f</span><span class="si">}</span><span class="s2">%&quot;</span><span class="p">,</span>
+    <span class="s1">&#39;interested_in_both_doc_types&#39;</span><span class="p">,</span>
+    <span class="n">gluval</span><span class="p">(</span><span class="n">num_both</span><span class="p">,</span> <span class="n">interests</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+    <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span>
+    <span class="s1">&#39;interested_in_either_doc_type&#39;</span><span class="p">,</span>
+    <span class="n">gluval</span><span class="p">(</span><span class="n">num_either</span><span class="p">,</span> <span class="n">interests</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+    <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span>
+    <span class="s1">&#39;interested_in_narr_doc_only&#39;</span><span class="p">,</span>
+    <span class="n">gluval</span><span class="p">(</span><span class="n">num_narr_only</span><span class="p">,</span> <span class="n">interests</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+    <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span>
+    <span class="s1">&#39;interested_in_tech_doc_only&#39;</span><span class="p">,</span>
+    <span class="n">gluval</span><span class="p">(</span><span class="n">num_tech_only</span><span class="p">,</span> <span class="n">interests</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
     <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/contributions_22_2.png" src="../_images/contributions_22_2.png" />
+<img alt="../_images/contributions_22_5.png" src="../_images/contributions_22_5.png" />
 </div>
 </div>
 <hr class="docutils" />
@@ -699,7 +739,7 @@ projects in the past.</p>
               
               <div class='prev-next-bottom'>
                 
-    <a class='left-prev' id="prev-link" href="demographics.html" title="previous page">Community</a>
+    <a class='left-prev' id="prev-link" href="demographics.html" title="previous page">Demographics and Usage</a>
     <a class='right-next' id="next-link" href="mentorship.html" title="next page">Mentorship</a>
 
               </div>
@@ -718,7 +758,7 @@ projects in the past.</p>
   <div class="container">
     <p>
           &copy; Copyright 2020, NumPy Survey Team.<br/>
-        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.3.1.<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.4.3.<br/>
     </p>
   </div>
 </footer>
