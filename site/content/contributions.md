@@ -445,8 +445,15 @@ fig.tight_layout()
 
 Of the respondents who expressed interest in contributing to NumPy, most
 ({glue:text}`pct_want_contrib_code`) were interested in contributing to the
-source code and {glue:text}`pct_want_contrib_content` expressed interest in
-developing education content or technical documentation.
+source code.
+The next most popular category was contributing to the documentation, with 
+{glue:text}`interested_in_either_doc_type` respondents expressing an interest.
+{glue:text}`interested_in_both_doc_types` people were interested in contributing
+to both narrative documentation (e.g. tutorials) and technical documentation
+(e.g. reference guides), while {glue:text}`interested_in_narr_doc_only` were
+interested only in narrative documentation, and
+{glue:text}`interested_in_tech_doc_only` only in technical documentation.
+
 
 ```{code-cell} ipython3
 ---
@@ -463,6 +470,7 @@ labels[-1] = 'Technical documentation (e.g. docstrings)'
 I = np.argsort(cnts)
 labels, cnts = labels[I], cnts[I]
 
+
 fig, ax = plt.subplots(figsize=(12, 8))
 ax.barh(np.arange(len(labels)), 100 * cnts / len(interests))
 ax.set_yticks(np.arange(len(labels)))
@@ -472,13 +480,47 @@ fig.tight_layout()
 
 # Highlight top categories
 glue('pct_want_contrib_code', f"{100 * cnts[-1] / interests.shape[0]:2.0f}%", display=False)
-contrib_content = cnts[
-    (labels == 'Narrative documentation (e.g. tutorials)') |
-    (labels == 'Technical documentation (e.g. docstrings)')
-]
+
+# Analyze documentation categories based on individual responses
+narr_doc_text = "Developing educational content & narrative documentation (e.g. tutorials)"
+tech_doc_text = "Writing technical documentation (e.g. docstrings, user guide, reference guide)"
+tech_doc_respondents_mask = np.array(
+    [tech_doc_text in response for response in interests], dtype=bool
+)
+narr_doc_respondents_mask = np.array(
+    [narr_doc_text in response for response in interests], dtype=bool
+)
+num_both = np.sum(
+    tech_doc_respondents_mask & narr_doc_respondents_mask
+)
+num_either = np.sum(
+    tech_doc_respondents_mask | narr_doc_respondents_mask
+)
+num_narr_only = np.sum(
+    narr_doc_respondents_mask & ~tech_doc_respondents_mask
+)
+num_tech_only = np.sum(
+    tech_doc_respondents_mask & ~narr_doc_respondents_mask
+)
+
 glue(
-    'pct_want_contrib_content',
-    f"{100 * contrib_content.sum() / (interests.shape[0] * 2):2.0f}%",
+    'interested_in_both_doc_types',
+    gluval(num_both, interests.shape[0]),
+    display=False,
+)
+glue(
+    'interested_in_either_doc_type',
+    gluval(num_either, interests.shape[0]),
+    display=False,
+)
+glue(
+    'interested_in_narr_doc_only',
+    gluval(num_narr_only, interests.shape[0]),
+    display=False,
+)
+glue(
+    'interested_in_tech_doc_only',
+    gluval(num_tech_only, interests.shape[0]),
     display=False,
 )
 ```
