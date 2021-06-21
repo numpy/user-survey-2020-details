@@ -25,7 +25,7 @@ os.makedirs('_generated', exist_ok=True)
 from myst_nb import glue
 ```
 
-# Project Priorities
+# Priorities
 
 ```{code-cell} ipython3
 ---
