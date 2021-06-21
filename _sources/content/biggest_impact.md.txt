@@ -25,7 +25,7 @@ os.makedirs('_generated', exist_ok=True)
 from myst_nb import glue
 ```
 
-# The Big Picture
+# Future
 
 ```{code-cell} ipython3
 ---
