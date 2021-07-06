@@ -19,6 +19,7 @@ Contributors are listed alphabetically by type of contribution.
 ## Translations
 
  - Eric Depagne
+ - Xiaoyi Deng
  - Yuki Dunn
  - Kiko Correoso Garcia
  - Jose Guzman
@@ -40,7 +41,8 @@ Contributors are listed alphabetically by type of contribution.
 
 ## Special thanks
 
- - Prof. Frederick Conrad (Survey Research Center, Institute for Social Research, University of Michigan)
- - Prof. Jim Lepkowski (Survey Research Center, Institute for Social Research, University of Michigan)
+ - Frederick Conrad (Survey Research Center, Institute for Social Research, University of Michigan)
+ - Danuta Dzierżanowska
+ - Jim Lepkowski (Survey Research Center, Institute for Social Research, University of Michigan)
  - Claire McKay Bowen (Urban Institute)
- - Prof. Michael Traugott (Survey Research Center, Institute for Social Research, University of Michigan)
+ - Michael Traugott (Survey Research Center, Institute for Social Research, University of Michigan)
