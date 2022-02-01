@@ -16,7 +16,7 @@ tags: [remove-cell]
 import os
 import numpy as np
 import matplotlib.pyplot as plt
-plt.style.use('../site.mplstyle')
+plt.style.use('../../site.mplstyle')
 %matplotlib inline
 from numpy_survey_results.utils import gluval
 # Location of generated content
@@ -43,7 +43,7 @@ A summary of the demographic information of the NumPy survey respondents.
 ---
 tags: [hide-input]
 ---
-fname = "data/numpy_survey_results.tsv"
+fname = "data/2020/numpy_survey_results.tsv"
 column_names = [
     'age', 'gender', 'lang', 'lang_other', 'country', 'degree', 'degree_other',
     'field_of_study', 'field_other', 'role', 'role_other', 'version', 

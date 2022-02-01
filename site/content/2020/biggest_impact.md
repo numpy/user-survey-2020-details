@@ -16,7 +16,7 @@ tags: [remove-cell]
 import os
 import numpy as np
 import matplotlib.pyplot as plt
-plt.style.use('../site.mplstyle')
+plt.style.use('../../site.mplstyle')
 %matplotlib inline
 from numpy_survey_results.utils import gen_mdlist
 # Location of generated content
@@ -36,10 +36,10 @@ loading_params = dict(
 )
 
 biggest_impact = np.loadtxt(
-    "data/biggestimpact_comments_master.tsv", **loading_params
+    "data/2020/biggestimpact_comments_master.tsv", **loading_params
 )
 other_changes = np.loadtxt(
-    "data/significantchanges_comments_master.tsv", **loading_params
+    "data/2020/significantchanges_comments_master.tsv", **loading_params
 )
 
 # Filter

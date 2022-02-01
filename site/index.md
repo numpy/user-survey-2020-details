@@ -16,14 +16,9 @@ landscape of the NumPy community.
 
 ```{toctree}
 ---
-maxdepth: 1
+maxdepth: 2
 ---
-content/demographics
-content/contributions
-content/mentorship
-content/priorities
-content/features_and_deprecations
-content/biggest_impact
+content/2020/index
 acknowledgements
 glossary
 ```

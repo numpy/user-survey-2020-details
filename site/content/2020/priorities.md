@@ -16,7 +16,7 @@ tags: [remove-cell]
 import os
 import numpy as np
 import matplotlib.pyplot as plt
-plt.style.use('../site.mplstyle')
+plt.style.use('../../site.mplstyle')
 %matplotlib inline
 from numpy_survey_results.utils import gluval, gen_mdlist
 # Location of generated content
@@ -31,7 +31,7 @@ from myst_nb import glue
 ---
 tags: [hide-input]
 ---
-fname = "data/numpy_survey_results.tsv"
+fname = "data/2020/numpy_survey_results.tsv"
 column_names = [
     'website', 'performance', 'reliability', 'packaging', 'new_features',
     'documentation', 'other'
@@ -150,7 +150,7 @@ categories = {
 response_dict = {}
 for category in categories:
     responses = np.loadtxt(
-        f"data/{category}_comments_master.tsv", delimiter='\t', skiprows=1,
+        f"data/2020/{category}_comments_master.tsv", delimiter='\t', skiprows=1,
         usecols=0, dtype='U', comments=None
     )
     responses = responses[responses != '']

@@ -16,7 +16,7 @@ tags: [remove-cell]
 import os
 import numpy as np
 import matplotlib.pyplot as plt
-plt.style.use('../site.mplstyle')
+plt.style.use('../../site.mplstyle')
 %matplotlib inline
 from numpy_survey_results.utils import flatten, gluval
 # Location of generated content
@@ -36,7 +36,7 @@ tags: [hide-input]
 ---
 # Load data related to open-source contributions *other* than NumPy
 
-fname = "data/numpy_survey_results.tsv"
+fname = "data/2020/numpy_survey_results.tsv"
 column_names = [
     'contributed', 'projects', 'projects_other', 'contr_type', 
     'contr_type_other', 'regular', 'how_got_started', 'how_got_started_other',
