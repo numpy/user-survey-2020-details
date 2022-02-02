@@ -16,7 +16,7 @@ tags: [remove-cell]
 import os
 import numpy as np
 import matplotlib.pyplot as plt
-plt.style.use('../site.mplstyle')
+plt.style.use('../../site.mplstyle')
 %matplotlib inline
 from numpy_survey_results.utils import gluval
 # Location of generated content
@@ -43,7 +43,7 @@ A summary of the demographic information of the NumPy survey respondents.
 ---
 tags: [hide-input]
 ---
-fname = "data/numpy_survey_results.tsv"
+fname = "data/2021/numpy_survey_results.tsv"
 column_names = [
     'age', 'gender', 'lang', 'lang_other', 'country', 'degree', 'degree_other',
     'field_of_study', 'field_other', 'role', 'role_other', 'version', 'version_other',
@@ -57,18 +57,18 @@ demographics_dtype = np.dtype({
 
 data = np.loadtxt(
     fname, delimiter='\t', skiprows=3, dtype=demographics_dtype, 
-    usecols=[11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,93], comments=None, encoding='UTF-16'
+    usecols=list(range(11, 33)) + [90], comments=None, encoding='UTF-16'
 )
 
-glue('num_respondents', data.shape[0], display=False)
+glue('2021_num_respondents', data.shape[0], display=False)
 ```
 
 ## Demographics
 
 ### Age
 
-Of the {glue:text}`num_respondents` survey respondents, 
-{glue:text}`num_age_respondents` shared their age.
+Of the {glue:text}`2021_num_respondents` survey respondents, 
+{glue:text}`2021_num_age_respondents` shared their age.
 
 The majority of respondents are in the age groups 25-34 and 35-44. Very few respondents are older than 55, and even fewer are younger than 18.
 
@@ -94,13 +94,13 @@ ax.set_xlabel('Age Group')
 ax.set_title("Age Distribution of Survey Respondents");
 fig.tight_layout()
 
-glue('num_age_respondents', gluval(age.shape[0], data.shape[0]), display=False)
+glue('2021_num_age_respondents', gluval(age.shape[0], data.shape[0]), display=False)
 ```
 
 ### Gender
 
-Of the {glue:text}`num_respondents` survey respondents,
-{glue:text}`num_gender` shared their gender.
+Of the {glue:text}`2021_num_respondents` survey respondents,
+{glue:text}`2021_num_gender` shared their gender.
 
 An overwhelming majority of respondents identify as male. Only about 11% of respondents identify as female.
 
@@ -118,13 +118,13 @@ ax.pie(cnts, labels=labels, autopct='%1.1f%%')
 ax.set_title("Gender Distribution");
 fig.tight_layout()
 
-glue('num_gender', gluval(gender.shape[0], data.shape[0]), display=False)
+glue('2021_num_gender', gluval(gender.shape[0], data.shape[0]), display=False)
 ```
 
 ### Language Preference
 
-Of the {glue:text}`num_respondents` respondents,
-{glue:text}`num_lang_pref` shared their preferred language.
+Of the {glue:text}`2021_num_respondents` respondents,
+{glue:text}`2021_num_lang_pref` shared their preferred language.
 
 Over 67% of respondents reported English as their preferred language.
 
@@ -150,7 +150,7 @@ with open('_generated/language_preference_table.md', 'w') as of:
     for lbl, percent in zip(labels, cnts):
         of.write(f'| {lbl} | {percent:1.1f} |\n')
 
-glue('num_lang_pref', gluval(lang.shape[0], data.shape[0]), display=False)
+glue('2021_num_lang_pref', gluval(lang.shape[0], data.shape[0]), display=False)
 ```
 
 ````{admonition} Click to show/hide table
@@ -162,9 +162,9 @@ glue('num_lang_pref', gluval(lang.shape[0], data.shape[0]), display=False)
 
 ### Country of Residence
 
-Of the {glue:text}`num_respondents` respondents,
-{glue:text}`num_country_respondents`shared their current country of residence.
-The survey saw respondents from {glue:text}`num_unique_countries` countries in
+Of the {glue:text}`2021_num_respondents` respondents,
+{glue:text}`2021_num_country_respondents`shared their current country of residence.
+The survey saw respondents from {glue:text}`2021_num_unique_countries` countries in
 all. A quarter of respondents reside in the United States.
 
 The following chart shows the relative number of respondents from ~10 
@@ -210,9 +210,9 @@ def country_to_continent(country_name):
 c2c = np.vectorize(country_to_continent, otypes='U')
 
 
-glue('num_unique_countries', len(labels), display=False)
+glue('2021_num_unique_countries', len(labels), display=False)
 glue(
-    'num_country_respondents',
+    '2021_num_country_respondents',
     gluval(country.shape[0], data.shape[0]),
     display=False
 )
@@ -223,7 +223,7 @@ glue(
 
 ### Education
 
-{glue:text}`num_education` respondents shared their education history,
+{glue:text}`2021_num_education` respondents shared their education history,
 spanning the range from pre-highschool graduation through Doctorate level with
 many other specialist degrees. 
 
@@ -244,14 +244,14 @@ ax.legend()
 ax.set_title("Highest Level of Education");
 fig.tight_layout()
 
-glue('num_education', gluval(degree.shape[0], data.shape[0]), display=False)
+glue('2021_num_education', gluval(degree.shape[0], data.shape[0]), display=False)
 ```
 
 ### Job Roles
 
-{glue:text}`num_top_3_categories` of the {glue:text}`num_occupation`
+{glue:text}`2021_num_top_3_categories` of the {glue:text}`2021_num_occupation`
 respondents who shared their occupation identify as an
-{glue:text}`top_3_categories`.
+{glue:text}`2021_top_3_categories`.
 
 ```{code-cell} ipython3
 ---
@@ -272,18 +272,18 @@ ax.set_xlabel("Number of Respondents")
 ax.set_title("Current Role");
 fig.tight_layout()
 
-glue('num_occupation', role.shape[0], display=False)
+glue('2021_num_occupation', role.shape[0], display=False)
 glue(
-    'num_top_3_categories',
+    '2021_num_top_3_categories',
     gluval(cnts[-3:].sum(), role.shape[0]),
     display=False,
 )
-glue('top_3_categories', f"{labels[-3]}, {labels[-2]}, or {labels[-1]}", display=False)
+glue('2021_top_3_categories', f"{labels[-3]}, {labels[-2]}, or {labels[-1]}", display=False)
 ```
 
 ### 2020 Community Survey Respondents
 
-{glue:text}`num_surv2020_respondents` of respondents shared whether or not they responded to the 2020 Community Survey. Only {glue:text}`yes_percent` percent of people reported having completed last year's survey.
+{glue:text}`2021_num_surv2020_respondents` of respondents shared whether or not they responded to the 2020 Community Survey. Only {glue:text}`2021_yes_percent` percent of people reported having completed last year's survey.
 
 ```{code-cell} ipython3
 ---
@@ -294,16 +294,16 @@ drop = np.logical_and(data['surv2020'] != '', data['surv2020'] != 'Not sure')
 surv2020 = data['surv2020'][drop]
 labels, cnts = np.unique(surv2020, return_counts=True)
 
-glue('num_surv2020_respondents', gluval(surv2020.shape[0], data.shape[0]), display=False)
+glue('2021_num_surv2020_respondents', gluval(surv2020.shape[0], data.shape[0]), display=False)
 yes_percent = 100 * cnts[1].sum() / cnts.sum()
-glue('yes_percent', f"{yes_percent:1.1f}", display=False)
+glue('2021_yes_percent', f"{yes_percent:1.1f}", display=False)
 ```
 
 ## Experience and Usage
 
 ### Programming Experience
 
-{glue:text}`programming_exp_5plus_years` of respondents have significant
+{glue:text}`2021_programming_exp_5plus_years` of respondents have significant
 experience in programming, with veterans (10+ years) taking the lead.
 Interestingly, when it comes to using NumPy, noticeably more of our
 respondents identify as beginners than experienced users.
@@ -322,7 +322,7 @@ for exp_data, ax in zip(('programming_exp', 'numpy_exp'), axes):
     cnts = 100 * cnts / cnts.sum()
     labels, cnts = labels[ind], cnts[ind]
     # Generate text on general programming experience
-    glue(f'{exp_data}_5plus_years', f"{cnts[-2:].sum():2.0f}%", display=False)
+    glue(f'2021_{exp_data}_5plus_years', f"{cnts[-2:].sum():2.0f}%", display=False)
     # Plotting
     ax.bar(np.arange(len(cnts)), cnts)
     ax.set_xticks(np.arange(len(cnts)))
@@ -336,10 +336,10 @@ fig.tight_layout();
 
 ### Programming Languages
 
-{glue:text}`num_proglang_respondents` of survey participants shared their
+{glue:text}`2021_num_proglang_respondents` of survey participants shared their
 experience with other programming languages.
-{glue:text}`num_top_lang` of respondents are familiar with {glue:text}`top_lang`,
-and {glue:text}`num_2nd_lang` with {glue:text}`second_lang`.
+{glue:text}`2021_num_top_lang` of respondents are familiar with {glue:text}`2021_top_lang`,
+and {glue:text}`2021_num_2nd_lang` with {glue:text}`2021_second_lang`.
 
 
 ```{code-cell} ipython3
@@ -348,7 +348,7 @@ tags: [hide-input]
 ---
 pl = data['prog_lang'][data['prog_lang'] != '']
 num_respondents = len(pl)
-glue('num_proglang_respondents', gluval(len(pl), data.shape[0]), display=False)
+glue('2021_num_proglang_respondents', gluval(len(pl), data.shape[0]), display=False)
 
 # Flatten & remove 'Other' write-in option
 other = 'Other (please specify, using commas to separate individual entries)'
@@ -373,16 +373,16 @@ ax.set_title("Programming Language Familiarity")
 fig.tight_layout()
 
 # Highlight two most popular
-glue('num_top_lang', f"{cnts[-1]:2.0f}%", display=False)
-glue('top_lang', labels[-1], display=False)
-glue('num_2nd_lang', f"{cnts[-2]:2.0f}%", display=False)
-glue('second_lang', labels[-2], display=False)
+glue('2021_num_top_lang', f"{cnts[-1]:2.0f}%", display=False)
+glue('2021_top_lang', labels[-1], display=False)
+glue('2021_num_2nd_lang', f"{cnts[-2]:2.0f}%", display=False)
+glue('2021_second_lang', labels[-2], display=False)
 ```
 
-{glue:text}`percent_other` percent of respondents reported familiarity with
+{glue:text}`2021_percent_other` percent of respondents reported familiarity with
 computer languages other than those listed above.
-Of these, {glue:text}`most_popular` was the most popular with 
-{glue:text}`most_popular_pct` respondents using this language.
+Of these, {glue:text}`2021_most_popular` was the most popular with 
+{glue:text}`2021_most_popular_pct` respondents using this language.
 A listing of other reported languages can be found below (click to expand).
 
 %TODO: Create mapping to consolidate write-in responses, e.g. 
@@ -401,10 +401,10 @@ for row in plo:
     aplo.extend([l.strip().lower() for l in row.split(',')])
 labels, cnts = np.unique(aplo, return_counts=True)
 
-glue('percent_other', gluval(len(plo), len(pl)), display=False)
+glue('2021_percent_other', gluval(len(plo), len(pl)), display=False)
 #NOTE: capitalization doesn't generalize!
-glue('most_popular', labels[np.argmax(cnts)].capitalize(), display=False)
-glue('most_popular_pct', gluval(cnts.max(), len(pl)), display=False)
+glue('2021_most_popular', labels[np.argmax(cnts)].capitalize(), display=False)
+glue('2021_most_popular_pct', gluval(cnts.max(), len(pl)), display=False)
 ```
 
 ```{code-cell} ipython3
@@ -416,7 +416,7 @@ print(labels)
 
 ### Code Sharing
 
-{glue:text}`num_share_code` of survey participants shared information on how many others they typically share code with. Most respondents share code with {glue:text}`top_share` people.
+{glue:text}`2021_num_share_code` of survey participants shared information on how many others they typically share code with. Most respondents share code with {glue:text}`2021_top_share` people.
 
 
 ```{code-cell} ipython3
@@ -443,11 +443,11 @@ ax.set_xlabel('Number of people you typically share code with')
 fig.tight_layout()
 
 # Highlights most popular
-glue('top_share', labels[1], display=False)
+glue('2021_top_share', labels[1], display=False)
 
 # Number who answered question
 glue(
-    'num_share_code',
+    '2021_num_share_code',
     gluval(share_code.shape[0], data.shape[0]),
     display=False
 )

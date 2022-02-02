@@ -16,7 +16,7 @@ tags: [remove-cell]
 import os
 import numpy as np
 import matplotlib.pyplot as plt
-plt.style.use('../site.mplstyle')
+plt.style.use('../../site.mplstyle')
 %matplotlib inline
 from numpy_survey_results.utils import flatten, gluval
 # Location of generated content
@@ -31,7 +31,7 @@ from myst_nb import glue
 ---
 tags: [hide-input]
 ---
-fname = "data/numpy_survey_results.tsv"
+fname = "data/2021/numpy_survey_results.tsv"
 column_names = [
     'version', 'version_other', 'primary_use','use_freq','components','use_c_ext',
     'using_random', 'bug', 'bug_resolution', 'bug_resolution_other',
@@ -54,9 +54,9 @@ This section comprises various questions to try to gain insight on things
 like new feature adoption, issue resolution, and the length of deprecation
 cycles.
 
-### NumPy Primary Use
+## NumPy Primary Use
 
-{glue:text}`num_primary_use_respondents` respondents provided information about
+{glue:text}`2021_num_primary_use_respondents` respondents provided information about
 the primary context in which they use NumPy. Almost 3/4 of respondents use NumPy for work.
 
 ```{code-cell} ipython3
@@ -72,15 +72,15 @@ ax.set_title("NumPy Primary Use");
 fig.tight_layout()
 
 glue(
-    'num_primary_use_respondents',
+    '2021_num_primary_use_respondents',
     gluval(uses.shape[0], data.shape[0]),
     display=False
 )
 ```
 
-### NumPy Frequency of Use
+## NumPy Frequency of Use
 
-{glue:text}`num_freq_respondents` respondents provided information about how
+{glue:text}`2021_num_freq_respondents` respondents provided information about how
 often they use NumPy. Most respondents use NumPy on a daily or weekly basis.
 
 ```{code-cell} ipython3
@@ -95,14 +95,14 @@ ax.pie(cnts, labels=labels, autopct='%1.1f%%')
 ax.set_title("NumPy Frequency of Use");
 fig.tight_layout()
 
-glue('num_freq_respondents', gluval(use_freq.shape[0], data.shape[0]), display=False)
+glue('2021_num_freq_respondents', gluval(use_freq.shape[0], data.shape[0]), display=False)
 ```
 
-### NumPy Version
+## NumPy Version
 
 NumPy 1.21 was the latest stable release at the time the survey was 
 conducted.
-{glue:text}`older_version_usage` percent of respondents report that they
+{glue:text}`2021_older_version_usage` percent of respondents report that they
 primarily use an older version of NumPy.
 
 ```{code-cell} ipython3
@@ -119,10 +119,10 @@ fig.tight_layout()
 
 # Percentage of users that use older versions
 older_version_usage = 100 * cnts[-8:-2].sum() / cnts.sum()
-glue('older_version_usage', f"{older_version_usage:1.1f}", display=False)
+glue('2021_older_version_usage', f"{older_version_usage:1.1f}", display=False)
 ```
 
-### NumPy Components
+## NumPy Components
 
 NumPy encompasses many packages for specific scientific computing tasks, such
 as random number generation or Fourier analysis.
@@ -155,9 +155,9 @@ ax.set_title("Use-Frequency of NumPy Sub-Packages")
 fig.tight_layout()
 ```
 
-### NumPy C-Extensions
+## NumPy C-Extensions
 
-{glue:text}`num_c_ext` participants shared whether they (or their organization)
+{glue:text}`2021_num_c_ext` participants shared whether they (or their organization)
 uses custom C-extensions via the NumPy C-API (excluding Cython). Only about 7% of respondents report use.
 
 ```{code-cell} ipython3
@@ -174,7 +174,7 @@ ax.pie(cnts, labels=labels, autopct='%1.1f%%')
 ax.set_title("Use of NumPy C-Extentions");
 fig.tight_layout()
 
-glue('num_c_ext', gluval(use_c_ext.shape[0], data.shape[0]), display=False)
+glue('2021_num_c_ext', gluval(use_c_ext.shape[0], data.shape[0]), display=False)
 ```
 
 ## New `numpy.random` Adoption
@@ -182,8 +182,8 @@ glue('num_c_ext', gluval(use_c_ext.shape[0], data.shape[0]), display=False)
 A [new API for random number generation][nprandom] was added to `numpy.random`
 in version 1.17.
 We asked survey paricipants whether they were using the new random API.
-Of the {glue:text}`num_respondents` survey participants,
-{glue:text}`num_random_users` shared whether they were using the new `random`
+Of the {glue:text}`2021_num_respondents` survey participants,
+{glue:text}`2021_num_random_users` shared whether they were using the new `random`
 API.
 
 [nprandom]: https://numpy.org/doc/stable/reference/random/index.html
@@ -201,13 +201,13 @@ ax.set_title("Use of Random API");
 fig.tight_layout()
 
 glue(
-    'num_random_users',
+    '2021_num_random_users',
     gluval(rand.shape[0], data.shape[0]),
     display=False
 )
 ```
 
-(sec:handling_issues)=
+(sec:2021_handling_issues)=
 
 ## Handling Issues
 
@@ -217,8 +217,8 @@ we asked the following question:
   > In the last year, have you experienced problems in code you’ve written
   > stemming from a problem in NumPy?
 
-Of the {glue:text}`num_respondents` survey participants,
-{glue:text}`bug_reporters` responded to this question.
+Of the {glue:text}`2021_num_respondents` survey participants,
+{glue:text}`2021_bug_reporters` responded to this question.
 
 ```{code-cell} ipython3
 ---
@@ -234,7 +234,7 @@ ax.set_title("Experienced NumPy Issues");
 fig.tight_layout()
 
 glue(
-    'bug_reporters',
+    '2021_bug_reporters',
     gluval(bug.shape[0], data.shape[0]),
     display=False,
 )
@@ -265,16 +265,16 @@ fig.tight_layout()
 
 ## Data Analysis with NumPy
 
-Similar to the {ref}`the previous question <sec:handling_issues>`, we tried to
+Similar to the {ref}`the previous question <sec:2021_handling_issues>`, we tried to
 get a sense of how well NumPy meets users' data analysis needs.
 We asked the following question:
 
   > In the last year, have you encountered a problem involving numerical data
   > that you were unable to solve using NumPy?
 
-Of the {glue:text}`num_respondents` survey participants, 
-{glue:text}`num_solvers` responded to the above question, with 
-{glue:text}`num_unsolved` reporting that they've had a problem that they 
+Of the {glue:text}`2021_num_respondents` survey participants, 
+{glue:text}`2021_num_solvers` responded to the above question, with 
+{glue:text}`2021_num_unsolved` reporting that they've had a problem that they 
 initially expected to be able to solve using NumPy, but were unable to do so.
 
 ```{code-cell} ipython3
@@ -291,12 +291,12 @@ ax.set_title("Experienced Data Analysis Issues");
 fig.tight_layout()
 
 glue(
-    'num_solvers',
+    '2021_num_solvers',
     gluval(unsolvable.shape[0], data.shape[0]),
     display=False,
 )
 glue(
-    'num_unsolved',
+    '2021_num_unsolved',
     gluval(num_yes, unsolvable.shape[0]),
     display=False
 )
@@ -326,9 +326,9 @@ ax.set_title("Actions to Resolve Data Analysis Issue");
 fig.tight_layout()
 ```
 
-### Opening Issues
+## Opening Issues
 
-{glue:text}`num_open_issues` respondents reported having a problem with numerical data that they were unable to solve using NumPy, and did not open an issue. They were then asked why they did not open an issue for their particular problem.
+{glue:text}`2021_num_open_issues` respondents reported having a problem with numerical data that they were unable to solve using NumPy, and did not open an issue. They were then asked why they did not open an issue for their particular problem.
 
 ```{code-cell} ipython3
 ---
@@ -350,7 +350,7 @@ ax.set_title("Reason for not opening issue");
 fig.tight_layout()
 
 glue(
-    'num_open_issues',
+    '2021_num_open_issues',
     gluval(open_issues.shape[0], data.shape[0]),
     display=False,
 )
@@ -365,8 +365,8 @@ deprecation cycle, specifically:
 
   > NumPy normally has a two release cycle (1 year) deprecation policy. Do you think this is…
   
-Of the {glue:text}`num_respondents` survey participants,
-{glue:text}`num_dep_short` responded to this question.
+Of the {glue:text}`2021_num_respondents` survey participants,
+{glue:text}`2021_num_dep_short` responded to this question.
 
 ```{code-cell} ipython3
 ---
@@ -381,7 +381,7 @@ ax.set_title("Viewpoint on NumPy Deprecation Timeframe");
 fig.tight_layout()
 
 glue(
-    'num_dep_short',
+    '2021_num_dep_short',
     gluval(current_dep.shape[0], data.shape[0]),
     display=False
 )
@@ -390,8 +390,8 @@ We also asked the following:
 
   > What do you consider as a good deprecation time frame?
 
-Of the {glue:text}`num_respondents` survey participants,
-{glue:text}`dep_opinions` responded to this question.
+Of the {glue:text}`2021_num_respondents` survey participants,
+{glue:text}`2021_dep_opinions` responded to this question.
 
 ```{code-cell} ipython3
 ---
@@ -406,7 +406,7 @@ ax.set_title("Ideal Deprecation Timeframe");
 fig.tight_layout()
 
 glue(
-    'dep_opinions',
+    '2021_dep_opinions',
     gluval(depcycle.shape[0], data.shape[0]),
     display=False
 )

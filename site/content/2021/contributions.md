@@ -16,7 +16,7 @@ tags: [remove-cell]
 import os
 import numpy as np
 import matplotlib.pyplot as plt
-plt.style.use('../site.mplstyle')
+plt.style.use('../../site.mplstyle')
 %matplotlib inline
 from numpy_survey_results.utils import flatten, gluval
 # Location of generated content
@@ -38,7 +38,7 @@ tags: [hide-input]
 ---
 # Load data related to open-source contributions *other* than NumPy
 
-fname = "data/numpy_survey_results.tsv"
+fname = "data/2021/numpy_survey_results.tsv"
 column_names = [
     'contributed', 'projects', 'projects_other', 'contr_type', 
     'contr_type_other', 'regular', 'how_got_started', 'how_got_started_other',
@@ -96,27 +96,27 @@ num_oss_regular = np.sum(ossdata['regular'][oss_contributors_mask] == 'Yes')
 num_np_regular = np.sum(npdata['regular'][np_contributors_mask] == 'Yes')
 # Links for report
 glue(
-    'oss_contributors',
+    '2021_oss_contributors',
     gluval(num_oss_contributors, num_respondents),
     display=False
 )
 glue(
-    'np_contributors',
+    '2021_np_contributors',
     gluval(num_np_contributors, num_respondents),
     display=False
 )
 glue(
-    'numpy_and_oss_contributors',
+    '2021_numpy_and_oss_contributors',
     gluval(num_both_contributors, num_np_contributors),
     display=False
 )
 glue(
-    'oss_regulars',
+    '2021_oss_regulars',
     gluval(num_oss_regular, num_oss_contributors),
     display=False
 )
 glue(
-    'np_regulars',
+    '2021_np_regulars',
     gluval(num_np_regular, num_np_contributors),
     display=False
 )
@@ -126,16 +126,16 @@ glue(
 
 ## NumPy & OSS Contributors
 
-Of the {glue:text}`num_respondents` survey participants, 
-{glue:text}`oss_contributors` have contributed to at least one open source
-software project, while {glue:text}`np_contributors` have contributed to
+Of the {glue:text}`2021_num_respondents` survey participants, 
+{glue:text}`2021_oss_contributors` have contributed to at least one open source
+software project, while {glue:text}`2021_np_contributors` have contributed to
 NumPy specifically.
-{glue:text}`oss_regulars` of OSS contributors are *currently*[^currently]
+{glue:text}`2021_oss_regulars` of OSS contributors are *currently*[^currently]
 regular contributors to at least one OSS project, while
-{glue:text}`np_regulars` of the NumPy contributors contribute to NumPy
+{glue:text}`2021_np_regulars` of the NumPy contributors contribute to NumPy
 regularly.
 Reflecting its central position in the scientific Python ecosystem, 
-{glue:text}`numpy_and_oss_contributors` of NumPy contributors reported
+{glue:text}`2021_numpy_and_oss_contributors` of NumPy contributors reported
 contributing to other OSS projects as well.
 
 ### OSS Contributions
@@ -187,11 +187,11 @@ fig.tight_layout()
 
 We also asked **in what ways** people are contributing to open-source software
 projects.
-{glue:text}`pct_contrib_np_code` of respondents who have contributed to NumPy
-have contributed to the source code and {glue:text}`pct_contrib_np_docs` to
+{glue:text}`2021_pct_contrib_np_code` of respondents who have contributed to NumPy
+have contributed to the source code and {glue:text}`2021_pct_contrib_np_docs` to
 the documentation.
-While {glue:text}`pct_contrib_oss_code` of respondents who contribute to other
-OSS projects have contributed to code, only {glue:text}`pct_contrib_oss_docs`
+While {glue:text}`2021_pct_contrib_oss_code` of respondents who contribute to other
+OSS projects have contributed to code, only {glue:text}`2021_pct_contrib_oss_docs`
 have pitched in to help with documentation.
 
 ```{code-cell} ipython3
@@ -230,12 +230,12 @@ labels, cnts = np.unique(np_contr_type, return_counts=True)
 code_contr = cnts[labels == 'Code maintenance and development'][0]
 doc_contr = cnts[labels == 'Writing technical documentation (e.g. docstrings'][0]
 glue(
-  'pct_contrib_np_code',
+  '2021_pct_contrib_np_code',
   f"{100 * code_contr / np_contributors_mask.sum():2.0f}%",
   display=False,
 )
 glue(
-  'pct_contrib_np_docs',
+  '2021_pct_contrib_np_docs',
   f"{100 * doc_contr / np_contributors_mask.sum():2.0f}%",
   display=False,
 )
@@ -245,12 +245,12 @@ labels, cnts = np.unique(oss_contr_type, return_counts=True)
 code_contr = cnts[labels == 'Code maintenance and development'][0]
 doc_contr = cnts[labels == 'Writing technical documentation (e.g. docstrings'][0]
 glue(
-  'pct_contrib_oss_code',
+  '2021_pct_contrib_oss_code',
   f"{100 * code_contr / oss_contributors_mask.sum():2.0f}%",
   display=False,
 )
 glue(
-  'pct_contrib_oss_docs',
+  '2021_pct_contrib_oss_docs',
   f"{100 * doc_contr / oss_contributors_mask.sum():2.0f}%",
   display=False,
 )
@@ -293,7 +293,7 @@ fig.tight_layout()
 
 ### Motivations
 
-{glue:text}`top_3_motivations` are the top three reasons for the respondents
+{glue:text}`2021_top_3_motivations` are the top three reasons for the respondents
 to contribute to NumPy.
 
 ```{code-cell} ipython3
@@ -314,17 +314,17 @@ ax.set_xlabel('Percentage of NumPy Contributors')
 fig.tight_layout()
 
 # Highlight top 3
-glue('top_3_motivations', f"{labels[-3]}, {labels[-2]}, and {labels[-1]}", display=False)
+glue('2021_top_3_motivations', f"{labels[-3]}, {labels[-2]}, and {labels[-1]}", display=False)
 ```
 
 ### Retention
 
 Finally, we asked NumPy contributors whether they plan to continue to 
 contribute to NumPy.
-{glue:text}`regular_continue_pct` of survey participants who identified
+{glue:text}`2021_regular_continue_pct` of survey participants who identified
 themselves as regular NumPy contributors plan to continue contributing.
-Of the {glue:text}`num_nonregular_np_contributors` NumPy contributors who did
-not consider themselves *regular* contributors, {glue:text}`become_regular_pct`
+Of the {glue:text}`2021_num_nonregular_np_contributors` NumPy contributors who did
+not consider themselves *regular* contributors, {glue:text}`2021_become_regular_pct`
 plan to continue contributing.
 
 ```{code-cell} ipython3
@@ -334,13 +334,13 @@ tags: [hide-input]
 np_regular_mask = npdata['regular'] == 'Yes'
 regular_continue = npdata['continue'][np_regular_mask] == 'Yes'
 glue(
-    'regular_continue_pct',
+    '2021_regular_continue_pct',
     gluval(regular_continue.sum(), np_regular_mask.sum()),
     display=False
 )
 non_regular_contributor_mask = (np_contributors_mask) & (~np_regular_mask)
 glue(
-    'num_nonregular_np_contributors',
+    '2021_num_nonregular_np_contributors',
     non_regular_contributor_mask.sum(),
     display=False
 )
@@ -348,7 +348,7 @@ num_nonregular_continue = np.sum(
     npdata['continue'][non_regular_contributor_mask] == 'Yes'
 )
 glue(
-    'become_regular_pct',
+    '2021_become_regular_pct',
     f'{100 * num_nonregular_continue / non_regular_contributor_mask.sum():1.0f}%',
     display=False
 )
@@ -360,9 +360,9 @@ We also wanted to get the perspective of NumPy (and other OSS) users who have
 not directly contributed to projects --- is there generally interest in
 doing so? What are the biggest stumbling blocks for users who want to
 contribute back?
-Of the {glue:text}`num_respondents` survey respondents, 
-{glue:text}`oss_non_contributors` report never having contributed to an OSS
-project and {glue:text}`np_non_contributors` report never having contributed to
+Of the {glue:text}`2021_num_respondents` survey respondents, 
+{glue:text}`2021_oss_non_contributors` report never having contributed to an OSS
+project and {glue:text}`2021_np_non_contributors` report never having contributed to
 NumPy specifically.
 
 ```{code-cell} ipython3
@@ -372,12 +372,12 @@ tags: [hide-input]
 num_oss_non_contributors = np.sum(ossdata['contributed'] == 'No')
 num_np_non_contributors = np.sum(npdata['contributed'] == 'No')
 glue(
-    'oss_non_contributors',
+    '2021_oss_non_contributors',
     gluval(num_oss_non_contributors, num_respondents),
     display=False
 )
 glue(
-    'np_non_contributors',
+    '2021_np_non_contributors',
     gluval(num_np_non_contributors, num_respondents),
     display=False
 )
@@ -387,8 +387,8 @@ glue(
 
 We asked these respondents whether they were interested in contributing to
 the OSS packages that they use.
-{glue:text}`oss_interested` said they were interested in contributing to OSS
-generally, and {glue:text}`np_interested` to NumPy specifically.
+{glue:text}`2021_oss_interested` said they were interested in contributing to OSS
+generally, and {glue:text}`2021_np_interested` to NumPy specifically.
 
 
 ```{code-cell} ipython3
@@ -398,12 +398,12 @@ tags: [hide-input]
 oss_interested_mask = (ossdata['contributed'] == 'No') & (ossdata['interested'] == 'Yes')
 np_interested_mask = (npdata['contributed'] == 'No') & (npdata['interested'] == 'Yes')
 glue(
-    'oss_interested',
+    '2021_oss_interested',
     gluval(oss_interested_mask.sum(), num_oss_non_contributors),
     display=False
 )
 glue(
-    'np_interested',
+    '2021_np_interested',
     gluval(np_interested_mask.sum(), num_np_non_contributors),
     display=False
 )
@@ -440,15 +440,15 @@ fig.tight_layout()
 ### Interests of Potential Contributors
 
 Of the respondents who expressed interest in contributing to NumPy, most
-({glue:text}`pct_want_contrib_code`) were interested in contributing to the
+({glue:text}`2021_pct_want_contrib_code`) were interested in contributing to the
 source code.
 The next most popular category was contributing to the documentation, with 
-{glue:text}`interested_in_either_doc_type` respondents expressing an interest.
-{glue:text}`interested_in_both_doc_types` people were interested in contributing
+{glue:text}`2021_interested_in_either_doc_type` respondents expressing an interest.
+{glue:text}`2021_interested_in_both_doc_types` people were interested in contributing
 to both narrative documentation (e.g. tutorials) and technical documentation
-(e.g. reference guides), while {glue:text}`interested_in_narr_doc_only` were
+(e.g. reference guides), while {glue:text}`2021_interested_in_narr_doc_only` were
 interested only in narrative documentation, and
-{glue:text}`interested_in_tech_doc_only` only in technical documentation.
+{glue:text}`2021_interested_in_tech_doc_only` only in technical documentation.
 
 
 ```{code-cell} ipython3
@@ -475,7 +475,7 @@ ax.set_xlabel('Percentage of Contributors')
 fig.tight_layout()
 
 # Highlight top categories
-glue('pct_want_contrib_code', f"{100 * cnts[-1] / interests.shape[0]:2.0f}%", display=False)
+glue('2021_pct_want_contrib_code', f"{100 * cnts[-1] / interests.shape[0]:2.0f}%", display=False)
 
 # Analyze documentation categories based on individual responses
 narr_doc_text = "Developing educational content & narrative documentation (e.g. tutorials)"
@@ -500,22 +500,22 @@ num_tech_only = np.sum(
 )
 
 glue(
-    'interested_in_both_doc_types',
+    '2021_interested_in_both_doc_types',
     gluval(num_both, interests.shape[0]),
     display=False,
 )
 glue(
-    'interested_in_either_doc_type',
+    '2021_interested_in_either_doc_type',
     gluval(num_either, interests.shape[0]),
     display=False,
 )
 glue(
-    'interested_in_narr_doc_only',
+    '2021_interested_in_narr_doc_only',
     gluval(num_narr_only, interests.shape[0]),
     display=False,
 )
 glue(
-    'interested_in_tech_doc_only',
+    '2021_interested_in_tech_doc_only',
     gluval(num_tech_only, interests.shape[0]),
     display=False,
 )

@@ -16,7 +16,7 @@ tags: [remove-cell]
 import os
 import numpy as np
 import matplotlib.pyplot as plt
-plt.style.use('../site.mplstyle')
+plt.style.use('../../site.mplstyle')
 %matplotlib inline
 from numpy_survey_results.utils import gluval, gen_mdlist
 # Location of generated content
@@ -31,7 +31,7 @@ from myst_nb import glue
 ---
 tags: [hide-input]
 ---
-fname = "data/numpy_survey_results.tsv"
+fname = "data/2021/numpy_survey_results.tsv"
 column_names = [
     'website', 'performance', 'reliability', 'packaging', 'new_features',
     'documentation', 'other'
@@ -51,7 +51,7 @@ num_respondents = data.shape[0]
 unstructured = data.view(np.dtype('(7,)U1'))
 data = data[~np.any(unstructured == '', axis=1)]
 
-glue('num_prioritizers', gluval(data.shape[0], num_respondents), display=False)
+glue('2021_num_prioritizers', gluval(data.shape[0], num_respondents), display=False)
 ```
 
 We asked survey respondents to share their priorities for NumPy to get a sense
@@ -71,8 +71,8 @@ share priorities beyond those listed above.
 
 ## Overview
 
-Of the {glue:text}`num_respondents` survey participants,
-{glue:text}`num_prioritizers` shared their priorities for NumPy moving forward.
+Of the {glue:text}`2021_num_respondents` survey participants,
+{glue:text}`2021_num_prioritizers` shared their priorities for NumPy moving forward.
 
 To get a sense of the overall relative "importance" of each of the categories,
 the following figure summarizes the score for each category as determined by
@@ -101,10 +101,10 @@ ax.set_title("Overall Importance Score");
 fig.tight_layout()
 ```
 
-In {ref}`sec:priorities` we will take a closer look at how things are
+In {ref}`sec:2021_priorities` we will take a closer look at how things are
 prioritized.
 
-(sec:priorities)=
+(sec:2021_priorities)=
 
 ## Top Priorities
 
@@ -151,7 +151,7 @@ categories = {
 response_dict = {}
 for category in categories:
     responses = np.loadtxt(
-        f"data/{category}_comments_master.tsv", delimiter='\t', skiprows=1,
+        f"data/2021/{category}_comments_master.tsv", delimiter='\t', skiprows=1,
         usecols=0, dtype='U', comments=None
     )
     responses = responses[responses != '']
@@ -163,7 +163,7 @@ for category, responses in response_dict.items():
 
 # Register number of responses in each category
 for k, v in response_dict.items():
-    glue(f"num_{k}_comments", v.shape[0], display=False)
+    glue(f"2021_num_{k}_comments", v.shape[0], display=False)
 ```
 
 % TODO: This would be much more convenient if the MD tables could be included
@@ -172,7 +172,7 @@ for k, v in response_dict.items():
 
 #### Documentation
 
-{glue:text}`num_docs_comments` participants shared their thoughts on how
+{glue:text}`2021_num_docs_comments` participants shared their thoughts on how
 documentation could be improved.
 
 ````{admonition} Click to expand!
@@ -183,7 +183,7 @@ documentation could be improved.
 
 #### New Features
 
-{glue:text}`num_newfeatures_comments` participants shared their thoughts on
+{glue:text}`2021_num_newfeatures_comments` participants shared their thoughts on
 new features to improve NumPy.
 
 ````{admonition} Click to expand!
@@ -194,7 +194,7 @@ new features to improve NumPy.
 
 #### Other
 
-{glue:text}`num_other_comments` participants selected "Other" as a top
+{glue:text}`2021_num_other_comments` participants selected "Other" as a top
 priority:
 
 ````{admonition} Click to expand!
@@ -205,7 +205,7 @@ priority:
 
 #### Packaging
 
-{glue:text}`num_packaging_comments` participants shared their thoughts on how
+{glue:text}`2021_num_packaging_comments` participants shared their thoughts on how
 the packaging utilities in NumPy could be improved.
 
 ````{admonition} Click to expand!
@@ -216,7 +216,7 @@ the packaging utilities in NumPy could be improved.
 
 #### Performance
 
-{glue:text}`num_performance_comments` participants shared thoughts on why
+{glue:text}`2021_num_performance_comments` participants shared thoughts on why
 performance is a top priority and ideas on how it can be improved.
 
 ````{admonition} Click to expand!
@@ -227,7 +227,7 @@ performance is a top priority and ideas on how it can be improved.
 
 #### Reliability
 
-{glue:text}`num_reliability_comments` participants shared their thoughts on
+{glue:text}`2021_num_reliability_comments` participants shared their thoughts on
 reliability and how it can be improved.
 
 ````{admonition} Click to expand!
@@ -238,7 +238,7 @@ reliability and how it can be improved.
 
 #### Website
 
-Finally, {glue:text}`num_website_comments` participants selected the
+Finally, {glue:text}`2021_num_website_comments` participants selected the
 NumPy website as a top priority and shared their thoughts on how it could
 be improved.
 
