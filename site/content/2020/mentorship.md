@@ -16,7 +16,7 @@ tags: [remove-cell]
 import os
 import numpy as np
 import matplotlib.pyplot as plt
-plt.style.use('../site.mplstyle')
+plt.style.use('../../site.mplstyle')
 %matplotlib inline
 from numpy_survey_results.utils import flatten, gluval
 # Location of generated content
@@ -31,7 +31,7 @@ from myst_nb import glue
 ---
 tags: [hide-input]
 ---
-fname = "data/numpy_survey_results.tsv"
+fname = "data/2020/numpy_survey_results.tsv"
 column_names = [
     'participated', 'role', 'mentor_paid', 'mentor_motivation',
     'mentor_motivation_other', 'mentor_connect', 'mentor_connect_other',

@@ -16,7 +16,7 @@ tags: [remove-cell]
 import os
 import numpy as np
 import matplotlib.pyplot as plt
-plt.style.use('../site.mplstyle')
+plt.style.use('../../site.mplstyle')
 %matplotlib inline
 from numpy_survey_results.utils import gen_mdlist
 # Location of generated content
@@ -36,10 +36,10 @@ loading_params = dict(
 )
 
 biggest_impact = np.loadtxt(
-    "data/biggestimpact_comments_master.tsv", **loading_params
+    "data/2021/biggestimpact_comments_master.tsv", **loading_params
 )
 other_changes = np.loadtxt(
-    "data/significantchanges_comments_master.tsv", **loading_params
+    "data/2021/significantchanges_comments_master.tsv", **loading_params
 )
 
 # Filter
@@ -51,12 +51,12 @@ rng.shuffle(biggest_impact)
 rng.shuffle(other_changes)
 # Reporting values
 glue(
-    'num_biggest_impact',
+    '2021_num_biggest_impact',
     biggest_impact.shape[0],
     display=False
 )
 glue(
-    'num_other',
+    '2021_num_other',
     other_changes.shape[0],
     display=False
 )
@@ -65,6 +65,8 @@ glue(
 To conclude the survey, we asked participants to share their thoughts on what
 changes to NumPy would have the most significant impact for them as users.
 
+Note: CSV versions of these text responses can be found in the supplemental text public use data file. [INSERT LINK]
+
 ## Biggest Impact
 
 We asked survey participants the following question:
@@ -72,7 +74,7 @@ We asked survey participants the following question:
   > What single immediate change to NumPy would bring the most value to
   > you as a NumPy user?
 
-The responses of the {glue:text}`num_biggest_impact` survey participants who
+The responses of the {glue:text}`2021_num_biggest_impact` survey participants who
 answered this question are listed below.
 
 ```{code-cell} ipython3
@@ -92,7 +94,7 @@ gen_mdlist(biggest_impact, "biggest_impacts_list.md")
 
 Finally, we asked participants to share any other changes that would 
 significantly improve NumPy.
-The responses of the {glue:text}`num_other` participants who answered this
+The responses of the {glue:text}`2021_num_other` participants who answered this
 question are listed below.
 
 ```{code-cell} ipython3
