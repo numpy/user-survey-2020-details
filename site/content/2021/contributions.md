@@ -459,7 +459,10 @@ interests = npdata['interests'][np_interested_mask]
 interests = interests[interests != '']
 data = flatten(interests)
 labels, cnts = np.unique(data, return_counts=True)
-# TODO: Remove these hacks when categories have been synchronized
+
+# NOTE: The labels need a bit of munging here due to the results of the splitting.
+# The first two labels are copies of the "Technical documentation" category, thus
+# are ignored. The labels corresponding to documentation are also shortened.
 labels, cnts = labels[2:], cnts[2:]
 labels[3] = 'Narrative documentation (e.g. tutorials)'
 labels[-1] = 'Technical documentation (e.g. docstrings)'
