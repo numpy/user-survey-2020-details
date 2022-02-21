@@ -1,9 +1,12 @@
 # Acknowledgements
 
-The inaugural NumPy community survey is an effort of an international group of
-volunteers who showed remarkable dedication to the project amidst the
-extraordinary challenges of the year 2020.
+The NumPy community survey is an effort of an international group of volunteers.
 Contributors are listed alphabetically by type of contribution.
+
+## Project leads
+
+ - Stephanie Mendoza
+ - Inessa Pawson
 
 ## Survey Design and Analysis
 
@@ -11,6 +14,7 @@ Contributors are listed alphabetically by type of contribution.
  - Sebastian Berg
  - Xiaoyi Deng
  - Ralf Gommers
+ - Mars Lee
  - Stephanie Mendoza
  - Inessa Pawson
  - Deji Suolang
