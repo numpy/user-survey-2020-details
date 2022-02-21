@@ -136,8 +136,6 @@ For example, if a user ranked "Performance" as a top priority, they were asked
 to share any specific thoughts on how performance could be improved.
 The responses for each of the categories are provided below.
 
-Note: CSV versions of these text responses can be found in the supplemental text public use data file. [INSERT LINK]
-
 ```{code-cell} ipython3
 ---
 tags: [hide-input]
