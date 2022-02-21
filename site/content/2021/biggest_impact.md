@@ -65,8 +65,6 @@ glue(
 To conclude the survey, we asked participants to share their thoughts on what
 changes to NumPy would have the most significant impact for them as users.
 
-Note: CSV versions of these text responses can be found in the supplemental text public use data file. [INSERT LINK]
-
 ## Biggest Impact
 
 We asked survey participants the following question:
