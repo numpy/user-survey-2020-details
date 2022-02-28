@@ -10,43 +10,29 @@ Contributors are listed alphabetically by type of contribution.
 
 ## Survey Design and Analysis
 
+ - Pantelis Antonoudiou
  - Ross Barnowski
  - Sebastian Berg
- - Xiaoyi Deng
  - Ralf Gommers
- - Mars Lee
- - Stephanie Mendoza
- - Inessa Pawson
- - Deji Suolang
- - Mame Fatou Thiam
+ - Rohit Goswami
+ - Melissa Mendonça
+ - Aerik Pawson
 
 ## Translations
 
- - Eric Depagne
  - Xiaoyi Deng
- - Yuki Dunn
  - Kiko Correoso Garcia
- - Jose Guzman
- - Andrei Ivanov
  - Paul Ivanov
- - Siddhartha Kapoor
- - Tetsuo Koyama
  - Guilherme Leobas
- - Dayane Machado
- - Mahfuza Humayra Mohona
+ - Mahfuza Humayra Mohona 
  - Aerik Pawson
- - Inessa Pawson
  - Zijie Poh
- - Sumera Priyadarsini
+ - Atsushi Sakai
  - Fabrice Silva
- - Shaloo Shalini
- - Kriti Singh
- - Alexandre de Siqueira
+ - Kriti Singh 
 
 ## Special thanks
 
- - Frederick Conrad (Survey Research Center, Institute for Social Research, University of Michigan)
- - Danuta Dzierżanowska
- - Jim Lepkowski (Survey Research Center, Institute for Social Research, University of Michigan)
- - Claire McKay Bowen (Urban Institute)
- - Michael Traugott (Survey Research Center, Institute for Social Research, University of Michigan)
+ - Mars Lee
+ - The Berkeley Institute for Data Science (UC Berkeley)
+
