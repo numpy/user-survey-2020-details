@@ -433,13 +433,13 @@ print(labels)
 ---
 tags: [hide-input]
 ---
-
-%matplotlib inline
-from numpy_survey_results.utils import flatten, gluval
+from numpy_survey_results.utils import flatten
 
 share_code = data['share_code'][data['share_code'] != '']
 labels, cnts = np.unique(flatten(share_code), return_counts=True)
-ind = np.array([0,1,3,4,2])
+
+# Sort categories in ascending order (i.e. "0", "1-2", "3-5", "5-10", "10+")
+ind = np.array([0, 1, 3, 4, 2])
 labels, cnts = labels[ind], cnts[ind]
 
 fig, ax = plt.subplots(figsize=(12, 8))
@@ -453,7 +453,7 @@ ax.set_xlabel('Number of people you typically share code with')
 fig.tight_layout()
 
 # Highlights most popular
-glue('2021_top_share', labels[1], display=False)
+glue('2021_top_share', labels[np.argmax(cnts)], display=False)
 
 # Number who answered question
 glue(
