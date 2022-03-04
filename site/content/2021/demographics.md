@@ -31,7 +31,7 @@ tags: [remove-cell]
 ---
 # Vectorized helper functions for string processing
 capitalize = np.vectorize(str.capitalize, otypes='U')
-strip = np.vectorize(str.strip, otypes='U')
+strip = np.vectorize(lambda s: s.strip('" '), otypes='U')
 title = np.vectorize(str.title, otypes='U')
 ```
 
@@ -187,7 +187,8 @@ num_resp = 10
 cutoff = (cnts > num_resp)
 plabels = np.concatenate((labels[cutoff], ['Other']))
 pcnts = np.concatenate((cnts[cutoff], [cnts[~cutoff].sum()]))
-#Plot
+
+# Plot
 fig, ax = plt.subplots(figsize=(8, 8))
 ax.pie(pcnts, labels=plabels, autopct='%1.1f%%')
 ax.set_title("Country of Residence");
@@ -209,6 +210,15 @@ def country_to_continent(country_name):
     return cont_code_to_cont_name[cont_code]
 c2c = np.vectorize(country_to_continent, otypes='U')
 
+# Organize countries below the privacy cutoff by their continent
+remaining_countries = labels[~cutoff]
+continents = c2c(remaining_countries)
+with open('_generated/countries_by_continent.md', 'w') as of:
+    of.write('|  |  |\n')
+    of.write('|---------------|-------------|\n')
+    for continent in np.unique(continents):
+        clist = remaining_countries[continents == continent]
+        of.write(f"| **{continent}:** | {', '.join(clist)} |\n")
 
 glue('2021_num_unique_countries', len(labels), display=False)
 glue(
