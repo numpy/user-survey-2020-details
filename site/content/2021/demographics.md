@@ -31,7 +31,7 @@ tags: [remove-cell]
 ---
 # Vectorized helper functions for string processing
 capitalize = np.vectorize(str.capitalize, otypes='U')
-strip = np.vectorize(str.strip, otypes='U')
+strip = np.vectorize(lambda s: s.strip('" '), otypes='U')
 title = np.vectorize(str.title, otypes='U')
 ```
 
@@ -187,7 +187,8 @@ num_resp = 10
 cutoff = (cnts > num_resp)
 plabels = np.concatenate((labels[cutoff], ['Other']))
 pcnts = np.concatenate((cnts[cutoff], [cnts[~cutoff].sum()]))
-#Plot
+
+# Plot
 fig, ax = plt.subplots(figsize=(8, 8))
 ax.pie(pcnts, labels=plabels, autopct='%1.1f%%')
 ax.set_title("Country of Residence");
