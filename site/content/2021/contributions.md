@@ -203,10 +203,11 @@ fig, ax = plt.subplots(figsize=(12, 8))
 # Sort order for categories - computed in loop and kept consistent for both datasets
 I = None
 
-for start_ind, (data, mask, label) in enumerate(zip(
+for start_ind, (data, mask, label, key) in enumerate(zip(
     (ossdata, npdata), 
     (oss_contributors_mask, np_contributors_mask),
-    ('Non-NumPy Contributors', 'NumPy Contributors')
+    ('Non-NumPy Contributors', 'NumPy Contributors'),
+    ('oss', 'np'),
 )):
     how_data = data['contr_type'][mask]
     # Remove non-responses
@@ -230,45 +231,25 @@ for start_ind, (data, mask, label) in enumerate(zip(
         label=label,
     )
 
+    # Highlight code and docs results for Q1 and Q2
+    code_contr = cnts[labels == 'Code maintenance and development'][0]
+    doc_contr = cnts[labels == 'Writing technical documentation (e.g. docstrings'][0]
+    glue(
+        f'2021_pct_contrib_{key}_code',
+        f"{100 * code_contr / mask.sum():2.0f}%",
+        display=False,
+    )
+    glue(
+        f'2021_pct_contrib_{key}_docs',
+        f"{100 * doc_contr / mask.sum():2.0f}%",
+        display=False,
+    )
+
 ax.set_yticks(np.arange(start_ind, 2 * len(labels), 2))
 ax.set_yticklabels(labels)
 ax.set_xlabel('Percentage of Contributors')
 ax.legend(loc=4)
 fig.tight_layout()
-    
-# Highlight code and docs contributions Q1
-oss_contr_type = flatten(ossdata['contr_type'][oss_contributors_mask])
-np_contr_type = flatten(npdata['contr_type'][np_contributors_mask])
-
-labels, cnts = np.unique(np_contr_type, return_counts=True)
-code_contr = cnts[labels == 'Code maintenance and development'][0]
-doc_contr = cnts[labels == 'Writing technical documentation (e.g. docstrings'][0]
-glue(
-  '2021_pct_contrib_np_code',
-  f"{100 * code_contr / np_contributors_mask.sum():2.0f}%",
-  display=False,
-)
-glue(
-  '2021_pct_contrib_np_docs',
-  f"{100 * doc_contr / np_contributors_mask.sum():2.0f}%",
-  display=False,
-)
-
-# Highlight code and docs contributions Q2
-labels, cnts = np.unique(oss_contr_type, return_counts=True)
-code_contr = cnts[labels == 'Code maintenance and development'][0]
-doc_contr = cnts[labels == 'Writing technical documentation (e.g. docstrings'][0]
-glue(
-  '2021_pct_contrib_oss_code',
-  f"{100 * code_contr / oss_contributors_mask.sum():2.0f}%",
-  display=False,
-)
-glue(
-  '2021_pct_contrib_oss_docs',
-  f"{100 * doc_contr / oss_contributors_mask.sum():2.0f}%",
-  display=False,
-)
-
 ```
 
 ### How Did Contributors Get Their Start?
