@@ -153,7 +153,7 @@ tags: [hide-input]
 ---
 # Remove less-popular projects
 projects_to_drop = (
-    'Gensim', 'spaCy', '',
+    'Gensim', 'spaCy', '', 'CuPy', 'PyMC3',
     'Other (please specify - use commas to separate multiple entries)'
 )
 
