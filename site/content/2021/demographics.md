@@ -210,6 +210,15 @@ def country_to_continent(country_name):
     return cont_code_to_cont_name[cont_code]
 c2c = np.vectorize(country_to_continent, otypes='U')
 
+# Organize countries below the privacy cutoff by their continent
+remaining_countries = labels[~cutoff]
+continents = c2c(remaining_countries)
+with open('_generated/countries_by_continent.md', 'w') as of:
+    of.write('|  |  |\n')
+    of.write('|---------------|-------------|\n')
+    for continent in np.unique(continents):
+        clist = remaining_countries[continents == continent]
+        of.write(f"| **{continent}:** | {', '.join(clist)} |\n")
 
 glue('2021_num_unique_countries', len(labels), display=False)
 glue(
