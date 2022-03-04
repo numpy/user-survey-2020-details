@@ -20,8 +20,8 @@ content/2021/contributions
 content/2021/priorities
 content/2021/features_and_deprecations
 content/2021/biggest_impact
+content/2021/acknowledgements
 content/index
-acknowledgements
 glossary
 ```
 ## About
