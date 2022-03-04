@@ -198,29 +198,43 @@ have pitched in to help with documentation.
 ---
 tags: [hide-input]
 ---
-  fig, ax = plt.subplots(figsize=(12, 8))
-  for start_ind, (data, mask, label) in enumerate(zip(
+fig, ax = plt.subplots(figsize=(12, 8))
+
+# Sort order for categories - computed in loop and kept consistent for both datasets
+I = None
+
+for start_ind, (data, mask, label) in enumerate(zip(
     (ossdata, npdata), 
     (oss_contributors_mask, np_contributors_mask),
     ('Non-NumPy Contributors', 'NumPy Contributors')
-  )):
+)):
     how_data = data['contr_type'][mask]
     # Remove non-responses
     how_data = how_data[how_data != '']
     data = flatten(how_data)
+    # Remove "Other" category
+    data = np.asarray(data)
+    data = data[data != 'Other (please specify)']
     labels, cnts = np.unique(data, return_counts=True)
+    # Ignore duplicate labels from bad split
+    labels, cnts = labels[2:], cnts[2:]
+    # Apply category ordering
+    I = np.argsort(cnts) if I is None else I
+    labels, cnts = labels[I], cnts[I]
+
     # Plot
     ax.barh(
-      np.arange(start_ind, 2 * len(labels), 2),
-      100 * cnts / len(how_data),
-      align='edge',
-      label=label,
+        np.arange(start_ind, 2 * len(labels), 2),
+        100 * cnts / len(how_data),
+        align='edge',
+        label=label,
     )
-    ax.set_yticks(np.arange(start_ind, 2 * len(labels), 2))
-    ax.set_yticklabels(labels)
-    ax.set_xlabel('Percentage of Contributors')
-    ax.legend()
-    fig.tight_layout()
+
+ax.set_yticks(np.arange(start_ind, 2 * len(labels), 2))
+ax.set_yticklabels(labels)
+ax.set_xlabel('Percentage of Contributors')
+ax.legend(loc=4)
+fig.tight_layout()
     
 # Highlight code and docs contributions Q1
 oss_contr_type = flatten(ossdata['contr_type'][oss_contributors_mask])
