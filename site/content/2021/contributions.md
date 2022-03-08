@@ -153,7 +153,7 @@ tags: [hide-input]
 ---
 # Remove less-popular projects
 projects_to_drop = (
-    'Gensim', 'spaCy', '',
+    'Gensim', 'spaCy', '', 'CuPy', 'PyMC3',
     'Other (please specify - use commas to separate multiple entries)'
 )
 
@@ -198,63 +198,58 @@ have pitched in to help with documentation.
 ---
 tags: [hide-input]
 ---
-  fig, ax = plt.subplots(figsize=(12, 8))
-  for start_ind, (data, mask, label) in enumerate(zip(
+fig, ax = plt.subplots(figsize=(12, 8))
+
+# Sort order for categories - computed in loop and kept consistent for both datasets
+I = None
+
+for start_ind, (data, mask, label, key) in enumerate(zip(
     (ossdata, npdata), 
     (oss_contributors_mask, np_contributors_mask),
-    ('Non-NumPy Contributors', 'NumPy Contributors')
-  )):
+    ('Non-NumPy Contributors', 'NumPy Contributors'),
+    ('oss', 'np'),
+)):
     how_data = data['contr_type'][mask]
     # Remove non-responses
     how_data = how_data[how_data != '']
     data = flatten(how_data)
+    # Remove "Other" category
+    data = np.asarray(data)
+    data = data[data != 'Other (please specify)']
     labels, cnts = np.unique(data, return_counts=True)
+    # Ignore duplicate labels from bad split
+    labels, cnts = labels[2:], cnts[2:]
+    # Apply category ordering
+    I = np.argsort(cnts) if I is None else I
+    labels, cnts = labels[I], cnts[I]
+
     # Plot
     ax.barh(
-      np.arange(start_ind, 2 * len(labels), 2),
-      100 * cnts / len(how_data),
-      align='edge',
-      label=label,
+        np.arange(start_ind, 2 * len(labels), 2),
+        100 * cnts / len(how_data),
+        align='edge',
+        label=label,
     )
-    ax.set_yticks(np.arange(start_ind, 2 * len(labels), 2))
-    ax.set_yticklabels(labels)
-    ax.set_xlabel('Percentage of Contributors')
-    ax.legend()
-    fig.tight_layout()
-    
-# Highlight code and docs contributions Q1
-oss_contr_type = flatten(ossdata['contr_type'][oss_contributors_mask])
-np_contr_type = flatten(npdata['contr_type'][np_contributors_mask])
 
-labels, cnts = np.unique(np_contr_type, return_counts=True)
-code_contr = cnts[labels == 'Code maintenance and development'][0]
-doc_contr = cnts[labels == 'Writing technical documentation (e.g. docstrings'][0]
-glue(
-  '2021_pct_contrib_np_code',
-  f"{100 * code_contr / np_contributors_mask.sum():2.0f}%",
-  display=False,
-)
-glue(
-  '2021_pct_contrib_np_docs',
-  f"{100 * doc_contr / np_contributors_mask.sum():2.0f}%",
-  display=False,
-)
+    # Highlight code and docs results for Q1 and Q2
+    code_contr = cnts[labels == 'Code maintenance and development'][0]
+    doc_contr = cnts[labels == 'Writing technical documentation (e.g. docstrings'][0]
+    glue(
+        f'2021_pct_contrib_{key}_code',
+        f"{100 * code_contr / mask.sum():2.0f}%",
+        display=False,
+    )
+    glue(
+        f'2021_pct_contrib_{key}_docs',
+        f"{100 * doc_contr / mask.sum():2.0f}%",
+        display=False,
+    )
 
-# Highlight code and docs contributions Q2
-labels, cnts = np.unique(oss_contr_type, return_counts=True)
-code_contr = cnts[labels == 'Code maintenance and development'][0]
-doc_contr = cnts[labels == 'Writing technical documentation (e.g. docstrings'][0]
-glue(
-  '2021_pct_contrib_oss_code',
-  f"{100 * code_contr / oss_contributors_mask.sum():2.0f}%",
-  display=False,
-)
-glue(
-  '2021_pct_contrib_oss_docs',
-  f"{100 * doc_contr / oss_contributors_mask.sum():2.0f}%",
-  display=False,
-)
-
+ax.set_yticks(np.arange(start_ind, 2 * len(labels), 2))
+ax.set_yticklabels(labels)
+ax.set_xlabel('Percentage of Contributors')
+ax.legend(loc=4)
+fig.tight_layout()
 ```
 
 ### How Did Contributors Get Their Start?
