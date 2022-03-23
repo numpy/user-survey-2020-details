@@ -1,0 +1,74 @@
+|Comments|
+|--------|
+|Allowing Numpy to access to GPU to parallel tasks|
+|It's already pretty good, I don't know how it can get better|
+|I mean this as "performance should be a top priority". numpy already performs well- I think this should continue to be a priority.|
+|Specifically, performance on windows, though I'm not sure if this is feasible.|
+|The performance is mostly great. The survey forced me to select some priority order and hence I think performance, reliability and documentation are for my work the most important ones. In my experience numpy is fast, reliable and has clear documentation.|
+|Solicit algorithm optimization from the public. (The comment was made in Mandarin.)|
+|Paralelization. Tutorial on best practices. Advanced tutorials on numexpr and numba.|
+|Enabling the multi-threading via env variables for a ML stack consisting of NumPy, SciPy, SciKit-Learn and other higher-level libraries is very tricky in a production codebase (setting the env variable before NumPy is first imported etc.) and currently doesn't work for our codebase at all (while it works on a trivial PoC code snippet). Detection and exclusion of hyper-threaded cores is missing. Dynamic vs. static thread count setting has undocumented but significant impact. All this matters in on-premise deployments a lot.|
+|Nothing to complain, but I highly value numpys performance|
+|There’s still a lot of Numpy code that could probably be easily multi-threaded, which would give a huge performance improvement on a lot of my code. I know that there are dedicated libraries out there but that significantly complicates installation and maintenance (in particular within companies with brain-dead download policies), therefore I try to keep imports to a minimum. |
+|multicore support for basic operations would be nice|
+|CUDA support. Support for AMD's BLAS|
+|Using GPU and parallelisation|
+|In terms of speed Numpy is amazing, maybe I am more concerned in terms of RAM consumption, specifically for a numpy masked array|
+|Vector operation related. (The comment was made in Japanese.)|
+|Continue honing the low-level (C) code.|
+|Join forces with projects like JAX and Dask. Develop better interoperability with modern Fortran through f2py or LFortran.|
+|Developing NumPy for developers from underdeveloped countries. Developers from economically underdeveloped counties have less high powered PC configuration, thus creating NumPy to run on lower PC config. with high performance will be helpful for them.|
+|I think documentation on how to write faster numpy code would be helpful: vectorizing, etc. Add the ability to use units with calculations.|
+|Performance on Windows is worse than on Linux on the same computer|
+|Using SIMD code to leverage hardware vectorization.|
+|better facilities for using numpy with GPU's/CUDA|
+|Reduce overhead|
+|make it faster|
+|Provide a min/max method to compute min/max in one go rather than from min and then max.|
+|How much processing can be handled in small computers and big data without implying the need of costly GPUs, memory/processors|
+|Developing smaller modules that allow a faster response in calculations. (The comment was made in Spanish.)|
+|Allow for multiprocessing without being more verbose.|
+|Numpy could use extended instruction sets or target GPU.|
+|When applying arbitrary Python code with broadcast. (The comment was made in Japanese.)|
+|Performance is good now but one of the main reasons I use `numpy` is performance. I don't have strong feelings about e.g., new features, website updates, etc.|
+|Multi node MKL|
+|Ya guys r doing fine... just don't change the syntax.... let it last as pristine as possible|
+|Spreading more in the Spanish language, sorry if I'm selfish! (The comment was made in Spanish.)|
+|CuPy being native so that large arrays, which run slow for me, which is probably a CPU issue, not a numpy issue. Though added GPU support would be fantastic. |
+|Make improvement in calculation speed. Some people from my field move to Julia because of that|
+|I'd love to have integrated profiling tools, giving hits to bottlenecks in matrix operations and suggesting alternatives. And a closer integration with Numba would be very nice too!|
+|SIMD instructions for modern processors (as you have been doing), more ambitiously, processing backends such as OpenCL and Vulkan.|
+|Numpy is the fundamental toolbox on almost thousands of software development chaintool.  If some functionality can be improved to run faster, it will have tremendous implications in a vast array of applications.|
+|None in particular, but any performance gain can have huge impacts.|
+|There are functions such as np.unique that are incompatible with numba, so I want a function with narrowed functions. (The comment was made in Japanese.)|
+|Improve call overhead|
+|Enhanced vectorization, multithreaded/SIMD map feature|
+|- More use of SIMD operations - Maybe some integration with Numba for automatic "fusion" of operations? Not sure about this one...|
+|Automated performance tests. Perhaps some way of improving performance for the vectorize function if that is at all possible.|
+|Profile memory and report CPU and memory usage with VTune.|
+|Improve GPU support.|
+|Would love anything I can get to make my code faster ;)|
+|Honestly, numpy is amazingly performant. Could the overhead of talking with python be cut down somehow?|
+|I don't think there are any easy answers.  Supporting and pushing projects that make use of DAG and JIT is probably the best way forward.  The challenge here is tht this is really outside of core NumPy.|
+|Better integration with CuPy (GPU), multithreaded computation, accessible options for tailoring your personal build (CPU architecture, BLAS library....) ideally with one simple and easy to use script to rebuild the package. Support for float16|
+|Native optimizations for the Apple M1 chip|
+|Actually more docs on performance would be cool|
+|Extra compiled routines for a few key operations (like 2D regular binned histograms, AKA images). Mostly this is just something to keep in a priority list, since som many people depend on NumPy for compute-intensive codes.|
+|Operations on masked arrays can be pretty slow.|
+|I guess I don’t think NumPy underperforms, I just would like to see it do an even more awesome job. My models involve a lot of applying finite difference methods to PDEs and running them 10^6 times so any bit of performance helps!|
+|Vectorising all the APIs, universal function support.|
+|This is tough. I cannot think of anything off the top of my head, since NumPy is rather well designed in most aspects.|
+|Magically make my existing numpy code faster 🙂|
+|Further weight reduction and speeding up of processing. (The comment was made in Japanese.)|
+|It's already pretty good, but its main weak point is that it produces intermediate arrays—any tricks that can lead to more operator-fusion is appreciated!|
+|better support for AMD processors|
+|something like what julia is currently doing with llvm and simd|
+|Further JAX integration. Also with Scipy|
+|Some operations could take advantage of fusing of operators and this improve memory bandwidth of the code|
+|It can be improved if there are multiple people working at the maintainance of NumPy from wide range of knowledge and interests.|
+|- Optional TensorFlowesque chaining of operations to save memory bandwidth - Bespoke low-level code optimized to major architectures - Ability to offload code to accelerators (e.g. GPU), especially if this can be done in a way that’s transparent to the user|
+|Device placement|
+|Numpy is already very high performance, but performance matters a lot to me.  I use numpy because the apis are great and I rarely have to think about performance.|
+|Most of my APIs import it, and therefore any improvements to imports will have a broad impact on my projects’ import times|
+|I would like an easy user story with GPU and multi-core setups.|
+|User-extendable dtypes|

@@ -1,0 +1,1160 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Priorities &#8212; NumPy Community Survey 2020  documentation</title>
+    
+    <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  
+    
+    <link rel="stylesheet"
+      href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+      href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+      href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+    
+      
+  
+    
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/pydata-sphinx-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    
+    <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Usage" href="features_and_deprecations.html" />
+    <link rel="prev" title="Contributions" href="contributions.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../../index.html">
+  <img src="../../_static/numpylogo.svg" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="demographics.html">
+  Community
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="contributions.html">
+  Contributions
+ </a>
+</li>
+
+<li class="toctree-l1 current active nav-item">
+ <a class="current reference internal nav-link" href="#">
+  Priorities
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="features_and_deprecations.html">
+  Usage
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="biggest_impact.html">
+  Future
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="acknowledgements.html">
+  Acknowledgements
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../index.html">
+  Previous Years
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../glossary.html">
+  Glossary
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search survey results ..." aria-label="Search survey results ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#top-priorities">
+   Top Priorities
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#details">
+     Details
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#documentation">
+       Documentation
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#new-features">
+       New Features
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#other">
+       Other
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#packaging">
+       Packaging
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#performance">
+       Performance
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#reliability">
+       Reliability
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#website">
+       Website
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#summary">
+   Summary
+  </a>
+ </li>
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="priorities">
+<h1>Priorities<a class="headerlink" href="#priorities" title="Permalink to this headline">¶</a></h1>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fname</span> <span class="o">=</span> <span class="s2">&quot;data/2021/numpy_survey_results.tsv&quot;</span>
+<span class="n">column_names</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;website&#39;</span><span class="p">,</span> <span class="s1">&#39;performance&#39;</span><span class="p">,</span> <span class="s1">&#39;reliability&#39;</span><span class="p">,</span> <span class="s1">&#39;packaging&#39;</span><span class="p">,</span> <span class="s1">&#39;new_features&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;documentation&#39;</span><span class="p">,</span> <span class="s1">&#39;other&#39;</span>
+<span class="p">]</span>
+<span class="n">priorities_dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">({</span>
+    <span class="s2">&quot;names&quot;</span><span class="p">:</span> <span class="n">column_names</span><span class="p">,</span>
+    <span class="s2">&quot;formats&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;U1&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">column_names</span><span class="p">),</span>
+<span class="p">})</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span>
+    <span class="n">fname</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">priorities_dtype</span><span class="p">,</span>
+    <span class="n">usecols</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">58</span><span class="p">,</span> <span class="mi">65</span><span class="p">),</span> <span class="n">comments</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;UTF-16&#39;</span>
+<span class="p">)</span>
+
+<span class="c1"># Discard empty data</span>
+<span class="n">num_respondents</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">unstructured</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="s1">&#39;(7,)U1&#39;</span><span class="p">))</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">unstructured</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+
+<span class="n">glue</span><span class="p">(</span><span class="s1">&#39;2021_num_prioritizers&#39;</span><span class="p">,</span> <span class="n">gluval</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">num_respondents</span><span class="p">),</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<p>We asked survey respondents to share their priorities for NumPy to get a sense
+of the needs/desires of the NumPy community.
+Users were asked to rank the following categories in order of priority:</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">category</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">column_names</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; - </span><span class="si">{</span><span class="n">category</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> - Documentation
+ - New features
+ - Packaging
+ - Performance
+ - Reliability
+ - Website
+</pre></div>
+</div>
+</div>
+</div>
+<p>A write-in category (<code class="docutils literal notranslate"><span class="pre">Other</span></code>) was also included so that participants could
+share priorities beyond those listed above.</p>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Of the <span class="pasted-text">522</span> survey participants,
+<span class="pasted-text">362 (69%)</span> shared their priorities for NumPy moving forward.</p>
+<p>To get a sense of the overall relative “importance” of each of the categories,
+the following figure summarizes the score for each category as determined by
+the <a class="reference external" href="https://en.wikipedia.org/wiki/Borda_count">Borda counting procedure for ranked-choice voting</a>.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Unstructured, numerical data</span>
+<span class="n">raw</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="s1">&#39;U1&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">column_names</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="n">borda</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">column_names</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">raw</span>
+<span class="n">relative_score</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">borda</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">relative_score</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">relative_score</span> <span class="o">/</span> <span class="n">relative_score</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="c1"># Prettify labels for plotting</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">l</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">column_names</span><span class="p">])</span>
+<span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">relative_score</span><span class="p">)</span>
+<span class="n">labels</span><span class="p">,</span> <span class="n">relative_score</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="n">I</span><span class="p">],</span> <span class="n">relative_score</span><span class="p">[</span><span class="n">I</span><span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">relative_score</span><span class="p">)),</span> <span class="n">relative_score</span><span class="p">,</span> <span class="n">tick_label</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Relative Borda score (%)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Overall Importance Score&quot;</span><span class="p">);</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/priorities_6_01.png" src="../../_images/priorities_6_01.png" />
+</div>
+</div>
+<p>In <a class="reference internal" href="#sec-2021-priorities"><span class="std std-ref">Top Priorities</span></a> we will take a closer look at how things are
+prioritized.</p>
+</div>
+<div class="section" id="top-priorities">
+<span id="sec-2021-priorities"></span><h2>Top Priorities<a class="headerlink" href="#top-priorities" title="Permalink to this headline">¶</a></h2>
+<p>The following figure shows the breakdown of the top priority items.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Prettify labels for plotting</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">l</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">)</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">column_names</span><span class="p">])</span>
+<span class="c1"># Collate top-priority data</span>
+<span class="n">cnts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">raw</span> <span class="o">==</span> <span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">cnts</span><span class="p">)</span>
+<span class="n">labels</span><span class="p">,</span> <span class="n">cnts</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="n">I</span><span class="p">],</span> <span class="n">cnts</span><span class="p">[</span><span class="n">I</span><span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">cnts</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">cnts</span> <span class="o">/</span> <span class="n">cnts</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="n">tick_label</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Distribution of Top Priority&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Percent of Responses&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/priorities_8_01.png" src="../../_images/priorities_8_01.png" />
+</div>
+</div>
+<div class="section" id="details">
+<h3>Details<a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h3>
+<p>We asked respondents who shared their priorities to provide specifics on their
+top two priorities.
+For example, if a user ranked “Performance” as a top priority, they were asked
+to share any specific thoughts on how performance could be improved.
+The responses for each of the categories are provided below.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">categories</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;docs&quot;</span><span class="p">,</span> <span class="s2">&quot;newfeatures&quot;</span><span class="p">,</span> <span class="s2">&quot;other&quot;</span><span class="p">,</span> <span class="s2">&quot;packaging&quot;</span><span class="p">,</span> <span class="s2">&quot;performance&quot;</span><span class="p">,</span> <span class="s2">&quot;reliability&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;website&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># Load the text responses for each category</span>
+<span class="n">response_dict</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">for</span> <span class="n">category</span> <span class="ow">in</span> <span class="n">categories</span><span class="p">:</span>
+    <span class="n">responses</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;data/2021/</span><span class="si">{</span><span class="n">category</span><span class="si">}</span><span class="s2">_comments_master.tsv&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">usecols</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;U&#39;</span><span class="p">,</span> <span class="n">comments</span><span class="o">=</span><span class="kc">None</span>
+    <span class="p">)</span>
+    <span class="n">responses</span> <span class="o">=</span> <span class="n">responses</span><span class="p">[</span><span class="n">responses</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+    <span class="n">response_dict</span><span class="p">[</span><span class="n">category</span><span class="p">]</span> <span class="o">=</span> <span class="n">responses</span>
+
+<span class="c1"># Generate nicely-formatted lists</span>
+<span class="k">for</span> <span class="n">category</span><span class="p">,</span> <span class="n">responses</span> <span class="ow">in</span> <span class="n">response_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">gen_mdlist</span><span class="p">(</span><span class="n">responses</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">category</span><span class="si">}</span><span class="s2">_comments_list.md&quot;</span><span class="p">)</span>
+
+<span class="c1"># Register number of responses in each category</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">response_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">glue</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;2021_num_</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">_comments&quot;</span><span class="p">,</span> <span class="n">v</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="section" id="documentation">
+<h4>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h4>
+<p><span class="pasted-text">69</span> participants shared their thoughts on how
+documentation could be improved.</p>
+<div class="toggle admonition">
+<p class="admonition-title">Click to expand!</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Recently I found out that documentation of matrix-multiplication-like functions is less than extensive</p></td>
+</tr>
+<tr class="row-odd"><td><p>Examples, examples everywhere!</p></td>
+</tr>
+<tr class="row-even"><td><p>Share in more languages, here in latam we use a lot in research field, specially at universities. Create community events where people can propose new ways to do things. Numpy is more than just a library, it’s potential can connect research with software engineering.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Documentation on your test cases would be nice. Other than that maybe some more examples on your docs</p></td>
+</tr>
+<tr class="row-even"><td><p>More examples, tutorial. I’m not familiar with the deep mathematics of many algorithm, but often feel while reading the documentation, that a high level of mathematical knowledge is required besides the programming one to figure out how the given method should be used on what kind of data.</p></td>
+</tr>
+<tr class="row-odd"><td><p>More tutorials, how-to, cookbook, exemples</p></td>
+</tr>
+<tr class="row-even"><td><p>The documentation is mostly clear. Some more usage examples for the methods would be welcomed. Often I find myself going to stackoverflow, or similar pages, in order to find usage examples, since the ones present in the documentation can sometimes be very limited.</p></td>
+</tr>
+<tr class="row-odd"><td><p>The survey forced me to select some priority order and hence I think performance, reliability and documentation are for my work the most important ones. In my experience numpy is fast, reliable and has clear documentation.”</p></td>
+</tr>
+<tr class="row-even"><td><p>More advanced and complex examples. Tutorials for people without numerical math / programming background.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Add more usage examples. Make some examples “with context”. For example how the operations are or can be used in the context.</p></td>
+</tr>
+<tr class="row-even"><td><p>Keep it updated and add many examples</p></td>
+</tr>
+<tr class="row-odd"><td><p>Links in the documentation to tutorials and examples show off how powerful numpy is. I see all these crazy functions in the docs but as a novice, I’m not sure how or why I would use them.</p></td>
+</tr>
+<tr class="row-even"><td><p>Better explanations. Namely, of algos, and friction points of beginner vs intermediate NumPy users (eg striding, handling batches, so on).</p></td>
+</tr>
+<tr class="row-odd"><td><p>examples using structured arrays</p></td>
+</tr>
+<tr class="row-even"><td><p>Some parts of the documentation are old.</p></td>
+</tr>
+<tr class="row-odd"><td><p>The documentation is already good! But a little more communication about upcoming releases / roadmap for deprecations could be nice to have.</p></td>
+</tr>
+<tr class="row-even"><td><p>Some documentation is little short for beginners and it took some time to understand the usage of certain methods, maybe a documentation with a ‘beginners mode’ containing easier description and lots of examples could help, however most of the times I find hints on stackoverflow.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Use cases. (This comment was submitted in Japanese.)</p></td>
+</tr>
+<tr class="row-even"><td><p>individual pages are normally quite good but the overall organization can be confusing at times.</p></td>
+</tr>
+<tr class="row-odd"><td><p>More examples in documentation.</p></td>
+</tr>
+<tr class="row-even"><td><p>Examples and explanation. When is to correct to use one feature over another. How to make your numpy code faster. How to manage memory or system resources. How to use the GPU or parallelize calculations.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Explain to to use Units for variables with the calculations.”</p></td>
+</tr>
+<tr class="row-even"><td><p>Clean up documentation structure and cohesiveness</p></td>
+</tr>
+<tr class="row-odd"><td><p>More concrete examples. Tips and tricks.</p></td>
+</tr>
+<tr class="row-even"><td><p>More explicit documentation, more detailed and provided examples. (This comment was submitted in French.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Can’t find a comprehensive list of all the functions and how their parameters work. The dir() function spews out hundreds of functions. Should be a PDF or website that documents each function with its parameters. Also group them by functionality. Ideally have examples. The pandas docs seem much better.</p></td>
+</tr>
+<tr class="row-even"><td><p>code examples (also graphical), document every use case</p></td>
+</tr>
+<tr class="row-odd"><td><p>The documentation on dtype casting is incomplete and largely missing from the user guide.  It would make NumPy more newcomer friendly to have the casting rules (including for assignments to an ndarray) explained clearly.  Examples of some of the commonly unexpected casting behaviors should be included too.</p></td>
+</tr>
+<tr class="row-even"><td><p>The user guide is missing examples of ndarrays with 0 in their shape.  These show up quite a bit (at least in my experience), and broadcasting with them should be explained more clearly to newcomers.</p></td>
+</tr>
+<tr class="row-odd"><td><p>There are a lot of more-or-less redundant functions in NumPy.  A section of the documentation containing NumPy idioms (or even a ‘cookbook’) would be helpful at clearing up things like when to use ravel vs. reshape(-1) vs. flatten().</p></td>
+</tr>
+<tr class="row-even"><td><p>Provide a comprehensive how-to on using NumPy for linear algebra manipulations on ndarrays.  It’s a little tricky to figure out the mappings from normal linear algebra notation to 1d and 2d ndarray operations (e.g., adding a newaxis to form the outer product of two vectors represented as 1d ndarrays).”</p></td>
+</tr>
+<tr class="row-odd"><td><p>The documentation should be more detailed and well organized.</p></td>
+</tr>
+<tr class="row-even"><td><p>When we look for information through a search engine we too often come across documents that do not correspond to the current version of Numpy; you would need a centralized doc corresponding to the most recent version (like what exists for Matlab for example). (This comment was submitted in French.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>More examples and section-wise documentation will help learners</p></td>
+</tr>
+<tr class="row-even"><td><p>Task focused tutorials/sample code. scikit-learn.org does this well.</p></td>
+</tr>
+<tr class="row-odd"><td><p>The documentation should explain how to write larger software with NumPy and not just some formulas.</p></td>
+</tr>
+<tr class="row-even"><td><p>Write proper documentation that easy to read especially for students/beginners.</p></td>
+</tr>
+<tr class="row-odd"><td><p>More verbose with respect to examples and tutorials on top of the technicalities.</p></td>
+</tr>
+<tr class="row-even"><td><p>Documentation recently has actually improved greatly! My selfish documentation/packaging interest is trying to determine how to properly include saved numpy/sparse matrices as part of a pip-installable library.</p></td>
+</tr>
+<tr class="row-odd"><td><p>More detailed examples and explanations, especially concerning Fourier transforms.</p></td>
+</tr>
+<tr class="row-even"><td><p>help for conversion matlab to python”</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ensure there are multiple examples per docstring and give more verbose descriptions.</p></td>
+</tr>
+<tr class="row-even"><td><p>NumPy would benefit from user guides, like scikit-learn has. Guides that explain how to use tools to accomplish a task (instead of just code documentation) would make NumPy more approachable and invite kn new users (or inspire old users to use features in new ways).</p></td>
+</tr>
+<tr class="row-odd"><td><p>Expanding the documentation to register clearly the methods that are implemented, with their respective sources.</p></td>
+</tr>
+<tr class="row-even"><td><p>Writing more examples of Numpy usage.</p></td>
+</tr>
+<tr class="row-odd"><td><p>eliminate “import numpy as np”</p></td>
+</tr>
+<tr class="row-even"><td><p>add examples</p></td>
+</tr>
+<tr class="row-odd"><td><p>Add a few (more) quick-start and/or ‘how-to’ guides. Make sure that all sample code in the documentation is easily downloadable from the website.</p></td>
+</tr>
+<tr class="row-even"><td><p>I have trouble finding the right methods for doing what I need to do</p></td>
+</tr>
+<tr class="row-odd"><td><p>Update docstrings and error messages to be clearer to interpret</p></td>
+</tr>
+<tr class="row-even"><td><p>More concise API reference with aim to precisely present available routines and their syntax</p></td>
+</tr>
+<tr class="row-odd"><td><p>More sample code showing typical usage.</p></td>
+</tr>
+<tr class="row-even"><td><p>Help programmers understand how to maximize their ways to get portable reproducible results and long term stability/repeatability/reproducibility of their programs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>As an example, make it easier to find the release notes on the website (without need a Google search); make those notes clear, concise, and understandable to scientific domain experts that aren’t software engineers; and minimize the programming details they need to understand just to keep old programs running (distraction from their work).”</p></td>
+</tr>
+<tr class="row-even"><td><p>As pointed out recently, the “User Guide” portion is a bit of a hodgepodge of unstructured material while much of the real user documentation is in the “API Reference”, which is pretty well-structured but ends up trying to do multiple jobs at once.</p></td>
+</tr>
+<tr class="row-odd"><td><p>We’re always in need of more docs, tutorials and blog posts with problem solving.</p></td>
+</tr>
+<tr class="row-even"><td><p>use cases for numpy (ex: when to use std lib list for np.array()),  curriculum for teaching numpy for beginners,</p></td>
+</tr>
+<tr class="row-odd"><td><p>The documentation hides implementation details and in particular tries to mask the interfaces to external codes, which is a major drawback.</p></td>
+</tr>
+<tr class="row-even"><td><p>Enrichment of sample code. Japanese support for documents. (This comment was submitted in Japanese.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>There are no instructions (that I found) on the Numpy docs referring to how to link Numpy against different backends. In some functions, keywords accepting strings referring to different methods are listed but not clearly explained.</p></td>
+</tr>
+<tr class="row-even"><td><p>having more examples not as showing how api works but more of performance based examples and examples on how to leverage low level types which are there in numpy</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tutorials with less expected academic knowledge</p></td>
+</tr>
+<tr class="row-even"><td><p>Scalar types, scalar arrays, and C extensions</p></td>
+</tr>
+<tr class="row-odd"><td><p>- Discoverability of functions. Sometimes I know what I want to do but I don’t know what it might be called or what subpackage it might be in. Not sure how to solve this concretely.</p></td>
+</tr>
+<tr class="row-even"><td><p>- Documentation of some functions is incomplete/ambiguous. I can’t give you a single thing you can do; it’d be slow, one-by-one effort”</p></td>
+</tr>
+<tr class="row-odd"><td><p>More application examples would be great.</p></td>
+</tr>
+<tr class="row-even"><td><p>Use cases and general advertisement</p></td>
+</tr>
+<tr class="row-odd"><td><p>NumPy documentation is very good however, sometimes it would be nice to see more examples of particular function calls or references to external materials related to the content (e.g. Wikipedia pages)</p></td>
+</tr>
+<tr class="row-even"><td><p>Basic documentation is good, but I would like more ultra-short examples for common (small) tasks</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="new-features">
+<h4>New Features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h4>
+<p><span class="pasted-text">50</span> participants shared their thoughts on
+new features to improve NumPy.</p>
+<div class="toggle admonition">
+<p class="admonition-title">Click to expand!</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Not neccessarly I just only would like to see new features, a slight redesign of API would appeal to me, too, e.g. functions like numpy.apply_along_axis() I would prefer as methods for arrays as I believe it would make code more readable.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Also, I would like to see some of the methods/functions existing in pandas, pandas.Dataframe.pipe() or pandas.Dataframe.first_valid_Index().”</p></td>
+</tr>
+<tr class="row-even"><td><p>Export projects to different languages. (The comment was submitted in Spanish.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Support for Golang API</p></td>
+</tr>
+<tr class="row-even"><td><p>Control (Transfer Functions) module, as Octave’s</p></td>
+</tr>
+<tr class="row-odd"><td><p>Add new features to the random module: MultiNormal test and Copulas”</p></td>
+</tr>
+<tr class="row-even"><td><p>n-dimensional computational geometry</p></td>
+</tr>
+<tr class="row-odd"><td><p>Distributed computing</p></td>
+</tr>
+<tr class="row-even"><td><p>Would be nice to implement more features for quantitative economics whilst continue to keep with competition (R, Matlab, …) with new features.</p></td>
+</tr>
+<tr class="row-odd"><td><p>I want to easily map a whole array</p></td>
+</tr>
+<tr class="row-even"><td><p>More love for time series data manipulation.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Parallel computing. (This comment was submitted in Mandarin.)</p></td>
+</tr>
+<tr class="row-even"><td><p>Better handling of graphs, native sparse matrices.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Nx2 arrays for computation geometry</p></td>
+</tr>
+<tr class="row-even"><td><p>better image to numpy array tools (maybe together with opencv)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Some pretty esoteric things relating to ufuncs on complex values</p></td>
+</tr>
+<tr class="row-even"><td><p>NumPy must not stick only with Python but to extend their accessibility to other programming language also.</p></td>
+</tr>
+<tr class="row-odd"><td><p>It could benefit from more convenience features such as a one_hot function.</p></td>
+</tr>
+<tr class="row-even"><td><p>Sampling from the generalised inverse gaussian distribution in numpy.random</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tools for parallelization</p></td>
+</tr>
+<tr class="row-even"><td><p>Hadamard matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>Customizable dtype system, new dtypes (e.g., complex32, bfloat16, etc.), improved support for typing, orthogonal ndarray indexing</p></td>
+</tr>
+<tr class="row-even"><td><p>Not sure due to lack of experience but adding new features would be beneficial for programmers to use.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Composable operations that behave like ufuncs and support in-place calculations. numexpr tried this some time ago but it is very limited. I often struggle with this when processing larger amounts of data with more complex computations. Moreover, masked operations could be expanded.</p></td>
+</tr>
+<tr class="row-even"><td><p>More statistics</p></td>
+</tr>
+<tr class="row-odd"><td><p>In addition, the GPU mentioned above - I like to see more attractive printing options. In notebooks I am presenting, I tend to move data to pandas, even when not needed, because of the quality of the view.</p></td>
+</tr>
+<tr class="row-even"><td><p>I don’t know :) I am usually gladly surprised when I see a new version.</p></td>
+</tr>
+<tr class="row-odd"><td><p>I’d likely to see more statistical methods in numpy, i.e., as those in SciPy. Or to be more correct, I’d like to see numpy’s speed in scipy. Or the other way around, i.e., nice to have numpy.var, numpy.std, but why not numpy.skew and numpy.kurtosis?</p></td>
+</tr>
+<tr class="row-even"><td><p>Random specialized things like fast repeated matrix products (y =a&#64;b&#64;c&#64;…&#64;z where a-z are small square matrices), eigensolvers, least squared solvers, image processing</p></td>
+</tr>
+<tr class="row-odd"><td><p>Aggregation by group. (This comment was submitted in Japanese.)</p></td>
+</tr>
+<tr class="row-even"><td><p>I would like to see a richer set of statistical features, such as ANOVA and multiple regression modeling. This is a common reason to have to port data over to R.</p></td>
+</tr>
+<tr class="row-odd"><td><p>better alignment with visualization libraries</p></td>
+</tr>
+<tr class="row-even"><td><p>reduced row echelon form</p></td>
+</tr>
+<tr class="row-odd"><td><p>Native Rust interoperability</p></td>
+</tr>
+<tr class="row-even"><td><p>- Make it easier to have custom dtypes (e.g. efficient string arrays, categorical arrays, columnar versions of structured arrays, etc).</p></td>
+</tr>
+<tr class="row-odd"><td><p>- Better Pandas interoperability (e.g. categorical arrays)</p></td>
+</tr>
+<tr class="row-even"><td><p>- Ragged arrays”</p></td>
+</tr>
+<tr class="row-odd"><td><p>More cython interfaces.</p></td>
+</tr>
+<tr class="row-even"><td><p>some random utils like equivalent of im2row from other languages</p></td>
+</tr>
+<tr class="row-odd"><td><p>* Method to identify null or None values, similar to Pandas.isnull() method.  This will be helpful for masking/filtering.</p></td>
+</tr>
+<tr class="row-even"><td><p>* Numpy.vectorize function can enhance good to great performance. Could we attain a real parallelization perhaps, similar to what Numba does (maybe I am asking too much) https://chelseatroy.com/2018/11/07/code-mechanic-numpy-vectorization/”</p></td>
+</tr>
+<tr class="row-odd"><td><p>Perhaps this already exists, but I would like to see some methods for generating slices from a 3D array at a user specified orientation.</p></td>
+</tr>
+<tr class="row-even"><td><p>Shifting C backend templating to C++ templates.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Distributed computation.</p></td>
+</tr>
+<tr class="row-even"><td><p>Plugins/extensions as external Python libraries “</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ability to handle large data</p></td>
+</tr>
+<tr class="row-even"><td><p>Adding new datatypes like ibm floats would be nice. Adding lazy evaluation out of the box would be also nice to have.</p></td>
+</tr>
+<tr class="row-odd"><td><p>I will have to use Numpy more extensively for that.</p></td>
+</tr>
+<tr class="row-even"><td><p>Extensibility with dtypes and gufuncs</p></td>
+</tr>
+<tr class="row-odd"><td><p>Autodiff</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="other">
+<h4>Other<a class="headerlink" href="#other" title="Permalink to this headline">¶</a></h4>
+<p><span class="pasted-text">9</span> participants selected “Other” as a top
+priority:</p>
+<div class="toggle admonition">
+<p class="admonition-title">Click to expand!</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>I would like the documentation to be more explicit and less reliant on jargon. Especially from the point of view of a novice/hobby programmer this would be such a great deal.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Adding support for GPU and parallel operations would be great.</p></td>
+</tr>
+<tr class="row-even"><td><p>My understanding is that work is underway to make APIs across the python scientific ecosystem consistent. I think getting the components to gel and work well with each other is high priority.</p></td>
+</tr>
+<tr class="row-odd"><td><p>NEP-35 style work - making it easier to work with dask and cupy</p></td>
+</tr>
+<tr class="row-even"><td><p>On-ramping more under-represented people to contribute to the codebase.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Integration with other languages by providing low level C library</p></td>
+</tr>
+<tr class="row-even"><td><p>Continue with the deprecations and do an extensive code cleanup removing things rarely used to make a leaner codebase aiming to build numpy as a solid core for other applications.</p></td>
+</tr>
+<tr class="row-odd"><td><p>I think numpy plays a huge role as the central hub for python arrays. In that vein I think a high priority is improving the interop interface so other libraries can Just Work with numpy. This includes things like e.g. pushing forward with the HPy project to modernize the C interface.</p></td>
+</tr>
+<tr class="row-even"><td><p>And of course, the numpy community still has plenty to do to improve equity and inclusion in the organization (and pydata in general)!”</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="packaging">
+<h4>Packaging<a class="headerlink" href="#packaging" title="Permalink to this headline">¶</a></h4>
+<p><span class="pasted-text">13</span> participants shared their thoughts on how
+the packaging utilities in NumPy could be improved.</p>
+<div class="toggle admonition">
+<p class="admonition-title">Click to expand!</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Compiling Numpy without using a package manager is a pretty daunting task, a least the last time I tried.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Provide wheels for all architectures and interpreters possible</p></td>
+</tr>
+<tr class="row-even"><td><p>Move away from numpy distutils. Improve ci and fix issues related to the support of new ishhardware (eg arm64 on linux and apple m1).</p></td>
+</tr>
+<tr class="row-odd"><td><p>Maybe explore the use of reproducible builds to improve security and limit the risk of shipping binaries tempered with compiler rootkits on pypi or conda-forge.”</p></td>
+</tr>
+<tr class="row-even"><td><p>Sometimes numpy can be hard to install - especially on systems that do not have their own compilers. I’ve tried installing on windows and gotten confusing error messages that I later learned were because I didn’t have compiler settings created correctly. And once (a long time ago) on Linux, I needed to install system headers. I think less technical users having to resort to Anaconda to install a Python package is not a good user experience.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Simple way to rebuild your package, once installed, (e.g. a script like “python -m numpy rebuild –library IntelMKL –options FMA”).</p></td>
+</tr>
+<tr class="row-even"><td><p>More clear about the fact that the underlying BLAS/LAPACK could be from different sources in the docs! I spent days asking of meep/tensorflow alternatively ruining my numpy installation by imposing their version and me not understanding why”</p></td>
+</tr>
+<tr class="row-odd"><td><p>The current system is a bit of an archaic mess, with somewhat public APIs with poor documentation. Also, with distutils going away in Python 3.12, it’s an area that likely matters. Refactoring and simplifying the packaging system, and either depending on external tools (like setuptools, scikit-build, or other) or factoring out the build system into a separate package could greatly help. Also it needs documentation (such as on how to build a FORTRAN extension, for example).</p></td>
+</tr>
+<tr class="row-even"><td><p>Numpy should be available linked against the Intel MKL for Windows systems such as the wheels distribute in the Gohlke repo. This would massively simplify maintenance of project that highly depend on the speed provided by Numpy+MKL.</p></td>
+</tr>
+<tr class="row-odd"><td><p>continued focus on helping keep (making it easy to keep) distros’ numpy packages up to date</p></td>
+</tr>
+<tr class="row-even"><td><p>Packaging had improved over the years, but installing on Microsoft Windows must become even more transparent.</p></td>
+</tr>
+<tr class="row-odd"><td><p>All my answers are about keeping up what currently there is</p></td>
+</tr>
+<tr class="row-even"><td><p>Better release information</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="performance">
+<h4>Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h4>
+<p><span class="pasted-text">72</span> participants shared thoughts on why
+performance is a top priority and ideas on how it can be improved.</p>
+<div class="toggle admonition">
+<p class="admonition-title">Click to expand!</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Allowing Numpy to access to GPU to parallel tasks</p></td>
+</tr>
+<tr class="row-odd"><td><p>It’s already pretty good, I don’t know how it can get better</p></td>
+</tr>
+<tr class="row-even"><td><p>I mean this as “performance should be a top priority”. numpy already performs well- I think this should continue to be a priority.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Specifically, performance on windows, though I’m not sure if this is feasible.</p></td>
+</tr>
+<tr class="row-even"><td><p>The performance is mostly great. The survey forced me to select some priority order and hence I think performance, reliability and documentation are for my work the most important ones. In my experience numpy is fast, reliable and has clear documentation.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Solicit algorithm optimization from the public. (The comment was made in Mandarin.)</p></td>
+</tr>
+<tr class="row-even"><td><p>Paralelization. Tutorial on best practices. Advanced tutorials on numexpr and numba.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Enabling the multi-threading via env variables for a ML stack consisting of NumPy, SciPy, SciKit-Learn and other higher-level libraries is very tricky in a production codebase (setting the env variable before NumPy is first imported etc.) and currently doesn’t work for our codebase at all (while it works on a trivial PoC code snippet). Detection and exclusion of hyper-threaded cores is missing. Dynamic vs. static thread count setting has undocumented but significant impact. All this matters in on-premise deployments a lot.</p></td>
+</tr>
+<tr class="row-even"><td><p>Nothing to complain, but I highly value numpys performance</p></td>
+</tr>
+<tr class="row-odd"><td><p>There’s still a lot of Numpy code that could probably be easily multi-threaded, which would give a huge performance improvement on a lot of my code. I know that there are dedicated libraries out there but that significantly complicates installation and maintenance (in particular within companies with brain-dead download policies), therefore I try to keep imports to a minimum.</p></td>
+</tr>
+<tr class="row-even"><td><p>multicore support for basic operations would be nice</p></td>
+</tr>
+<tr class="row-odd"><td><p>CUDA support. Support for AMD’s BLAS</p></td>
+</tr>
+<tr class="row-even"><td><p>Using GPU and parallelisation</p></td>
+</tr>
+<tr class="row-odd"><td><p>In terms of speed Numpy is amazing, maybe I am more concerned in terms of RAM consumption, specifically for a numpy masked array</p></td>
+</tr>
+<tr class="row-even"><td><p>Vector operation related. (The comment was made in Japanese.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Continue honing the low-level (C) code.</p></td>
+</tr>
+<tr class="row-even"><td><p>Join forces with projects like JAX and Dask. Develop better interoperability with modern Fortran through f2py or LFortran.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Developing NumPy for developers from underdeveloped countries. Developers from economically underdeveloped counties have less high powered PC configuration, thus creating NumPy to run on lower PC config. with high performance will be helpful for them.</p></td>
+</tr>
+<tr class="row-even"><td><p>I think documentation on how to write faster numpy code would be helpful: vectorizing, etc. Add the ability to use units with calculations.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Performance on Windows is worse than on Linux on the same computer</p></td>
+</tr>
+<tr class="row-even"><td><p>Using SIMD code to leverage hardware vectorization.</p></td>
+</tr>
+<tr class="row-odd"><td><p>better facilities for using numpy with GPU’s/CUDA</p></td>
+</tr>
+<tr class="row-even"><td><p>Reduce overhead</p></td>
+</tr>
+<tr class="row-odd"><td><p>make it faster</p></td>
+</tr>
+<tr class="row-even"><td><p>Provide a min/max method to compute min/max in one go rather than from min and then max.</p></td>
+</tr>
+<tr class="row-odd"><td><p>How much processing can be handled in small computers and big data without implying the need of costly GPUs, memory/processors</p></td>
+</tr>
+<tr class="row-even"><td><p>Developing smaller modules that allow a faster response in calculations. (The comment was made in Spanish.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Allow for multiprocessing without being more verbose.</p></td>
+</tr>
+<tr class="row-even"><td><p>Numpy could use extended instruction sets or target GPU.</p></td>
+</tr>
+<tr class="row-odd"><td><p>When applying arbitrary Python code with broadcast. (The comment was made in Japanese.)</p></td>
+</tr>
+<tr class="row-even"><td><p>Performance is good now but one of the main reasons I use <code class="docutils literal notranslate"><span class="pre">numpy</span></code> is performance. I don’t have strong feelings about e.g., new features, website updates, etc.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Multi node MKL</p></td>
+</tr>
+<tr class="row-even"><td><p>Ya guys r doing fine… just don’t change the syntax…. let it last as pristine as possible</p></td>
+</tr>
+<tr class="row-odd"><td><p>Spreading more in the Spanish language, sorry if I’m selfish! (The comment was made in Spanish.)</p></td>
+</tr>
+<tr class="row-even"><td><p>CuPy being native so that large arrays, which run slow for me, which is probably a CPU issue, not a numpy issue. Though added GPU support would be fantastic.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Make improvement in calculation speed. Some people from my field move to Julia because of that</p></td>
+</tr>
+<tr class="row-even"><td><p>I’d love to have integrated profiling tools, giving hits to bottlenecks in matrix operations and suggesting alternatives. And a closer integration with Numba would be very nice too!</p></td>
+</tr>
+<tr class="row-odd"><td><p>SIMD instructions for modern processors (as you have been doing), more ambitiously, processing backends such as OpenCL and Vulkan.</p></td>
+</tr>
+<tr class="row-even"><td><p>Numpy is the fundamental toolbox on almost thousands of software development chaintool.  If some functionality can be improved to run faster, it will have tremendous implications in a vast array of applications.</p></td>
+</tr>
+<tr class="row-odd"><td><p>None in particular, but any performance gain can have huge impacts.</p></td>
+</tr>
+<tr class="row-even"><td><p>There are functions such as np.unique that are incompatible with numba, so I want a function with narrowed functions. (The comment was made in Japanese.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Improve call overhead</p></td>
+</tr>
+<tr class="row-even"><td><p>Enhanced vectorization, multithreaded/SIMD map feature</p></td>
+</tr>
+<tr class="row-odd"><td><p>- More use of SIMD operations - Maybe some integration with Numba for automatic “fusion” of operations? Not sure about this one…</p></td>
+</tr>
+<tr class="row-even"><td><p>Automated performance tests. Perhaps some way of improving performance for the vectorize function if that is at all possible.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Profile memory and report CPU and memory usage with VTune.</p></td>
+</tr>
+<tr class="row-even"><td><p>Improve GPU support.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Would love anything I can get to make my code faster ;)</p></td>
+</tr>
+<tr class="row-even"><td><p>Honestly, numpy is amazingly performant. Could the overhead of talking with python be cut down somehow?</p></td>
+</tr>
+<tr class="row-odd"><td><p>I don’t think there are any easy answers.  Supporting and pushing projects that make use of DAG and JIT is probably the best way forward.  The challenge here is tht this is really outside of core NumPy.</p></td>
+</tr>
+<tr class="row-even"><td><p>Better integration with CuPy (GPU), multithreaded computation, accessible options for tailoring your personal build (CPU architecture, BLAS library….) ideally with one simple and easy to use script to rebuild the package. Support for float16</p></td>
+</tr>
+<tr class="row-odd"><td><p>Native optimizations for the Apple M1 chip</p></td>
+</tr>
+<tr class="row-even"><td><p>Actually more docs on performance would be cool</p></td>
+</tr>
+<tr class="row-odd"><td><p>Extra compiled routines for a few key operations (like 2D regular binned histograms, AKA images). Mostly this is just something to keep in a priority list, since som many people depend on NumPy for compute-intensive codes.</p></td>
+</tr>
+<tr class="row-even"><td><p>Operations on masked arrays can be pretty slow.</p></td>
+</tr>
+<tr class="row-odd"><td><p>I guess I don’t think NumPy underperforms, I just would like to see it do an even more awesome job. My models involve a lot of applying finite difference methods to PDEs and running them 10^6 times so any bit of performance helps!</p></td>
+</tr>
+<tr class="row-even"><td><p>Vectorising all the APIs, universal function support.</p></td>
+</tr>
+<tr class="row-odd"><td><p>This is tough. I cannot think of anything off the top of my head, since NumPy is rather well designed in most aspects.</p></td>
+</tr>
+<tr class="row-even"><td><p>Magically make my existing numpy code faster 🙂</p></td>
+</tr>
+<tr class="row-odd"><td><p>Further weight reduction and speeding up of processing. (The comment was made in Japanese.)</p></td>
+</tr>
+<tr class="row-even"><td><p>It’s already pretty good, but its main weak point is that it produces intermediate arrays—any tricks that can lead to more operator-fusion is appreciated!</p></td>
+</tr>
+<tr class="row-odd"><td><p>better support for AMD processors</p></td>
+</tr>
+<tr class="row-even"><td><p>something like what julia is currently doing with llvm and simd</p></td>
+</tr>
+<tr class="row-odd"><td><p>Further JAX integration. Also with Scipy</p></td>
+</tr>
+<tr class="row-even"><td><p>Some operations could take advantage of fusing of operators and this improve memory bandwidth of the code</p></td>
+</tr>
+<tr class="row-odd"><td><p>It can be improved if there are multiple people working at the maintainance of NumPy from wide range of knowledge and interests.</p></td>
+</tr>
+<tr class="row-even"><td><p>- Optional TensorFlowesque chaining of operations to save memory bandwidth - Bespoke low-level code optimized to major architectures - Ability to offload code to accelerators (e.g. GPU), especially if this can be done in a way that’s transparent to the user</p></td>
+</tr>
+<tr class="row-odd"><td><p>Device placement</p></td>
+</tr>
+<tr class="row-even"><td><p>Numpy is already very high performance, but performance matters a lot to me.  I use numpy because the apis are great and I rarely have to think about performance.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Most of my APIs import it, and therefore any improvements to imports will have a broad impact on my projects’ import times</p></td>
+</tr>
+<tr class="row-even"><td><p>I would like an easy user story with GPU and multi-core setups.</p></td>
+</tr>
+<tr class="row-odd"><td><p>User-extendable dtypes</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="reliability">
+<h4>Reliability<a class="headerlink" href="#reliability" title="Permalink to this headline">¶</a></h4>
+<p><span class="pasted-text">58</span> participants shared their thoughts on
+reliability and how it can be improved.</p>
+<div class="toggle admonition">
+<p class="admonition-title">Click to expand!</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>More than increasing it I was thinking in keeping it reliable.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ensure the API is backward-compatible.</p></td>
+</tr>
+<tr class="row-even"><td><p>I think that numpy is reliable and this should continue to be a priority.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Numpy is pretty reliable already, I just needed a second choice</p></td>
+</tr>
+<tr class="row-even"><td><p>Added missing warning information and optimized for multi-threading. (This commend was made in Mandarin.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Several times (in 2020 and 2021) we had to pin an older version of NumPy in our requirements.txt because it was broken on Windows. We are packaging our on-premise variant of production code both for Linux and Windows. Such pinning may impact the dependent ML libraries in a hard to predict way and is a source of wasted time.</p></td>
+</tr>
+<tr class="row-even"><td><p>Nothing to complain, but I highly value numpys reliability</p></td>
+</tr>
+<tr class="row-odd"><td><p>Make the Numpy API sustainable over time.</p></td>
+</tr>
+<tr class="row-even"><td><p>Many scientific projects use it. (This commend was made in French.)”</p></td>
+</tr>
+<tr class="row-odd"><td><p>I’m not sure, but this is something to keep in check before it’s necessary</p></td>
+</tr>
+<tr class="row-even"><td><p>Automated performance regression. See e.g ticket https://github.com/numpy/numpy/issues/18607</p></td>
+</tr>
+<tr class="row-odd"><td><p>standard tests provided for each package to benchmark on our computers</p></td>
+</tr>
+<tr class="row-even"><td><p>Less breaking changes</p></td>
+</tr>
+<tr class="row-odd"><td><p>Some statistical functions (e.g. quantile) does not seem to be 100% reliable. I am a bit concerned about the veracity &amp; the precision of the results.</p></td>
+</tr>
+<tr class="row-even"><td><p>I am aware that doing new stuff is cool, but I believe it would be amazing if a lot of efforts could be done to improve the reliability of the current Numpy functions.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Most scientific programing (e.g. Scipy) relies on the precision and base functionality of Numpy, that’s why I believe reliability is critical. And benchmarks are not good: https://www.stochasticlifestyle.com/wp-content/uploads/2019/11/de_solver_software_comparsion.pdf”</p></td>
+</tr>
+<tr class="row-even"><td><p>- Allow NaNs in integer arrays.</p></td>
+</tr>
+<tr class="row-odd"><td><p>- Find ways to ease the discomfort of using datetimes.”</p></td>
+</tr>
+<tr class="row-even"><td><p>Better CI coverage. Use type hints to do static linting.</p></td>
+</tr>
+<tr class="row-odd"><td><p>It’s great, I just think that other stuff are of lower priority.</p></td>
+</tr>
+<tr class="row-even"><td><p>Prioritizing reliability means that I value it more than having new features developed.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Long term stability, avoid breaking changes</p></td>
+</tr>
+<tr class="row-even"><td><p>Not aware of errors in it. Publish test cases and regression code.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Simply keep numpy stable and reliable as it’s the core of many projects.</p></td>
+</tr>
+<tr class="row-even"><td><p>Striving for excellent, trusted performance; bug or oversight related issue free.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Make sparsity a first class concept</p></td>
+</tr>
+<tr class="row-even"><td><p>As with performance, reliability is good now, but one of the main reasons I use <code class="docutils literal notranslate"><span class="pre">numpy</span></code> is reliability.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Numpy never failed me but I understand it’s a lot of work to keep it running.</p></td>
+</tr>
+<tr class="row-even"><td><p>Numpy is already very reliable! I believe some kind of visual introspection tool would be a nice addition, helping to address some of the “black box” problem of having dense Linear Algebra code that does not work as expected, helping the programmer to find mistakes made.</p></td>
+</tr>
+<tr class="row-odd"><td><p>For the same reason as before, the library is a fundamental cornerstone of several different tool packages for scientific and engineering, and it is of utmost importance that it provide the right answers.</p></td>
+</tr>
+<tr class="row-even"><td><p>I have had issues with IIRC linear algebra on very large matrixes.  I think there was something about least squared equation solving where I had to implement pieces by myself.  Otherwiae, more useful error messages</p></td>
+</tr>
+<tr class="row-odd"><td><p>installing numpy is not really robust. I would love that to be fixed for all platforms</p></td>
+</tr>
+<tr class="row-even"><td><p>Providing comparisons where the same results are obtained using Numpy and other tools (e.g., Matlab).</p></td>
+</tr>
+<tr class="row-odd"><td><p>Keep on with addressing bug reports, revieing PRs that fix bugs.</p></td>
+</tr>
+<tr class="row-even"><td><p>Reduce and remove features by carving out non-core functionality into plugin modules and jettisoning them. Advanced software engineering training for core contributors. Analysis of defect-injection sites and processes.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Systematic testing. It is currently rather ad hoc.</p></td>
+</tr>
+<tr class="row-even"><td><p>No specifics. It is just something I know I care about - knowing that if I use a numpy calculation (that I can’t check myself) that it will be right.</p></td>
+</tr>
+<tr class="row-odd"><td><p>More automated tests of various platforms.</p></td>
+</tr>
+<tr class="row-even"><td><p>I have no specific suggestions. My organization relies heavily on the reliability of the software we use. I suspect this is the case for many other users. Please never sacrifice reliability/integrity in favor of “new features.” The platform must be as rock-solid as possible.</p></td>
+</tr>
+<tr class="row-odd"><td><p>No need for oldest-supported-numpy package</p></td>
+</tr>
+<tr class="row-even"><td><p>Focus on stability and fixing bugs, rather than adding new features.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Fewer “surprises”.  Maybe this really falls under better documentation.</p></td>
+</tr>
+<tr class="row-even"><td><p>* Reduce existing bugs or caveats.</p></td>
+</tr>
+<tr class="row-odd"><td><p>* Consistency of API interfaces. Deprecate those interfaces that will result in confusion among the users.”</p></td>
+</tr>
+<tr class="row-even"><td><p>Work on enabling portable reproducibility of the computed results and long term stability/repeatability/reproducibility for code snapshots that go with published scientific papers.</p></td>
+</tr>
+<tr class="row-odd"><td><p>I don’t have any ideas, just feel making sure the library is reliable is important.</p></td>
+</tr>
+<tr class="row-even"><td><p>There are a lot of open issues on github, that might help. Also, i’ve sometimes encountered strange behaviours when reaching memory limits, but not sure if a lot can be done there.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Just the healthy backlog of bugs</p></td>
+</tr>
+<tr class="row-even"><td><p>We use numpy in our medical devices, having numpy behave in a reliable way makes it easier to upgrade to benefit from bug fixes, packaging or performance improvements without breaking existing code</p></td>
+</tr>
+<tr class="row-odd"><td><p>It’s already pretty good, but as a foundational library, reliability takes precedence over other things, like new features.</p></td>
+</tr>
+<tr class="row-even"><td><p>The amount of numpy dependencies is huge. Do not break anything for as long as you can!</p></td>
+</tr>
+<tr class="row-odd"><td><p>continued focus on crash-free code with consistent results across platforms</p></td>
+</tr>
+<tr class="row-even"><td><p>I don’t have any specific complaints, numpy is very reliable. Maintaining that is more important to me than some of the other items so I listed it above them.</p></td>
+</tr>
+<tr class="row-odd"><td><p>NumPy is generally very reliable, just I think the reliability is a must for a numerical library. Just please keep doing your excellent work :)</p></td>
+</tr>
+<tr class="row-even"><td><p>Numpy has amazing apis and already covers most functionality I want to use.  If it’s also super fast and super reliable, it becomes basically the best numeric library out there.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Reliability is actually quite good; please continue to prioritize it</p></td>
+</tr>
+<tr class="row-even"><td><p>An exhaustive test suit covering almost all aspects of Numpy can be developed. This can be used as a benchmark of Numpy reliability.</p></td>
+</tr>
+<tr class="row-odd"><td><p>It’s not about increasing, but to maintain its current reliability, performance, etc.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="website">
+<h4>Website<a class="headerlink" href="#website" title="Permalink to this headline">¶</a></h4>
+<p>Finally, <span class="pasted-text">9</span> participants selected the
+NumPy website as a top priority and shared their thoughts on how it could
+be improved.</p>
+<div class="toggle admonition">
+<p class="admonition-title">Click to expand!</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>User friendly UI</p></td>
+</tr>
+<tr class="row-odd"><td><p>The site should be better referenced and you should get there faster when you use a search engine to answer a question.</p></td>
+</tr>
+<tr class="row-even"><td><p>Not sure, but something like “you might also interested in xxx” would help! Sometimes when I try to do something I never did I end up discovering that there’s an easy and straightforward way to do it, but it takes me forever to find out</p></td>
+</tr>
+<tr class="row-odd"><td><p>Front End… Try to make it user friendly</p></td>
+</tr>
+<tr class="row-even"><td><p>More content in Spanish please.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Even more examples and tutorials.</p></td>
+</tr>
+<tr class="row-even"><td><p>Even more examples!</p></td>
+</tr>
+<tr class="row-odd"><td><p>I have trouble finding the right methods for doing what I need to do.</p></td>
+</tr>
+<tr class="row-even"><td><p>Tutorials</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<p>The following figure shows the relative frequency of selection for each of
+the listed categories<a class="footnote-reference brackets" href="#id2" id="id1">1</a> at each priority level.</p>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">ax</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">axes</span><span class="o">.</span><span class="n">ravel</span><span class="p">()):</span>
+    <span class="n">priority_level</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">cnts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">raw</span> <span class="o">==</span> <span class="n">priority_level</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[</span><span class="n">I</span><span class="p">]</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">cnts</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">cnts</span> <span class="o">/</span> <span class="n">cnts</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="n">tick_label</span><span class="o">=</span><span class="n">labels</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Priority: </span><span class="si">{</span><span class="n">priority_level</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/priorities_12_01.png" src="../../_images/priorities_12_01.png" />
+</div>
+</div>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>Excluding <code class="docutils literal notranslate"><span class="pre">Other</span></code>, which was an optional category and therefore
+constitutes the majority of the “lowest-priority”.</p>
+</dd>
+</dl>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="contributions.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Contributions</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="features_and_deprecations.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Usage</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+    <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2020, NumPy Survey Team.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.4.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

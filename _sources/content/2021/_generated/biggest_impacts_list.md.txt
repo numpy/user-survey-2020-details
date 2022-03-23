@@ -1,0 +1,105 @@
+|Comments|
+|--------|
+|Better documentation for static typing. The system in 1.21 suddenly got much harder to use, and there is no documentation on how to use it that I can find. A question like “what are the two parameters to np.ndarray” is really hard to answer using the documentation.|
+|Transparent use NumExpr with NumPy.|
+|It would be fabulous if NumPy and CuPy merged and (hopefully as a result) had more consistency in APIs. The division between RAM-bound arrays and GPU-bound arrays is a technical one, but as a developer and as a data analyst, we'd like to think of them as equivalent. That would go in the "major new feature" category, but you asked.|
+|Make numpy functions available as methods of the array class.|
+|more tutorials that would show when NumPy is a better choice than using a more complex (but perhaps more popular framework)|
+|Ship the Array API so other libraries can start to use it as a standard|
+|Julia integration|
+|more functions on arrays|
+|clearer examples in the documentation|
+|Better support for categorical arrays and/or string arrays!|
+|I've really appreciated the renewed willingness of the numpy development community to accept larger changes.  Kudos|
+|Support more modern Fortran features in f2py.|
+|More examples about how to manipulate and access information from multidimensional arrays (usually 3D) along a given 2D plane.|
+|nothing pressing now, sliding array views for statistical and raster analysis was previously a key point|
+|Docstrings everywhere|
+|Faster imports|
+|How to handle arrays efficiently|
+|More compatibility with existing libraries like TensorFlow and Pytorch. They provide NumPy like interfaces which seems silly.|
+|For me a better documentation, of course it is in Spanish. That is to say, more updated. (The comment was submitted in Spanish.)|
+|New build system.|
+|reducing the size of the package|
+|OpenBLAS optimizations|
+|Performance is really nice|
+|Dark mode for the documentation or changing the code block background change from #fafafa back to #f5f5f5 as it helps reading code.|
+|https://numpy.org/doc/stable/reference/arrays.nditer.html#single-array-iteration"|
+|Get more independent of Cpython. E.g. use HPy as interface.|
+|better compatibility of numba with numpy but that more likely an issue for numba|
+|Mainly I use `numpy` for the array and related low-level data manipulations, plus random number generation. Just please don't change how any of that work.|
+|something akin to vmap from jax|
+|Expansion of functions suitable for image processing. (The comment was submitted in Japanese.)|
+|More use cases in documentation.|
+|Autodiff|
+|Make it easier to download and install. (The comment was submitted in Spanish.)|
+|Generating low dependency compiled binary of a numpy pipeline for inclusion in a native library|
+|sparse matrix support!|
+|small array performance|
+|Fixing masked arrays and improving "duck array" support (though more of that probably needs to go downstream).|
+|Speed increase. (The comment was submitted in Mandarin.)|
+|More documentation of the NumPy C api and better docs in general.|
+|Ease pain associated with datetimes.|
+|Higher performance in OpenBlas version. (The comment was submitted in Spanish.)|
+|Right now I'm looking at the histogram function.|
+|Performance|
+|A more verbose version of broadcasting. Students have great difficulty grasping the underlying rules.|
+|Introducing lazy evaluation.|
+|Really good support for missing data. Or maybe sparse arrays (not scipy matrixes)|
+|better support for AMD processors|
+|eliminate "import numpy as np"|
+|Better integration with multi-precision numerical packages e.g. mpmath (based on GMP or MPFR)|
+|A very fast linear matrix problem solver (currently in np.linalg.solve) as my package depends on running that function tens of thousands of time to solve a bigger math problem.|
+|Improved typing|
+|I think a blog featuring NumPy use cases would be nice. For example, https://matplotlib.org/matplotblog|
+|Run faster on GPU.|
+|GPU, multi-core features.|
+|Adding support to run operations in GPU|
+|Arrays and calculations with physical units.|
+|Also, the documentation to OpenBLAS (and how it is different from other BLAS variants) and its support for parallelism is almost non-existent and hard to use in production."|
+|Better documentation/SEO, NumPy forum.|
+|More effective ways of finding answers to issues or for finding the information needed.|
+|New tutorials with small projects.|
+|More statistics in numpy. numpy.kurtosis would be great (which numpy speeds and able to handle Ndarrays, just like numpy.var)|
+|Add matrix multiplication with log-sum-exp trick (I work with probabilities a lot)|
+|Better debugging tools|
+|1. simplify interfaces (calling subroutines) to a maximum|
+|Hahaha native CUDA support :)|
+|Faster “map”|
+|Native GPU option.|
+|Better error messages|
+|If Numpy helps improve the CPython C-API. In order to improve general Python performance the CPython core devs may need to make breaking changes to the C-API, which they won't dare to do if it breaks Numpy and the PyData stack. Since Numpy is so foundational, it would need to be involved for it to ever be successful|
+|Many examples in documentation|
+|Documentation with more examples to better understand the context in which to use certain functionality. (The comment was submitted in Spanish.)|
+|Improve the statistics (e.g. numpy quantile) behind numpy.|
+|Introducing user-friendly time series data manipulation similar to stride_tricks but more intuitive and with better documentation.|
+|2. add direct sparse solvers also for structured sparse systems (like block sparse)"|
+|Improved performance using JIT.  Since NumPy is so popular, having a JIT compiler built in within NumPy would make writing small C-like snippets using numpy really powerful.|
+|Adding Units to variables, arrays, and calculations.|
+|I would like something like the fori_loop function from the Jax library.|
+|Long term stability. Much of the Python ecosystem is obsessed with new shiny things rather than robust tools that will keep working for a long time. I'd love to know that something I wrote with Python 3.4 will still work now but it might be unreasonably hard to set up.|
+|In any case, amazing job with Numpy, very happy to master this tool!"|
+|More SIMD is probably the most achievable.  This and complete typing support.|
+|Speed up|
+|Implement physical units.|
+|More special functions|
+|Use Markdown everywhere (e.g., documentation and docstrings), instead of reStructuredText.|
+|A better documentation for einsum|
+|Probably fast matrix repeated product (IE y = a@b@c@...@z for matrices a-z).  It's a little specialized, but I use it nearly every day in my research.|
+|More inetgreation with tensorflow|
+|More functions for masked arrays and/or within function handling of masked arrays in functions that are not specific to masked arrays. For e.g., instead of using np.ma.sum, it would be great to have an option in the np.sum(..., masked_values = True, masked_value_handling='ignore') or something like that.|
+|Customizable dtypes|
+|Improved convenience of random module. (The comment was submitted in Japanese.)|
+|Extendable user dtypes|
+|Examples alongside api pages.|
+|The documentation should be more detailed.|
+|Einsum with multiple outputs|
+|Devote more attention to the documentation. Provide more 'quick start' and 'how to' guides. Ensure that all code in the documentation can be easily downloadable (copy/pasted) from the website.|
+|A mature, complete sparse array solution. I initially used SciPy, but the deprecation of numpy.matrix was breaking because my code relied on a quirk of matrices that didn't work with arrays. I'm currently using sparse, but it's not mature yet and recent changes also broke code, and some numpy examples don't work with the sparse equivalents.|
+|Better documentation for non-researchers. As a SW engineer/architect I need to understand how memory is allocated, when memory is copied (vstack, view), what is the cyclomatic complexity of given algorithm and how can I achieve parallel processing (pThreads). This is mostly missing in the whole ML stack and often I had to read the source code to guess.|
+|speed|
+|More examples in the documentation|
+|Allow "for x in a:" instead of "for x in np.nditer(a):"|
+|numpy.linalg.solve that detects special structures (triangular, banded, Hessenberg, ...) and uses the appropriate solver.|
+|Parallelization.|
+|Any performance gain that can be added has huge impacts to downstream projects.|

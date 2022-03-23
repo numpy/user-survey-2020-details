@@ -1,0 +1,11 @@
+|Comments|
+|--------|
+|I would like the documentation to be more explicit and less reliant on jargon. Especially from the point of view of a novice/hobby programmer this would be such a great deal.|
+|Adding support for GPU and parallel operations would be great.|
+|My understanding is that work is underway to make APIs across the python scientific ecosystem consistent. I think getting the components to gel and work well with each other is high priority.|
+|NEP-35 style work - making it easier to work with dask and cupy|
+|On-ramping more under-represented people to contribute to the codebase.|
+|Integration with other languages by providing low level C library|
+|Continue with the deprecations and do an extensive code cleanup removing things rarely used to make a leaner codebase aiming to build numpy as a solid core for other applications.|
+|I think numpy plays a huge role as the central hub for python arrays. In that vein I think a high priority is improving the interop interface so other libraries can Just Work with numpy. This includes things like e.g. pushing forward with the HPy project to modernize the C interface.|
+|And of course, the numpy community still has plenty to do to improve equity and inclusion in the organization (and pydata in general)!"|

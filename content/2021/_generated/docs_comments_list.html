@@ -1,0 +1,377 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&lt;no title&gt; &#8212; NumPy Community Survey 2020  documentation</title>
+    
+    <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  
+    
+    <link rel="stylesheet"
+      href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+      href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+      href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+    
+      
+  
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/pydata-sphinx-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    
+    <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../../../index.html">
+  <img src="../../../_static/numpylogo.svg" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../demographics.html">
+  Community
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../contributions.html">
+  Contributions
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../priorities.html">
+  Priorities
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../features_and_deprecations.html">
+  Usage
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../biggest_impact.html">
+  Future
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../acknowledgements.html">
+  Acknowledgements
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../index.html">
+  Previous Years
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../glossary.html">
+  Glossary
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search survey results ..." aria-label="Search survey results ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Recently I found out that documentation of matrix-multiplication-like functions is less than extensive</p></td>
+</tr>
+<tr class="row-odd"><td><p>Examples, examples everywhere!</p></td>
+</tr>
+<tr class="row-even"><td><p>Share in more languages, here in latam we use a lot in research field, specially at universities. Create community events where people can propose new ways to do things. Numpy is more than just a library, it’s potential can connect research with software engineering.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Documentation on your test cases would be nice. Other than that maybe some more examples on your docs</p></td>
+</tr>
+<tr class="row-even"><td><p>More examples, tutorial. I’m not familiar with the deep mathematics of many algorithm, but often feel while reading the documentation, that a high level of mathematical knowledge is required besides the programming one to figure out how the given method should be used on what kind of data.</p></td>
+</tr>
+<tr class="row-odd"><td><p>More tutorials, how-to, cookbook, exemples</p></td>
+</tr>
+<tr class="row-even"><td><p>The documentation is mostly clear. Some more usage examples for the methods would be welcomed. Often I find myself going to stackoverflow, or similar pages, in order to find usage examples, since the ones present in the documentation can sometimes be very limited.</p></td>
+</tr>
+<tr class="row-odd"><td><p>The survey forced me to select some priority order and hence I think performance, reliability and documentation are for my work the most important ones. In my experience numpy is fast, reliable and has clear documentation.”</p></td>
+</tr>
+<tr class="row-even"><td><p>More advanced and complex examples. Tutorials for people without numerical math / programming background.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Add more usage examples. Make some examples “with context”. For example how the operations are or can be used in the context.</p></td>
+</tr>
+<tr class="row-even"><td><p>Keep it updated and add many examples</p></td>
+</tr>
+<tr class="row-odd"><td><p>Links in the documentation to tutorials and examples show off how powerful numpy is. I see all these crazy functions in the docs but as a novice, I’m not sure how or why I would use them.</p></td>
+</tr>
+<tr class="row-even"><td><p>Better explanations. Namely, of algos, and friction points of beginner vs intermediate NumPy users (eg striding, handling batches, so on).</p></td>
+</tr>
+<tr class="row-odd"><td><p>examples using structured arrays</p></td>
+</tr>
+<tr class="row-even"><td><p>Some parts of the documentation are old.</p></td>
+</tr>
+<tr class="row-odd"><td><p>The documentation is already good! But a little more communication about upcoming releases / roadmap for deprecations could be nice to have.</p></td>
+</tr>
+<tr class="row-even"><td><p>Some documentation is little short for beginners and it took some time to understand the usage of certain methods, maybe a documentation with a ‘beginners mode’ containing easier description and lots of examples could help, however most of the times I find hints on stackoverflow.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Use cases. (This comment was submitted in Japanese.)</p></td>
+</tr>
+<tr class="row-even"><td><p>individual pages are normally quite good but the overall organization can be confusing at times.</p></td>
+</tr>
+<tr class="row-odd"><td><p>More examples in documentation.</p></td>
+</tr>
+<tr class="row-even"><td><p>Examples and explanation. When is to correct to use one feature over another. How to make your numpy code faster. How to manage memory or system resources. How to use the GPU or parallelize calculations.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Explain to to use Units for variables with the calculations.”</p></td>
+</tr>
+<tr class="row-even"><td><p>Clean up documentation structure and cohesiveness</p></td>
+</tr>
+<tr class="row-odd"><td><p>More concrete examples. Tips and tricks.</p></td>
+</tr>
+<tr class="row-even"><td><p>More explicit documentation, more detailed and provided examples. (This comment was submitted in French.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Can’t find a comprehensive list of all the functions and how their parameters work. The dir() function spews out hundreds of functions. Should be a PDF or website that documents each function with its parameters. Also group them by functionality. Ideally have examples. The pandas docs seem much better.</p></td>
+</tr>
+<tr class="row-even"><td><p>code examples (also graphical), document every use case</p></td>
+</tr>
+<tr class="row-odd"><td><p>The documentation on dtype casting is incomplete and largely missing from the user guide.  It would make NumPy more newcomer friendly to have the casting rules (including for assignments to an ndarray) explained clearly.  Examples of some of the commonly unexpected casting behaviors should be included too.</p></td>
+</tr>
+<tr class="row-even"><td><p>The user guide is missing examples of ndarrays with 0 in their shape.  These show up quite a bit (at least in my experience), and broadcasting with them should be explained more clearly to newcomers.</p></td>
+</tr>
+<tr class="row-odd"><td><p>There are a lot of more-or-less redundant functions in NumPy.  A section of the documentation containing NumPy idioms (or even a ‘cookbook’) would be helpful at clearing up things like when to use ravel vs. reshape(-1) vs. flatten().</p></td>
+</tr>
+<tr class="row-even"><td><p>Provide a comprehensive how-to on using NumPy for linear algebra manipulations on ndarrays.  It’s a little tricky to figure out the mappings from normal linear algebra notation to 1d and 2d ndarray operations (e.g., adding a newaxis to form the outer product of two vectors represented as 1d ndarrays).”</p></td>
+</tr>
+<tr class="row-odd"><td><p>The documentation should be more detailed and well organized.</p></td>
+</tr>
+<tr class="row-even"><td><p>When we look for information through a search engine we too often come across documents that do not correspond to the current version of Numpy; you would need a centralized doc corresponding to the most recent version (like what exists for Matlab for example). (This comment was submitted in French.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>More examples and section-wise documentation will help learners</p></td>
+</tr>
+<tr class="row-even"><td><p>Task focused tutorials/sample code. scikit-learn.org does this well.</p></td>
+</tr>
+<tr class="row-odd"><td><p>The documentation should explain how to write larger software with NumPy and not just some formulas.</p></td>
+</tr>
+<tr class="row-even"><td><p>Write proper documentation that easy to read especially for students/beginners.</p></td>
+</tr>
+<tr class="row-odd"><td><p>More verbose with respect to examples and tutorials on top of the technicalities.</p></td>
+</tr>
+<tr class="row-even"><td><p>Documentation recently has actually improved greatly! My selfish documentation/packaging interest is trying to determine how to properly include saved numpy/sparse matrices as part of a pip-installable library.</p></td>
+</tr>
+<tr class="row-odd"><td><p>More detailed examples and explanations, especially concerning Fourier transforms.</p></td>
+</tr>
+<tr class="row-even"><td><p>help for conversion matlab to python”</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ensure there are multiple examples per docstring and give more verbose descriptions.</p></td>
+</tr>
+<tr class="row-even"><td><p>NumPy would benefit from user guides, like scikit-learn has. Guides that explain how to use tools to accomplish a task (instead of just code documentation) would make NumPy more approachable and invite kn new users (or inspire old users to use features in new ways).</p></td>
+</tr>
+<tr class="row-odd"><td><p>Expanding the documentation to register clearly the methods that are implemented, with their respective sources.</p></td>
+</tr>
+<tr class="row-even"><td><p>Writing more examples of Numpy usage.</p></td>
+</tr>
+<tr class="row-odd"><td><p>eliminate “import numpy as np”</p></td>
+</tr>
+<tr class="row-even"><td><p>add examples</p></td>
+</tr>
+<tr class="row-odd"><td><p>Add a few (more) quick-start and/or ‘how-to’ guides. Make sure that all sample code in the documentation is easily downloadable from the website.</p></td>
+</tr>
+<tr class="row-even"><td><p>I have trouble finding the right methods for doing what I need to do</p></td>
+</tr>
+<tr class="row-odd"><td><p>Update docstrings and error messages to be clearer to interpret</p></td>
+</tr>
+<tr class="row-even"><td><p>More concise API reference with aim to precisely present available routines and their syntax</p></td>
+</tr>
+<tr class="row-odd"><td><p>More sample code showing typical usage.</p></td>
+</tr>
+<tr class="row-even"><td><p>Help programmers understand how to maximize their ways to get portable reproducible results and long term stability/repeatability/reproducibility of their programs.</p></td>
+</tr>
+<tr class="row-odd"><td><p>As an example, make it easier to find the release notes on the website (without need a Google search); make those notes clear, concise, and understandable to scientific domain experts that aren’t software engineers; and minimize the programming details they need to understand just to keep old programs running (distraction from their work).”</p></td>
+</tr>
+<tr class="row-even"><td><p>As pointed out recently, the “User Guide” portion is a bit of a hodgepodge of unstructured material while much of the real user documentation is in the “API Reference”, which is pretty well-structured but ends up trying to do multiple jobs at once.</p></td>
+</tr>
+<tr class="row-odd"><td><p>We’re always in need of more docs, tutorials and blog posts with problem solving.</p></td>
+</tr>
+<tr class="row-even"><td><p>use cases for numpy (ex: when to use std lib list for np.array()),  curriculum for teaching numpy for beginners,</p></td>
+</tr>
+<tr class="row-odd"><td><p>The documentation hides implementation details and in particular tries to mask the interfaces to external codes, which is a major drawback.</p></td>
+</tr>
+<tr class="row-even"><td><p>Enrichment of sample code. Japanese support for documents. (This comment was submitted in Japanese.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>There are no instructions (that I found) on the Numpy docs referring to how to link Numpy against different backends. In some functions, keywords accepting strings referring to different methods are listed but not clearly explained.</p></td>
+</tr>
+<tr class="row-even"><td><p>having more examples not as showing how api works but more of performance based examples and examples on how to leverage low level types which are there in numpy</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tutorials with less expected academic knowledge</p></td>
+</tr>
+<tr class="row-even"><td><p>Scalar types, scalar arrays, and C extensions</p></td>
+</tr>
+<tr class="row-odd"><td><p>- Discoverability of functions. Sometimes I know what I want to do but I don’t know what it might be called or what subpackage it might be in. Not sure how to solve this concretely.</p></td>
+</tr>
+<tr class="row-even"><td><p>- Documentation of some functions is incomplete/ambiguous. I can’t give you a single thing you can do; it’d be slow, one-by-one effort”</p></td>
+</tr>
+<tr class="row-odd"><td><p>More application examples would be great.</p></td>
+</tr>
+<tr class="row-even"><td><p>Use cases and general advertisement</p></td>
+</tr>
+<tr class="row-odd"><td><p>NumPy documentation is very good however, sometimes it would be nice to see more examples of particular function calls or references to external materials related to the content (e.g. Wikipedia pages)</p></td>
+</tr>
+<tr class="row-even"><td><p>Basic documentation is good, but I would like more ultra-short examples for common (small) tasks</p></td>
+</tr>
+</tbody>
+</table>
+
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+    <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2020, NumPy Survey Team.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.4.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

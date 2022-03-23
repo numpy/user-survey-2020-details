@@ -1,0 +1,15 @@
+|Comments|
+|--------|
+|Compiling Numpy without using a package manager is a pretty daunting task, a least the last time I tried.|
+|Provide wheels for all architectures and interpreters possible|
+|Move away from numpy distutils. Improve ci and fix issues related to the support of new ishhardware (eg arm64 on linux and apple m1).|
+|Maybe explore the use of reproducible builds to improve security and limit the risk of shipping binaries tempered with compiler rootkits on pypi or conda-forge."|
+|Sometimes numpy can be hard to install - especially on systems that do not have their own compilers. I've tried installing on windows and gotten confusing error messages that I later learned were because I didn't have compiler settings created correctly. And once (a long time ago) on Linux, I needed to install system headers. I think less technical users having to resort to Anaconda to install a Python package is not a good user experience.|
+|Simple way to rebuild your package, once installed, (e.g. a script like "python -m numpy rebuild --library IntelMKL --options FMA").|
+|More clear about the fact that the underlying BLAS/LAPACK could be from different sources in the docs! I spent days asking of meep/tensorflow alternatively ruining my numpy installation by imposing their version and me not understanding why"|
+|The current system is a bit of an archaic mess, with somewhat public APIs with poor documentation. Also, with distutils going away in Python 3.12, it’s an area that likely matters. Refactoring and simplifying the packaging system, and either depending on external tools (like setuptools, scikit-build, or other) or factoring out the build system into a separate package could greatly help. Also it needs documentation (such as on how to build a FORTRAN extension, for example).|
+|Numpy should be available linked against the Intel MKL for Windows systems such as the wheels distribute in the Gohlke repo. This would massively simplify maintenance of project that highly depend on the speed provided by Numpy+MKL.|
+|continued focus on helping keep (making it easy to keep) distros' numpy packages up to date|
+|Packaging had improved over the years, but installing on Microsoft Windows must become even more transparent.|
+|All my answers are about keeping up what currently there is|
+|Better release information|

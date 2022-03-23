@@ -1,0 +1,71 @@
+|Comments|
+|--------|
+|Recently I found out that documentation of matrix-multiplication-like functions is less than extensive|
+|Examples, examples everywhere!|
+|Share in more languages, here in latam we use a lot in research field, specially at universities. Create community events where people can propose new ways to do things. Numpy is more than just a library, it's potential can connect research with software engineering.|
+|Documentation on your test cases would be nice. Other than that maybe some more examples on your docs|
+|More examples, tutorial. I'm not familiar with the deep mathematics of many algorithm, but often feel while reading the documentation, that a high level of mathematical knowledge is required besides the programming one to figure out how the given method should be used on what kind of data.|
+|More tutorials, how-to, cookbook, exemples|
+|The documentation is mostly clear. Some more usage examples for the methods would be welcomed. Often I find myself going to stackoverflow, or similar pages, in order to find usage examples, since the ones present in the documentation can sometimes be very limited.|
+|The survey forced me to select some priority order and hence I think performance, reliability and documentation are for my work the most important ones. In my experience numpy is fast, reliable and has clear documentation."|
+|More advanced and complex examples. Tutorials for people without numerical math / programming background.|
+|Add more usage examples. Make some examples "with context". For example how the operations are or can be used in the context.|
+|Keep it updated and add many examples|
+|Links in the documentation to tutorials and examples show off how powerful numpy is. I see all these crazy functions in the docs but as a novice, I'm not sure how or why I would use them.|
+|Better explanations. Namely, of algos, and friction points of beginner vs intermediate NumPy users (eg striding, handling batches, so on).|
+|examples using structured arrays|
+|Some parts of the documentation are old.|
+|The documentation is already good! But a little more communication about upcoming releases / roadmap for deprecations could be nice to have.|
+|Some documentation is little short for beginners and it took some time to understand the usage of certain methods, maybe a documentation with a 'beginners mode' containing easier description and lots of examples could help, however most of the times I find hints on stackoverflow.|
+|Use cases. (This comment was submitted in Japanese.)|
+|individual pages are normally quite good but the overall organization can be confusing at times.|
+|More examples in documentation.|
+|Examples and explanation. When is to correct to use one feature over another. How to make your numpy code faster. How to manage memory or system resources. How to use the GPU or parallelize calculations.|
+|Explain to to use Units for variables with the calculations."|
+|Clean up documentation structure and cohesiveness|
+|More concrete examples. Tips and tricks.|
+|More explicit documentation, more detailed and provided examples. (This comment was submitted in French.)|
+|Can't find a comprehensive list of all the functions and how their parameters work. The dir() function spews out hundreds of functions. Should be a PDF or website that documents each function with its parameters. Also group them by functionality. Ideally have examples. The pandas docs seem much better.|
+|code examples (also graphical), document every use case|
+|The documentation on dtype casting is incomplete and largely missing from the user guide.  It would make NumPy more newcomer friendly to have the casting rules (including for assignments to an ndarray) explained clearly.  Examples of some of the commonly unexpected casting behaviors should be included too.|
+|The user guide is missing examples of ndarrays with 0 in their shape.  These show up quite a bit (at least in my experience), and broadcasting with them should be explained more clearly to newcomers.|
+|There are a lot of more-or-less redundant functions in NumPy.  A section of the documentation containing NumPy idioms (or even a 'cookbook') would be helpful at clearing up things like when to use ravel vs. reshape(-1) vs. flatten().|
+|Provide a comprehensive how-to on using NumPy for linear algebra manipulations on ndarrays.  It's a little tricky to figure out the mappings from normal linear algebra notation to 1d and 2d ndarray operations (e.g., adding a newaxis to form the outer product of two vectors represented as 1d ndarrays)."|
+|The documentation should be more detailed and well organized.|
+|When we look for information through a search engine we too often come across documents that do not correspond to the current version of Numpy; you would need a centralized doc corresponding to the most recent version (like what exists for Matlab for example). (This comment was submitted in French.)|
+|More examples and section-wise documentation will help learners|
+|Task focused tutorials/sample code. scikit-learn.org does this well.|
+|The documentation should explain how to write larger software with NumPy and not just some formulas.|
+|Write proper documentation that easy to read especially for students/beginners.|
+|More verbose with respect to examples and tutorials on top of the technicalities.|
+|Documentation recently has actually improved greatly! My selfish documentation/packaging interest is trying to determine how to properly include saved numpy/sparse matrices as part of a pip-installable library.|
+|More detailed examples and explanations, especially concerning Fourier transforms.|
+|help for conversion matlab to python"|
+|Ensure there are multiple examples per docstring and give more verbose descriptions.|
+|NumPy would benefit from user guides, like scikit-learn has. Guides that explain how to use tools to accomplish a task (instead of just code documentation) would make NumPy more approachable and invite kn new users (or inspire old users to use features in new ways).|
+|Expanding the documentation to register clearly the methods that are implemented, with their respective sources.|
+|Writing more examples of Numpy usage.|
+|eliminate "import numpy as np"|
+|add examples|
+|Add a few (more) quick-start and/or 'how-to' guides. Make sure that all sample code in the documentation is easily downloadable from the website.|
+|I have trouble finding the right methods for doing what I need to do|
+|Update docstrings and error messages to be clearer to interpret|
+|More concise API reference with aim to precisely present available routines and their syntax|
+|More sample code showing typical usage.|
+|Help programmers understand how to maximize their ways to get portable reproducible results and long term stability/repeatability/reproducibility of their programs.|
+|As an example, make it easier to find the release notes on the website (without need a Google search); make those notes clear, concise, and understandable to scientific domain experts that aren't software engineers; and minimize the programming details they need to understand just to keep old programs running (distraction from their work)."|
+|As pointed out recently, the "User Guide" portion is a bit of a hodgepodge of unstructured material while much of the real user documentation is in the "API Reference", which is pretty well-structured but ends up trying to do multiple jobs at once.|
+|We're always in need of more docs, tutorials and blog posts with problem solving.|
+|use cases for numpy (ex: when to use std lib list for np.array()),  curriculum for teaching numpy for beginners,|
+|The documentation hides implementation details and in particular tries to mask the interfaces to external codes, which is a major drawback.|
+|Enrichment of sample code. Japanese support for documents. (This comment was submitted in Japanese.)|
+|There are no instructions (that I found) on the Numpy docs referring to how to link Numpy against different backends. In some functions, keywords accepting strings referring to different methods are listed but not clearly explained.|
+|having more examples not as showing how api works but more of performance based examples and examples on how to leverage low level types which are there in numpy|
+|Tutorials with less expected academic knowledge|
+|Scalar types, scalar arrays, and C extensions|
+|- Discoverability of functions. Sometimes I know what I want to do but I don’t know what it might be called or what subpackage it might be in. Not sure how to solve this concretely.|
+|- Documentation of some functions is incomplete/ambiguous. I can’t give you a single thing you can do; it’d be slow, one-by-one effort"|
+|More application examples would be great.|
+|Use cases and general advertisement|
+|NumPy documentation is very good however, sometimes it would be nice to see more examples of particular function calls or references to external materials related to the content (e.g. Wikipedia pages)|
+|Basic documentation is good, but I would like more ultra-short examples for common (small) tasks|

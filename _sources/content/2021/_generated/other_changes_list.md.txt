@@ -1,0 +1,58 @@
+|Comments|
+|--------|
+|Less numerical errors; more computations like rref in linalg package.|
+|Clearer channels for new contributors|
+|Typehints|
+|More content for the Spanish speaking audience. (The comment was submitted in Spanish.)|
+|Fixing non-intuitive functions. (The comment was submitted in Japanese.)|
+|Allow NaNs in integer arrays.|
+|Better interop with gpu libraries that provide numpy like APIs.|
+|First class sparsity|
+|CUDA and other GPU support|
+|Introduction of convex optimization solvers.|
+|more documentation on saving/loading array data for structured/recarrays  (aka, Pandas with the Pandas fluff)|
+|Hire more open source interns of wider domain.|
+|A numpy discourse to help when asking questions.|
+|f2py should be split into its own package.|
+|Perhaps some automatic gpu support would be nice.|
+|Make numpy functions available as methods of the array class.|
+|Don't fall into that trap: NumPy is actually pleasantly stable.|
+|Better f2py for modern Fortran|
+|ragged arrays|
+|Being thoughtful about the impact of deprecations, and dependencies apps may have on deprecated revisions.|
+|JAX and Scipy integration|
+|Translations of documentation to reach more people. (The comment was submitted in Spanish.)|
+|Namespace sanity. The main namespace is too crowded.|
+|Overall I think it’s great. Wouldn’t be able to do my work without it. The current examples are great, but sometimes I find them a little short winded as far as explaining what the code is *actually* doing.|
+|Adding support for simple, high-quality graphs so we could avoid the nightmare that is MatPlotLib.|
+|More coordination for a unified NumPy API that other array libraries could target.|
+|Algorithmic Differentiation.|
+|Maybe some of your functions should be evaluated by experts in their fields, in terms of arguments, documentation and results. This experience could be documented in the website.|
+|benchmark against matlab|
+|Including sparse arrays to numpy and more sophisticated sparse functionality (more robust solvers)|
+|I would like to see events where we call open source researchers to implement their papers to numpy core, like a competition who has the fastest fft|
+|Loops would be cool... even though it is a vector lib|
+|Some way to track memory usage.|
+|Integration/consolidation of NumPy/Numba/CuPy/Xarray into a single framework for JIT compiling for CPU and GPU|
+|Device placement|
+|f2py with type support|
+|Continue with actions like removing the financial functions.|
+|Move toward using only the limited Python C-API|
+|Better compatibility with PEP 484 and PEP 526.|
+|cleaner / faster API (stuff that makes sense as function should not be implemented with *slow* classes)|
+|More of a focus on using type hints.|
+|Multiprocessing|
+|sparse matrix support!|
+|Sorry for out of course arrays and transparent use of multiple cores where possible.|
+|Usage of more operators, shorter sintaxe|
+|proper / uniform treatment of low-rank arrays (particularly 0, scalars, and 1, vectors); to be more like APL / J.|
+|Multi-objective optimization, entropy method, neural network, graph theory, decision tree and other functions. (The comment was submitted in Mandarin.)|
+|vroom vroom make it faster 🏎🏎|
+|More maintainers (i.e. funding) - it’s hard to contribute to libraries without confidence that somebody will review my patch (owing to the volunteer nature of the project)|
+|Better build system, also some documentation on how to use it (especially for building FORTRAN extensions).|
+|Difficult to tell. This is really one of the best pieces of code.|
+|Built-in GPU support, meaning when it would be faster, NumPy just uses the GPU instead of the CPU without user intervention.|
+|Parallelism|
+|Would be nice to call Python from Fortran ! I write a subroutine, I package it say Docker style, then i call it from Fortran.|
+|I think the HPy stuff is pretty dang cool but I don't have a use for it yet.|
+|Maybe some addon for Jupiter notebook that could help me.|

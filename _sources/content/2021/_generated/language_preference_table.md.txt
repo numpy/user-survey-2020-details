@@ -1,0 +1,28 @@
+| **Language** | **Preferred by % of Respondents** |
+|--------------|-----------------------------------|
+| English | 67.2 |
+| Other | 6.6 |
+| Spanish | 6.2 |
+| French | 5.4 |
+| Japanese | 5.0 |
+| Russian | 1.8 |
+| German | 1.4 |
+| Mandarin | 1.0 |
+| Portuguese | 0.6 |
+| Polish | 0.6 |
+| Swedish | 0.4 |
+| Czech | 0.4 |
+| Italian | 0.4 |
+| Turkish | 0.4 |
+| Chinise | 0.2 |
+| 中文 | 0.2 |
+| Chinese | 0.2 |
+| Bulgarian | 0.2 |
+| Allemand | 0.2 |
+| Hungarian | 0.2 |
+| Dutch | 0.2 |
+| Hebrew | 0.2 |
+| Hindi | 0.2 |
+| Indonesian | 0.2 |
+| Korean | 0.2 |
+| "norwegian " | 0.2 |

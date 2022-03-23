@@ -1,0 +1,339 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>&lt;no title&gt; &#8212; NumPy Community Survey 2020  documentation</title>
+    
+    <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  
+    
+    <link rel="stylesheet"
+      href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+      href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+      href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+    
+      
+  
+    
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/pydata-sphinx-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    
+    <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+
+<a class="navbar-brand" href="../../../index.html">
+  <img src="../../../_static/numpylogo.svg" class="logo" alt="logo">
+</a>
+
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../demographics.html">
+  Community
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../contributions.html">
+  Contributions
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../priorities.html">
+  Priorities
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../features_and_deprecations.html">
+  Usage
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../biggest_impact.html">
+  Future
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../acknowledgements.html">
+  Acknowledgements
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../index.html">
+  Previous Years
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../../../glossary.html">
+  Glossary
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search survey results ..." aria-label="Search survey results ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    
+  </div>
+</nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="simple visible nav section-nav flex-column">
+</ul>
+
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Comments</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Not neccessarly I just only would like to see new features, a slight redesign of API would appeal to me, too, e.g. functions like numpy.apply_along_axis() I would prefer as methods for arrays as I believe it would make code more readable.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Also, I would like to see some of the methods/functions existing in pandas, pandas.Dataframe.pipe() or pandas.Dataframe.first_valid_Index().”</p></td>
+</tr>
+<tr class="row-even"><td><p>Export projects to different languages. (The comment was submitted in Spanish.)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Support for Golang API</p></td>
+</tr>
+<tr class="row-even"><td><p>Control (Transfer Functions) module, as Octave’s</p></td>
+</tr>
+<tr class="row-odd"><td><p>Add new features to the random module: MultiNormal test and Copulas”</p></td>
+</tr>
+<tr class="row-even"><td><p>n-dimensional computational geometry</p></td>
+</tr>
+<tr class="row-odd"><td><p>Distributed computing</p></td>
+</tr>
+<tr class="row-even"><td><p>Would be nice to implement more features for quantitative economics whilst continue to keep with competition (R, Matlab, …) with new features.</p></td>
+</tr>
+<tr class="row-odd"><td><p>I want to easily map a whole array</p></td>
+</tr>
+<tr class="row-even"><td><p>More love for time series data manipulation.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Parallel computing. (This comment was submitted in Mandarin.)</p></td>
+</tr>
+<tr class="row-even"><td><p>Better handling of graphs, native sparse matrices.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Nx2 arrays for computation geometry</p></td>
+</tr>
+<tr class="row-even"><td><p>better image to numpy array tools (maybe together with opencv)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Some pretty esoteric things relating to ufuncs on complex values</p></td>
+</tr>
+<tr class="row-even"><td><p>NumPy must not stick only with Python but to extend their accessibility to other programming language also.</p></td>
+</tr>
+<tr class="row-odd"><td><p>It could benefit from more convenience features such as a one_hot function.</p></td>
+</tr>
+<tr class="row-even"><td><p>Sampling from the generalised inverse gaussian distribution in numpy.random</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tools for parallelization</p></td>
+</tr>
+<tr class="row-even"><td><p>Hadamard matrix</p></td>
+</tr>
+<tr class="row-odd"><td><p>Customizable dtype system, new dtypes (e.g., complex32, bfloat16, etc.), improved support for typing, orthogonal ndarray indexing</p></td>
+</tr>
+<tr class="row-even"><td><p>Not sure due to lack of experience but adding new features would be beneficial for programmers to use.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Composable operations that behave like ufuncs and support in-place calculations. numexpr tried this some time ago but it is very limited. I often struggle with this when processing larger amounts of data with more complex computations. Moreover, masked operations could be expanded.</p></td>
+</tr>
+<tr class="row-even"><td><p>More statistics</p></td>
+</tr>
+<tr class="row-odd"><td><p>In addition, the GPU mentioned above - I like to see more attractive printing options. In notebooks I am presenting, I tend to move data to pandas, even when not needed, because of the quality of the view.</p></td>
+</tr>
+<tr class="row-even"><td><p>I don’t know :) I am usually gladly surprised when I see a new version.</p></td>
+</tr>
+<tr class="row-odd"><td><p>I’d likely to see more statistical methods in numpy, i.e., as those in SciPy. Or to be more correct, I’d like to see numpy’s speed in scipy. Or the other way around, i.e., nice to have numpy.var, numpy.std, but why not numpy.skew and numpy.kurtosis?</p></td>
+</tr>
+<tr class="row-even"><td><p>Random specialized things like fast repeated matrix products (y =a&#64;b&#64;c&#64;…&#64;z where a-z are small square matrices), eigensolvers, least squared solvers, image processing</p></td>
+</tr>
+<tr class="row-odd"><td><p>Aggregation by group. (This comment was submitted in Japanese.)</p></td>
+</tr>
+<tr class="row-even"><td><p>I would like to see a richer set of statistical features, such as ANOVA and multiple regression modeling. This is a common reason to have to port data over to R.</p></td>
+</tr>
+<tr class="row-odd"><td><p>better alignment with visualization libraries</p></td>
+</tr>
+<tr class="row-even"><td><p>reduced row echelon form</p></td>
+</tr>
+<tr class="row-odd"><td><p>Native Rust interoperability</p></td>
+</tr>
+<tr class="row-even"><td><p>- Make it easier to have custom dtypes (e.g. efficient string arrays, categorical arrays, columnar versions of structured arrays, etc).</p></td>
+</tr>
+<tr class="row-odd"><td><p>- Better Pandas interoperability (e.g. categorical arrays)</p></td>
+</tr>
+<tr class="row-even"><td><p>- Ragged arrays”</p></td>
+</tr>
+<tr class="row-odd"><td><p>More cython interfaces.</p></td>
+</tr>
+<tr class="row-even"><td><p>some random utils like equivalent of im2row from other languages</p></td>
+</tr>
+<tr class="row-odd"><td><p>* Method to identify null or None values, similar to Pandas.isnull() method.  This will be helpful for masking/filtering.</p></td>
+</tr>
+<tr class="row-even"><td><p>* Numpy.vectorize function can enhance good to great performance. Could we attain a real parallelization perhaps, similar to what Numba does (maybe I am asking too much) https://chelseatroy.com/2018/11/07/code-mechanic-numpy-vectorization/”</p></td>
+</tr>
+<tr class="row-odd"><td><p>Perhaps this already exists, but I would like to see some methods for generating slices from a 3D array at a user specified orientation.</p></td>
+</tr>
+<tr class="row-even"><td><p>Shifting C backend templating to C++ templates.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Distributed computation.</p></td>
+</tr>
+<tr class="row-even"><td><p>Plugins/extensions as external Python libraries “</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ability to handle large data</p></td>
+</tr>
+<tr class="row-even"><td><p>Adding new datatypes like ibm floats would be nice. Adding lazy evaluation out of the box would be also nice to have.</p></td>
+</tr>
+<tr class="row-odd"><td><p>I will have to use Numpy more extensively for that.</p></td>
+</tr>
+<tr class="row-even"><td><p>Extensibility with dtypes and gufuncs</p></td>
+</tr>
+<tr class="row-odd"><td><p>Autodiff</p></td>
+</tr>
+</tbody>
+</table>
+
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+    <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2020, NumPy Survey Team.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.4.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

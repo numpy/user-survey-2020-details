@@ -1,0 +1,52 @@
+|Comments|
+|--------|
+|Not neccessarly I just only would like to see new features, a slight redesign of API would appeal to me, too, e.g. functions like numpy.apply_along_axis() I would prefer as methods for arrays as I believe it would make code more readable.|
+|Also, I would like to see some of the methods/functions existing in pandas, pandas.Dataframe.pipe() or pandas.Dataframe.first_valid_Index()."|
+|Export projects to different languages. (The comment was submitted in Spanish.)|
+|Support for Golang API|
+|Control (Transfer Functions) module, as Octave's|
+|Add new features to the random module: MultiNormal test and Copulas"|
+|n-dimensional computational geometry|
+|Distributed computing|
+|Would be nice to implement more features for quantitative economics whilst continue to keep with competition (R, Matlab, ...) with new features.|
+|I want to easily map a whole array|
+|More love for time series data manipulation.|
+|Parallel computing. (This comment was submitted in Mandarin.)|
+|Better handling of graphs, native sparse matrices.|
+|Nx2 arrays for computation geometry|
+|better image to numpy array tools (maybe together with opencv)|
+|Some pretty esoteric things relating to ufuncs on complex values|
+|NumPy must not stick only with Python but to extend their accessibility to other programming language also.|
+|It could benefit from more convenience features such as a one_hot function.|
+|Sampling from the generalised inverse gaussian distribution in numpy.random|
+|Tools for parallelization|
+|Hadamard matrix|
+|Customizable dtype system, new dtypes (e.g., complex32, bfloat16, etc.), improved support for typing, orthogonal ndarray indexing|
+|Not sure due to lack of experience but adding new features would be beneficial for programmers to use.|
+|Composable operations that behave like ufuncs and support in-place calculations. numexpr tried this some time ago but it is very limited. I often struggle with this when processing larger amounts of data with more complex computations. Moreover, masked operations could be expanded.|
+|More statistics|
+|In addition, the GPU mentioned above - I like to see more attractive printing options. In notebooks I am presenting, I tend to move data to pandas, even when not needed, because of the quality of the view.|
+|I don't know :) I am usually gladly surprised when I see a new version.|
+|I'd likely to see more statistical methods in numpy, i.e., as those in SciPy. Or to be more correct, I'd like to see numpy's speed in scipy. Or the other way around, i.e., nice to have numpy.var, numpy.std, but why not numpy.skew and numpy.kurtosis?|
+|Random specialized things like fast repeated matrix products (y =a@b@c@...@z where a-z are small square matrices), eigensolvers, least squared solvers, image processing|
+|Aggregation by group. (This comment was submitted in Japanese.)|
+|I would like to see a richer set of statistical features, such as ANOVA and multiple regression modeling. This is a common reason to have to port data over to R.|
+|better alignment with visualization libraries|
+|reduced row echelon form|
+|Native Rust interoperability|
+|- Make it easier to have custom dtypes (e.g. efficient string arrays, categorical arrays, columnar versions of structured arrays, etc).|
+|- Better Pandas interoperability (e.g. categorical arrays)|
+|- Ragged arrays"|
+|More cython interfaces.|
+|some random utils like equivalent of im2row from other languages|
+|* Method to identify null or None values, similar to Pandas.isnull() method.  This will be helpful for masking/filtering.|
+|* Numpy.vectorize function can enhance good to great performance. Could we attain a real parallelization perhaps, similar to what Numba does (maybe I am asking too much) https://chelseatroy.com/2018/11/07/code-mechanic-numpy-vectorization/"|
+|Perhaps this already exists, but I would like to see some methods for generating slices from a 3D array at a user specified orientation.|
+|Shifting C backend templating to C++ templates.|
+|Distributed computation.|
+|Plugins/extensions as external Python libraries "|
+|Ability to handle large data|
+|Adding new datatypes like ibm floats would be nice. Adding lazy evaluation out of the box would be also nice to have.|
+|I will have to use Numpy more extensively for that.|
+|Extensibility with dtypes and gufuncs|
+|Autodiff|
