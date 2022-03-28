@@ -26,11 +26,8 @@ glossary
 ```
 ## About
 
-In mid-2020, the NumPy Survey Team in partnership with students and faculty
-from a Masters course in Survey Methodology jointly hosted by the
-University of Michigan and the Unverisity of Maryland conducted the first
-official NumPy Community Survey.
-We invited all NumPy stakeholders to share their experiences with NumPy, and
-to voice their thoughts about the future of the project.
-The results from this inaugural survey can be found
-{doc}`here <content/2020/index>`.
+Last July, the NumPy survey team conducted an annual NumPy community survey. 
+We invited all NumPy stakeholders to share their experiences with NumPy, 
+and to voice their thoughts about the future of the project. 
+The results from this survey can be found
+{doc}`here <content/2021/index>`.
