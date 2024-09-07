@@ -15,13 +15,8 @@ out a landscape of the NumPy community.
 ---
 maxdepth: 1
 ---
-content/2021/demographics
-content/2021/contributions
-content/2021/priorities
-content/2021/features_and_deprecations
-content/2021/biggest_impact
-content/2021/acknowledgements
-content/index
+content/2021/index
+content/2020/index
 glossary
 ```
 ## About
