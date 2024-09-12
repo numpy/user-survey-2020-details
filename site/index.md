@@ -26,7 +26,7 @@ glossary
 ```
 ## About
 
-Last July, the NumPy survey team conducted an annual NumPy community survey. 
+In July 2021, the NumPy survey team conducted an annual NumPy community survey. 
 We invited all NumPy stakeholders to share their experiences with NumPy, 
 and to voice their thoughts about the future of the project. 
 The results from this survey can be found
