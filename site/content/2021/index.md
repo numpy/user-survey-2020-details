@@ -1,6 +1,6 @@
 # 2021 Survey Results
 
-In 2021, the NumPy Survey Team invited all project community members to share 
+In 2021, the NumPy survey team invited all project community members to share 
 about their experiences with NumPy and voice their thoughts about its future development. 
 Over 500 users from 54 countries participated to help us map out a landscape 
 of the NumPy community.
