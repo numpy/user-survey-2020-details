@@ -1,4 +1,4 @@
-NumPy Community Survey Analysis and Results
+NumPy Community Survey Results
 =====================================
 
 To help us map out the landscape of the NumPy community and guide better 
