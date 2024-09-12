@@ -1,19 +1,19 @@
-# NumPy Survey Results
+# NumPy Community Survey Results
 
-Analysis and publication of the results of the 2020
+Analyses and publications of the results of the NumPy community surveys
 [NumPy Community Survey][survey_repo].
 
 [survey_repo]: https://github.com/numpy/numpy-surveys
 
-## Running the analysis
+## Running an analysis
 
-Several steps are required to analyze and publish the survey results:
+The following steps are required to analyze and publish the survey results:
 
  1. Acquiring the survey data
  2. Configuring the environment
- 3. Running the analysis & generating the website.
+ 3. Running the analysis & generating the website
 
-Each of these steps is covered below.
+Each of these steps is detailed below.
 
 ### Survey data
 
