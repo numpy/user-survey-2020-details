@@ -1,13 +1,9 @@
-NumPy Community Survey Results - 2021
+NumPy Community Survey Results
 =====================================
 
-## Welcome!
-
-This site presents a detailed look at the results of the 2021 NumPy community
-survey.
-Over {glue:text}`2021_num_respondents` users from
-{glue:text}`2021_num_unique_countries` countries participated to help us map
-out a landscape of the NumPy community.
+To help us map out the landscape of the NumPy community and guide better 
+decision-making about the development of the project, the NumPy survey team 
+conducted surveys in 2020 and 2021.
 
 ## Contents
 
@@ -19,13 +15,3 @@ content/2021/index
 content/2020/index
 glossary
 ```
-## About
-
-In mid-2020, the NumPy Survey Team in partnership with students and faculty
-from a Masters course in Survey Methodology jointly hosted by the
-University of Michigan and the Unverisity of Maryland conducted the first
-official NumPy Community Survey.
-We invited all NumPy stakeholders to share their experiences with NumPy, and
-to voice their thoughts about the future of the project.
-The results from this inaugural survey can be found
-{doc}`here <content/2020/index>`.
