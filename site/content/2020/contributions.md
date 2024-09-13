@@ -49,7 +49,7 @@ nonnumpy_contributions_dtype = np.dtype({
 
 ossdata = np.loadtxt(
     fname, delimiter='\t', skiprows=3, dtype=nonnumpy_contributions_dtype, 
-    usecols=range(31, 42), comments=None
+    usecols=range(31, 41), comments=None
 )
 ```
 
@@ -72,7 +72,7 @@ numpy_contributions_dtype = np.dtype({
 
 npdata = np.loadtxt(
     fname, delimiter='\t', skiprows=3, dtype=numpy_contributions_dtype, 
-    usecols=range(42, 57), comments=None
+    usecols=range(42, 56), comments=None
 )
 ```
 
