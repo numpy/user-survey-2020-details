@@ -52,7 +52,7 @@ data = np.loadtxt(
 
 We asked survey participants about their experiences with
 **mentorship programs** related to OSS scientific software.
-Of the {glue:text}`num_respondents` survey respondents,
+Of the {glue}`demographics.md::num_respondents` survey respondents,
 {glue:text}`num_mentorship_participants` reported participating in some form
 of mentorship program dealing with scientific software:
 {glue:text}`num_mentors` as mentors, {glue:text}`num_mentees` as mentees, and

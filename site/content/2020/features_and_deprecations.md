@@ -57,7 +57,7 @@ cycles.
 A [new API for random number generation][nprandom] was added to `numpy.random`
 in version 1.17.
 We asked survey paricipants whether they were using the new random API.
-Of the {glue:text}`num_respondents` survey participants,
+Of the {glue}`demographics.md::num_respondents` survey participants,
 {glue:text}`num_random_users` shared whether they were using the new `random`
 API.
 
@@ -91,7 +91,7 @@ we asked the following question:
   > In the last year, have you experienced problems in code you’ve written
   > stemming from a problem in NumPy?
 
-Of the {glue:text}`num_respondents` survey participants,
+Of the {glue}`demographics.md::num_respondents` survey participants,
 {glue:text}`bug_reporters` responded to this question.
 
 ```{code-cell} ipython3
@@ -144,7 +144,7 @@ We asked the following question:
   > In the last year, have you encountered a problem involving numerical data
   > that you were unable to solve using NumPy?
 
-Of the {glue:text}`num_respondents` survey participants, 
+Of the {glue}`demographics.md::num_respondents` survey participants, 
 {glue:text}`num_solvers` responded to the above question, with 
 {glue:text}`num_unsolved` reporting that they've had a problem that they 
 initially expected to be able to solve using NumPy, but were unable to do so.
@@ -203,7 +203,7 @@ deprecation cycle, specifically:
 
   > What do you consider as a good deprecation time frame?
 
-Of the {glue:text}`num_respondents` survey participants,
+Of the {glue}`demographics.md::num_respondents` survey participants,
 {glue:text}`dep_opinions` responded to this question.
 
 ```{code-cell} ipython3

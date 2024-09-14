@@ -71,7 +71,7 @@ share priorities beyond those listed above.
 
 ## Overview
 
-Of the {glue:text}`num_respondents` survey participants,
+Of the {glue}`demographics.md::num_respondents` survey participants,
 {glue:text}`num_prioritizers` shared their priorities for NumPy moving forward.
 
 To get a sense of the overall relative "importance" of each of the categories,
