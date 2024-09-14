@@ -291,10 +291,6 @@ glue(
 glue('2021_top_3_categories', f"{labels[-3]}, {labels[-2]}, or {labels[-1]}", display=False)
 ```
 
-### 2020 Community Survey Respondents
-
-{glue:text}`2021_num_surv2020_respondents` of respondents shared whether or not they responded to the 2020 Community Survey. Only {glue:text}`2021_yes_percent` percent of people reported having completed last year's survey.
-
 ```{code-cell} ipython3
 ---
 tags: [hide-input]
