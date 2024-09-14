@@ -46,7 +46,7 @@ mentorship_dtype = np.dtype({
 
 data = np.loadtxt(
     fname, delimiter='\t', skiprows=3, dtype=mentorship_dtype,
-    usecols=range(56, 74), comments=None
+    usecols=range(56, 72), comments=None
 )
 ```
 
