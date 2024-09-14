@@ -126,7 +126,7 @@ glue(
 
 ## NumPy & OSS Contributors
 
-Of the {glue:text}`2021_num_respondents` survey participants, 
+Of the {glue}`demographics.md::2021_num_respondents` survey participants, 
 {glue:text}`2021_oss_contributors` have contributed to at least one open source
 software project, while {glue:text}`2021_np_contributors` have contributed to
 NumPy specifically.
@@ -355,7 +355,7 @@ We also wanted to get the perspective of NumPy (and other OSS) users who have
 not directly contributed to projects --- is there generally interest in
 doing so? What are the biggest stumbling blocks for users who want to
 contribute back?
-Of the {glue:text}`2021_num_respondents` survey respondents, 
+Of the {glue}`demographics.md::2021_num_respondents` survey respondents, 
 {glue:text}`2021_oss_non_contributors` report never having contributed to an OSS
 project and {glue:text}`2021_np_non_contributors` report never having contributed to
 NumPy specifically.
