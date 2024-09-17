@@ -102,7 +102,7 @@ glue('2021_num_age_respondents', gluval(age.shape[0], data.shape[0]), display=Fa
 Of the {glue:text}`2021_num_respondents` survey respondents,
 {glue:text}`2021_num_gender` shared their gender.
 
-An overwhelming majority of respondents identify as male. Only about 11% of respondents identify as female.
+An majority of respondents identify as male. Only about 11% of respondents identify as female.
 
 ```{code-cell} ipython3
 ---
@@ -163,7 +163,7 @@ glue('2021_num_lang_pref', gluval(lang.shape[0], data.shape[0]), display=False)
 ### Country of Residence
 
 Of the {glue:text}`2021_num_respondents` respondents,
-{glue:text}`2021_num_country_respondents`shared their current country of residence.
+{glue:text}`2021_num_country_respondents` shared their current country of residence.
 The survey saw respondents from {glue:text}`2021_num_unique_countries` countries in
 all. A quarter of respondents reside in the United States.
 
@@ -290,10 +290,6 @@ glue(
 )
 glue('2021_top_3_categories', f"{labels[-3]}, {labels[-2]}, or {labels[-1]}", display=False)
 ```
-
-### 2020 Community Survey Respondents
-
-{glue:text}`2021_num_surv2020_respondents` of respondents shared whether or not they responded to the 2020 Community Survey. Only {glue:text}`2021_yes_percent` percent of people reported having completed last year's survey.
 
 ```{code-cell} ipython3
 ---
@@ -453,7 +449,7 @@ ax.set_xlabel('Number of people you typically share code with')
 fig.tight_layout()
 
 # Highlights most popular
-glue('2021_top_share', labels[np.argmax(cnts)], display=False)
+glue('2021_top_share', str(labels[np.argmax(cnts)]), display=False)
 
 # Number who answered question
 glue(

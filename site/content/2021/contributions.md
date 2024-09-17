@@ -51,7 +51,7 @@ nonnumpy_contributions_dtype = np.dtype({
 
 ossdata = np.loadtxt(
     fname, delimiter='\t', skiprows=3, dtype=nonnumpy_contributions_dtype, 
-    usecols=range(33, 44), comments=None, encoding='UTF-16'
+    usecols=range(33, 43), comments=None, encoding='UTF-16'
 )
 ```
 
@@ -74,7 +74,7 @@ numpy_contributions_dtype = np.dtype({
 
 npdata = np.loadtxt(
     fname, delimiter='\t', skiprows=3, dtype=numpy_contributions_dtype, 
-    usecols=range(44, 59), comments=None, encoding='UTF-16'
+    usecols=range(44, 58), comments=None, encoding='UTF-16'
 )
 ```
 
@@ -126,7 +126,7 @@ glue(
 
 ## NumPy & OSS Contributors
 
-Of the {glue:text}`2021_num_respondents` survey participants, 
+Of the {glue}`demographics.md::2021_num_respondents` survey participants, 
 {glue:text}`2021_oss_contributors` have contributed to at least one open source
 software project, while {glue:text}`2021_np_contributors` have contributed to
 NumPy specifically.
@@ -336,7 +336,7 @@ glue(
 non_regular_contributor_mask = (np_contributors_mask) & (~np_regular_mask)
 glue(
     '2021_num_nonregular_np_contributors',
-    non_regular_contributor_mask.sum(),
+    int(non_regular_contributor_mask.sum()),
     display=False
 )
 num_nonregular_continue = np.sum(
@@ -355,7 +355,7 @@ We also wanted to get the perspective of NumPy (and other OSS) users who have
 not directly contributed to projects --- is there generally interest in
 doing so? What are the biggest stumbling blocks for users who want to
 contribute back?
-Of the {glue:text}`2021_num_respondents` survey respondents, 
+Of the {glue}`demographics.md::2021_num_respondents` survey respondents, 
 {glue:text}`2021_oss_non_contributors` report never having contributed to an OSS
 project and {glue:text}`2021_np_non_contributors` report never having contributed to
 NumPy specifically.

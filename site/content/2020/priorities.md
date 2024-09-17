@@ -71,7 +71,7 @@ share priorities beyond those listed above.
 
 ## Overview
 
-Of the {glue:text}`num_respondents` survey participants,
+Of the {glue}`demographics.md::num_respondents` survey participants,
 {glue:text}`num_prioritizers` shared their priorities for NumPy moving forward.
 
 To get a sense of the overall relative "importance" of each of the categories,
@@ -250,7 +250,7 @@ be improved.
 ## Summary
 
 The following figure shows the relative frequency of selection for each of
-the listed categories[^other] at each priority level.
+the listed categories[^other2020] at each priority level.
 
 ```{code-cell} ipython3
 ---
@@ -266,5 +266,5 @@ for i, ax in enumerate(axes.ravel()):
 fig.tight_layout()
 ```
 
-[^other]: Excluding `Other`, which was an optional category and therefore
+[^other2020]: Excluding `Other`, which was an optional category and therefore
           constitutes the majority of the "lowest-priority".
