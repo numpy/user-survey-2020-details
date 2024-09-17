@@ -449,7 +449,7 @@ ax.set_xlabel('Number of people you typically share code with')
 fig.tight_layout()
 
 # Highlights most popular
-glue('2021_top_share', labels[np.argmax(cnts)], display=False)
+glue('2021_top_share', str(labels[np.argmax(cnts)]), display=False)
 
 # Number who answered question
 glue(

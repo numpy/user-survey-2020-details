@@ -361,9 +361,9 @@ fig.tight_layout()
 
 # Highlight two most popular
 glue('num_top_lang', f"{cnts[-1]:2.0f}%", display=False)
-glue('top_lang', labels[-1], display=False)
+glue('top_lang', str(labels[-1]), display=False)
 glue('num_2nd_lang', f"{cnts[-2]:2.0f}%", display=False)
-glue('second_lang', labels[-2], display=False)
+glue('second_lang', str(labels[-2]), display=False)
 ```
 
 {glue:text}`percent_other` percent of respondents reported familiarity with

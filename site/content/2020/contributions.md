@@ -345,7 +345,7 @@ glue(
 non_regular_contributor_mask = (np_contributors_mask) & (~np_regular_mask)
 glue(
     'num_nonregular_np_contributors',
-    non_regular_contributor_mask.sum(),
+    int(non_regular_contributor_mask.sum()),
     display=False
 )
 num_nonregular_continue = np.sum(
